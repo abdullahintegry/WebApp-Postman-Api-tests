@@ -19,7 +19,7 @@
 					}
 				}
 			],
-			"_postman_id": "3360ce88-c5ae-481d-b02a-03f3ff08974f",
+			"id": "3360ce88-c5ae-481d-b02a-03f3ff08974f",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true,
 				"followRedirects": false,
@@ -147,7 +147,7 @@
 						}
 					}
 				},
-				"url": "https://beta.integry.io/api/endpoints"
+				"url": "{{base_url}}/api/endpoints"
 			},
 			"response": [
 				{
@@ -452,7 +452,7 @@
 					}
 				}
 			],
-			"_postman_id": "6e64ed9f-3184-49c6-9e3b-49bbf967f5cd",
+			"id": "6e64ed9f-3184-49c6-9e3b-49bbf967f5cd",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -559,8 +559,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"app_id\": 33861,\r\n    \"headers\": [\r\n        {\r\n            \"key\": \"X-API-KEY\",\r\n            \"value\": \"{{ authorization.token.access_token }}\",\r\n            \"rkey\": 1,\r\n            \"header_name\": \"X-API-KEY\"\r\n        }\r\n    ],\r\n    \"headersKeys\": 1,\r\n    \"push_payload_type\": \"object\",\r\n    \"compound_statements\": \"{\\\"relation\\\":\\\"AND\\\",\\\"conditions\\\":[{\\\"operand_1\\\":\\\"\\\",\\\"operator\\\":\\\"=\\\",\\\"operand_2\\\":\\\"\\\"}]}\",\r\n    \"pg_default_page_size\": 0,\r\n    \"is_pagination\": false,\r\n    \"tracking_property_name\": \"\",\r\n    \"endpoint_type\": 454,\r\n    \"source_type\": \"poll\",\r\n    \"http_verb\": \"get\",\r\n    \"request_template\": \"\",\r\n    \"response_template\": \"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\"response\\\" object. #}\\n{\\n  \\\"user_identity\\\": \\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\"\\n}\",\r\n    \"endpoint_name\": \"API key user info endpoint\",\r\n    \"base_url_id\": 39540,\r\n    \"url_path\": \"/user\",\r\n    \"set_name\": null,\r\n    \"lookup_key\": null,\r\n    \"lookup_value\": null,\r\n    \"base_url_raw\": \"\",\r\n    \"query_configuration\": \"\"\r\n}",
-					"options": {}
+					"raw": "{\r\n    \"app_id\": 33861,\r\n    \"headers\": [\r\n        {\r\n            \"key\": \"X-API-KEY\",\r\n            \"value\": \"{{ authorization.token.access_token }}\",\r\n            \"rkey\": 1,\r\n            \"header_name\": \"X-API-KEY\"\r\n        }\r\n    ],\r\n    \"headersKeys\": 1,\r\n    \"push_payload_type\": \"object\",\r\n    \"compound_statements\": \"{\\\"relation\\\":\\\"AND\\\",\\\"conditions\\\":[{\\\"operand_1\\\":\\\"\\\",\\\"operator\\\":\\\"=\\\",\\\"operand_2\\\":\\\"\\\"}]}\",\r\n    \"pg_default_page_size\": 0,\r\n    \"is_pagination\": false,\r\n    \"tracking_property_name\": \"\",\r\n    \"endpoint_type\": 454,\r\n    \"source_type\": \"poll\",\r\n    \"http_verb\": \"get\",\r\n    \"request_template\": \"\",\r\n    \"response_template\": \"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\"response\\\" object. #}\\n{\\n  \\\"user_identity\\\": \\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\"\\n}\",\r\n    \"endpoint_name\": \"API key user info endpoint\",\r\n    \"base_url_id\": 39540,\r\n    \"url_path\": \"/user\",\r\n    \"set_name\": null,\r\n    \"lookup_key\": null,\r\n    \"lookup_value\": null,\r\n    \"base_url_raw\": \"\",\r\n    \"query_configuration\": \"\"\r\n}"
 				},
 				"url": "https://beta.integry.io/api/endpoints"
 			},
@@ -699,7 +698,7 @@
 		},
 		{
 			"name": "create endpoint",
-			"_postman_id": "bd35f949-2bdc-41ec-81b9-c2bd0ea74e06",
+			"id": "bd35f949-2bdc-41ec-81b9-c2bd0ea74e06",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -735,7 +734,7 @@
 		},
 		{
 			"name": "Login",
-			"_postman_id": "4b42122b-da9c-47f5-a5e4-80e43bdac05c",
+			"id": "4b42122b-da9c-47f5-a5e4-80e43bdac05c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -772,10 +771,7 @@
 							"value": "",
 							"type": "text"
 						}
-					],
-					"options": {
-						"formdata": {}
-					}
+					]
 				},
 				"url": "https://beta.integry.io/accounts/login/"
 			},
@@ -783,7 +779,7 @@
 		},
 		{
 			"name": "Login Copy",
-			"_postman_id": "f86196d9-fcc9-4a15-b4ca-2caf4e1184a4",
+			"id": "f86196d9-fcc9-4a15-b4ca-2caf4e1184a4",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -818,10 +814,7 @@
 							"type": "text",
 							"disabled": true
 						}
-					],
-					"options": {
-						"formdata": {}
-					}
+					]
 				},
 				"url": "https://beta.integry.io/accounts/login/"
 			},
@@ -829,7 +822,7 @@
 		},
 		{
 			"name": "Login Copy 2",
-			"_postman_id": "5ceca314-707e-43b4-aa30-076592c5395a",
+			"id": "5ceca314-707e-43b4-aa30-076592c5395a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -871,10 +864,7 @@
 							"type": "text",
 							"disabled": true
 						}
-					],
-					"options": {
-						"formdata": {}
-					}
+					]
 				},
 				"url": "https://beta.integry.io/accounts/login/"
 			},
@@ -882,7 +872,7 @@
 		},
 		{
 			"name": "upload logo",
-			"_postman_id": "fd99a18b-48ca-4645-9b96-1c94b5f4ffe1",
+			"id": "fd99a18b-48ca-4645-9b96-1c94b5f4ffe1",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -903,10 +893,7 @@
 							"type": "file",
 							"src": "cztZ-cMMl/convertkit.png"
 						}
-					],
-					"options": {
-						"formdata": {}
-					}
+					]
 				},
 				"url": "https://beta.integry.io/api/files/"
 			},
