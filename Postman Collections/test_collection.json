@@ -1,0 +1,916 @@
+{
+	"info": {
+		"_postman_id": "df4af360-8e57-40c0-98cf-a9cdff51da31",
+		"name": "test QA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/endpoints/ Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c7868d-08d8-4429-b690-78644c55b3d5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "3360ce88-c5ae-481d-b02a-03f3ff08974f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"followRedirects": false,
+				"strictSSL": false
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "137e59b@u7sgtfw2.mailosaur.net",
+						"password": "meAabi13119"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "host",
+						"value": "app.integry.io",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.5",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate, br",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-csrftoken",
+						"value": "aCKQLbS2h6qUQyYIR9WwvHB567vXZWaO4hyzC4eOtYUrAFf2ykc6kPiNjBnfWrZd",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "content-length",
+						"value": "665",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "origin",
+						"value": "https://app.integry.io",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "connection",
+						"value": "keep-alive",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "referer",
+						"value": "https://app.integry.io/wapp/apps/v3/create",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "cookie",
+						"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-postman-captr",
+						"value": "9381168",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "X-CSRFToken",
+						"value": "I9H1gCWj4oqs1qaxi6nQ5GDjN55LQZPfXgEJrxG4O4xz8DrWURuxmdMFNfQI1K6w",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pre_save_endpoint\": \"\",\r\n    \"post_save_endpoint\": \"\",\r\n    \"pre_delete_endpoint\": \"\",\r\n    \"post_delete_endpoint\": \"\",\r\n    \"pre_update_endpoint\": \"\",\r\n    \"post_update_endpoint\": \"\",\r\n    \"activity_fields\": [],\r\n    \"publishing_status\": \"DRAFT\",\r\n    \"is_polling_based\": true,\r\n    \"is_published\": false,\r\n    \"name\": \"trigger\",\r\n    \"activity_description\": \"Triggers when a new contact is created\",\r\n    \"authorization_type\": 26281,\r\n    \"object_id\": 3,\r\n    \"activity_action\": \"CREATE\",\r\n    \"polling_endpoint_ref\": 113881,\r\n    \"type\": \"TRIGGER\",\r\n    \"app\": 34669\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://beta.integry.io/api/endpoints"
+			},
+			"response": [
+				{
+					"id": "50178bb1-8993-41fa-98d1-58ec61727a1a",
+					"name": "https://app.integry.io/api/endpoints/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "host",
+								"value": "app.integry.io"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.5"
+							},
+							{
+								"key": "accept-encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-csrftoken",
+								"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+							},
+							{
+								"key": "content-length",
+								"value": "1481"
+							},
+							{
+								"key": "origin",
+								"value": "https://app.integry.io"
+							},
+							{
+								"key": "connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "referer",
+								"value": "https://app.integry.io/wapp/apps/v3/12136/create/authorizations/create/"
+							},
+							{
+								"key": "cookie",
+								"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "x-postman-captr",
+								"value": "4224020"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"app_id\":12136,\"headers\":[{\"key\":\"Authorization\",\"value\":\"Bearer {{ query.access_token }}\",\"rkey\":1,\"header_name\":\"Authorization\"}],\"headersKeys\":1,\"push_payload_type\":\"object\",\"compound_statements\":\"{\\\"relation\\\":\\\"AND\\\",\\\"conditions\\\":[{\\\"operand_1\\\":\\\"\\\",\\\"operator\\\":\\\"=\\\",\\\"operand_2\\\":\\\"\\\"}]}\",\"pg_default_page_size\":0,\"is_pagination\":false,\"tracking_property_name\":\"\",\"endpoint_type\":140,\"source_type\":\"poll\",\"http_verb\":\"get\",\"request_template\":\"\",\"response_template\":\"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\"response\\\" object. #}\\n{\\n  \\\"user_identity\\\": \\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\"\\n}\",\"endpoint_name\":\"user info\",\"base_url_id\":256372,\"create-new-base-url\":\"\",\"url_path\":\"/test/\",\"object_id\":20,\"endpoint_action\":\"GET\",\"object_output_template\":\"{\\n    \\\"article\\\": {\\n        \\\"body\\\": \\\"\\\",\\n        \\\"name\\\": \\\"\\\",\\n        \\\"author\\\": \\\"\\\",\\n        \\\"url\\\": \\\"\\\",\\n        \\\"created_at\\\": \\\"\\\",\\n        \\\"title\\\": \\\"\\\",\\n        \\\"updated_at\\\": \\\"\\\",\\n        \\\"html_url\\\": \\\"\\\",\\n        \\\"id\\\": \\\"\\\",\\n        \\\"custom_fields\\\": \\\"\\\"\\n    }\\n}\",\"set_name\":null,\"lookup_key\":null,\"lookup_value\":null,\"base_url_raw\":\"\",\"query_configuration\":\"\"}"
+						},
+						"url": "https://app.integry.io/api/endpoints/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "server",
+							"value": "gunicorn/19.10.0"
+						},
+						{
+							"key": "date",
+							"value": "Fri, 11 Nov 2022 07:16:18 GMT"
+						},
+						{
+							"key": "content-length",
+							"value": "3829"
+						},
+						{
+							"key": "content-security-policy",
+							"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+						},
+						{
+							"key": "vary",
+							"value": "Cookie"
+						},
+						{
+							"key": "allow",
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\"id\":106750,\"guid\":\"0f9d87b7-869b-4e6c-97fc-b2e445180ff2\",\"http_verb\":\"get\",\"url\":\"https://app.integry.io/wapp/apps/v3/create?workspace=true/test/\",\"request_template\":\"\",\"response_template\":\"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\"response\\\" object. #}\\n{\\n  \\\"user_identity\\\": \\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\"\\n}\",\"sender_response_template\":\"\",\"object_output_template\":\"{\\n    \\\"article\\\": {\\n        \\\"body\\\": \\\"\\\",\\n        \\\"name\\\": \\\"\\\",\\n        \\\"author\\\": \\\"\\\",\\n        \\\"url\\\": \\\"\\\",\\n        \\\"created_at\\\": \\\"\\\",\\n        \\\"title\\\": \\\"\\\",\\n        \\\"updated_at\\\": \\\"\\\",\\n        \\\"html_url\\\": \\\"\\\",\\n        \\\"id\\\": \\\"\\\",\\n        \\\"custom_fields\\\": \\\"\\\"\\n    }\\n}\",\"source_type\":\"poll\",\"endpoint_name\":\"user info\",\"query_configuration\":\"\",\"created_on\":\"2022-11-11T07:16:18.623233Z\",\"updated_on\":\"2022-11-11T07:16:18.679488Z\",\"app_id\":12136,\"headers\":[{\"id\":84404,\"key\":\"Authorization\",\"value\":\"Bearer {{ query.access_token }}\",\"header_name\":\"Authorization\",\"endpoint_id\":106750}],\"endpoint_url\":\"https://app.integry.io/endpoints/call/106750\",\"endpoint_url_guid\":\"https://app.integry.io/endpoints/call/0f9d87b7-869b-4e6c-97fc-b2e445180ff2\",\"description\":\"\",\"tracking_property_name\":\"\",\"endpoint_type\":140,\"endpoint_type_details\":{\"id\":140,\"name\":\"User Info endpoint\",\"location_id\":\"_userinfo\",\"preset_json\":\"{\\\"pagination\\\": {\\\"display\\\": false, \\\"is_pagination\\\": false}, \\\"tracking_property\\\": {\\\"display\\\": true, \\\"value\\\": \\\"\\\"}, \\\"endpoint_direction\\\": \\\"poll\\\", \\\"response_template\\\": \\\"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\\\\\"response\\\\\\\" object. #}\\\\n{\\\\n  \\\\\\\"user_identity\\\\\\\": \\\\\\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\\\\\"\\\\n}\\\", \\\"http_verb\\\": \\\"GET\\\", \\\"request_template\\\": {\\\"display\\\": false, \\\"value\\\": \\\"\\\"}, \\\"headers\\\": [{\\\"value\\\": \\\"Bearer {{ query.access_token }}\\\", \\\"key\\\": \\\"Authorization\\\"}]}\"},\"object_id\":20,\"endpoint_action\":\"GET\",\"base_url_id\":256372,\"base_url\":{\"id\":256372,\"name\":\"base url\",\"url\":\"https://app.integry.io/wapp/apps/v3/create?workspace=true\",\"headers\":[]},\"url_path\":\"/test/\",\"is_absolute\":false,\"is_parent\":false,\"parent\":null,\"set_name\":null,\"lookup_key\":null,\"lookup_value\":null,\"is_pagination\":false,\"pagination_type\":\"OFFSET\",\"pg_limit_variable_name\":null,\"pg_limit_variable_location\":\"QUERY_PARAMS\",\"pg_default_page_size\":1000,\"pg_dynamic_page_size\":null,\"pg_dynamic_page_size_location\":\"QUERY_PARAMS\",\"pg_offset_variable_name\":null,\"pg_offset_variable_location\":\"QUERY_PARAMS\",\"pg_total_items_variable\":null,\"pg_total_items_variable_location\":\"QUERY_PARAMS\",\"pg_next_link_variable_name\":null,\"pg_next_link_variable_location\":\"QUERY_PARAMS\",\"pg_dynamic_offset_variable_name\":null,\"pg_dynamic_offset_variable_location\":\"QUERY_PARAMS\",\"pg_more_items_variable_name\":null,\"pg_more_items_variable_location\":\"QUERY_PARAMS\",\"pg_increment_offset_variable_name\":null,\"pg_increment_offset_variable_location\":\"QUERY_PARAMS\",\"url_pattern\":null,\"push_payload_type\":\"object\",\"push_payload_path\":null,\"compound_statements\":\"{\\\"relation\\\":\\\"AND\\\",\\\"conditions\\\":[{\\\"operand_1\\\":\\\"\\\",\\\"operator\\\":\\\"=\\\",\\\"operand_2\\\":\\\"\\\"}]}\",\"pg_offset_variable_send_always\":false,\"creator_id\":42,\"testing_results\":\"\",\"wizard_state\":\"\",\"base_url_raw\":\"\",\"locked_by\":null}"
+				}
+			]
+		},
+		{
+			"name": "/api/endpoint/sets",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "17c7868d-08d8-4429-b690-78644c55b3d5",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"/* \r",
+							"this response would be stored in pm.response.json()\r",
+							"*/\r",
+							"var saved_response = {\r",
+							"    \"id\": 107501,\r",
+							"    \"guid\": \"e611bab0-25bc-4328-a5f6-5fed9b85463b\",\r",
+							"    \"http_verb\": \"get\",\r",
+							"    \"url\": \"https://api.sendinblue.com/v3/account\",\r",
+							"    \"request_template\": \"\",\r",
+							"    \"response_template\": \"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\"response\\\" object. #}\\n{\\n  \\\"user_identity\\\": \\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\"\\n}\",\r",
+							"    \"sender_response_template\": \"\",\r",
+							"    \"object_output_template\": \"\",\r",
+							"    \"source_type\": \"poll\",\r",
+							"    \"endpoint_name\": \"SendinBlue - User info\",\r",
+							"    \"query_configuration\": \"\",\r",
+							"    \"created_on\": \"2022-11-30T05:15:59.573537Z\",\r",
+							"    \"updated_on\": \"2022-11-30T05:15:59.626431Z\",\r",
+							"    \"app_id\": 12544,\r",
+							"    \"headers\": [\r",
+							"        {\r",
+							"            \"id\": 85015,\r",
+							"            \"key\": \"api-key\",\r",
+							"            \"value\": \"{{ authorization.token.access_token }}\",\r",
+							"            \"header_name\": \"api-key\",\r",
+							"            \"endpoint_id\": 107501\r",
+							"        },\r",
+							"        {\r",
+							"            \"id\": 85016,\r",
+							"            \"key\": \"Accept\",\r",
+							"            \"value\": \"application/json\",\r",
+							"            \"header_name\": \"Accept\",\r",
+							"            \"endpoint_id\": 107501\r",
+							"        },\r",
+							"        {\r",
+							"            \"id\": 85017,\r",
+							"            \"key\": \"Content-Type\",\r",
+							"            \"value\": \"application/json\",\r",
+							"            \"header_name\": \"Content-Type\",\r",
+							"            \"endpoint_id\": 107501\r",
+							"        },\r",
+							"        {\r",
+							"            \"id\": 85018,\r",
+							"            \"key\": \"partner-key\",\r",
+							"            \"value\": \"{{ authorization.authorization_type.client_id }}\",\r",
+							"            \"header_name\": \"partner-key\",\r",
+							"            \"endpoint_id\": 107501\r",
+							"        }\r",
+							"    ],\r",
+							"    \"endpoint_url\": \"https://app.integry.io/endpoints/call/107501\",\r",
+							"    \"endpoint_url_guid\": \"https://app.integry.io/endpoints/call/e611bab0-25bc-4328-a5f6-5fed9b85463b\",\r",
+							"    \"description\": \"\",\r",
+							"    \"tracking_property_name\": \"\",\r",
+							"    \"endpoint_type\": 140,\r",
+							"    \"endpoint_type_details\": {\r",
+							"        \"id\": 140,\r",
+							"        \"name\": \"User Info endpoint\",\r",
+							"        \"location_id\": \"_userinfo\",\r",
+							"        \"preset_json\": \"{\\\"pagination\\\": {\\\"display\\\": false, \\\"is_pagination\\\": false}, \\\"tracking_property\\\": {\\\"display\\\": true, \\\"value\\\": \\\"\\\"}, \\\"endpoint_direction\\\": \\\"poll\\\", \\\"response_template\\\": \\\"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\\\\\"response\\\\\\\" object. #}\\\\n{\\\\n  \\\\\\\"user_identity\\\\\\\": \\\\\\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\\\\\"\\\\n}\\\", \\\"http_verb\\\": \\\"GET\\\", \\\"request_template\\\": {\\\"display\\\": false, \\\"value\\\": \\\"\\\"}, \\\"headers\\\": [{\\\"value\\\": \\\"Bearer {{ query.access_token }}\\\", \\\"key\\\": \\\"Authorization\\\"}]}\"\r",
+							"    },\r",
+							"    \"object_id\": null,\r",
+							"    \"endpoint_action\": null,\r",
+							"    \"base_url_id\": 256831,\r",
+							"    \"base_url\": {\r",
+							"        \"id\": 256831,\r",
+							"        \"name\": \"Base URL 3\",\r",
+							"        \"url\": \"https://api.sendinblue.com\",\r",
+							"        \"headers\": []\r",
+							"    },\r",
+							"    \"url_path\": \"/v3/account\",\r",
+							"    \"is_absolute\": false,\r",
+							"    \"is_parent\": false,\r",
+							"    \"parent\": null,\r",
+							"    \"set_name\": null,\r",
+							"    \"lookup_key\": null,\r",
+							"    \"lookup_value\": null,\r",
+							"    \"is_pagination\": false,\r",
+							"    \"pagination_type\": \"OFFSET\",\r",
+							"    \"pg_limit_variable_name\": null,\r",
+							"    \"pg_limit_variable_location\": \"QUERY_PARAMS\",\r",
+							"    \"pg_default_page_size\": 1000,\r",
+							"    \"pg_dynamic_page_size\": null,\r",
+							"    \"pg_dynamic_page_size_location\": \"QUERY_PARAMS\",\r",
+							"    \"pg_offset_variable_name\": null,\r",
+							"    \"pg_offset_variable_location\": \"QUERY_PARAMS\",\r",
+							"    \"pg_total_items_variable\": null,\r",
+							"    \"pg_total_items_variable_location\": \"QUERY_PARAMS\",\r",
+							"    \"pg_next_link_variable_name\": null,\r",
+							"    \"pg_next_link_variable_location\": \"QUERY_PARAMS\",\r",
+							"    \"pg_dynamic_offset_variable_name\": null,\r",
+							"    \"pg_dynamic_offset_variable_location\": \"QUERY_PARAMS\",\r",
+							"    \"pg_more_items_variable_name\": null,\r",
+							"    \"pg_more_items_variable_location\": \"QUERY_PARAMS\",\r",
+							"    \"pg_increment_offset_variable_name\": null,\r",
+							"    \"pg_increment_offset_variable_location\": \"QUERY_PARAMS\",\r",
+							"    \"url_pattern\": null,\r",
+							"    \"push_payload_type\": \"object\",\r",
+							"    \"push_payload_path\": null,\r",
+							"    \"compound_statements\": \"{\\\"relation\\\":\\\"AND\\\",\\\"conditions\\\":[{\\\"operand_1\\\":\\\"\\\",\\\"operator\\\":\\\"=\\\",\\\"operand_2\\\":\\\"\\\"}]}\",\r",
+							"    \"pg_offset_variable_send_always\": false,\r",
+							"    \"creator_id\": 805,\r",
+							"    \"testing_results\": \"\",\r",
+							"    \"wizard_state\": \"\",\r",
+							"    \"base_url_raw\": \"\",\r",
+							"    \"locked_by\": null\r",
+							"};\r",
+							"\r",
+							"function _replacePropertyValue(objKeys, newVal, object) {\r",
+							"  const newObject = object;\r",
+							"\r",
+							"  for (var key in object) {\r",
+							"    if (objKeys.includes(key)) {\r",
+							"      newObject[key] = newVal;\r",
+							"    } else if (typeof(object[key]) === 'object' || typeof(object[key]) === 'array') {\r",
+							"      newObject[key] = replacePropertyValue(objKeys, newVal, object[key]);\r",
+							"    }\r",
+							"  }\r",
+							"\r",
+							"  return newObject;\r",
+							"}\r",
+							"\r",
+							"function replacePropertyValue(objKeys, newVal, object) {\r",
+							"    if (typeof (object) === 'array') {\r",
+							"        var items = []\r",
+							"        for (var item in object) {\r",
+							"            items.push(_replacePropertyValue(objKeys, newVal, item));\r",
+							"        }\r",
+							"        return items\r",
+							"    } else if (typeof (object) === 'object') {\r",
+							"        return _replacePropertyValue(objKeys, newVal, object);\r",
+							"    } else {\r",
+							"        return object\r",
+							"    }\r",
+							"}\r",
+							"\r",
+							"var response = pm.response.json();\r",
+							"console.log(response.headers[1].id)\r",
+							"\r",
+							"pm.collectionVariables.set(\"endpoint_id\", response.id);\r",
+							"\r",
+							"var keys_to_update = [\"created_on\", \"endpoint_url\", \"endpoint_url_guid\", \"guid\",\"endpoint_id\",\"id\",\"endpoint_id\",\"id\",\"endpoint_id\",\"id\",\"id\",\"endpoint_id\",\"id\",\"updated_on\", \"creator_id\"];\r",
+							"\r",
+							"\r",
+							"var expected_response = replacePropertyValue(keys_to_update,0, saved_response);\r",
+							"var actual_response = replacePropertyValue(keys_to_update,0, response);\r",
+							"\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"  pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate schema of response\", () => {\r",
+							"  pm.environment.set(\"expected\", JSON.stringify(expected_response));\r",
+							"  pm.environment.set(\"actual\", JSON.stringify(actual_response));\r",
+							"  pm.expect(expected_response).to.deep.equal(actual_response);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"_postman_id": "6e64ed9f-3184-49c6-9e3b-49bbf967f5cd",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "meAabi13119",
+						"username": "e528e62@u7sgtfw2.mailosaur.net"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "host",
+						"value": "app.integry.io",
+						"type": "text"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "accept",
+						"value": "application/json, text/plain, */*",
+						"type": "text"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.5",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "accept-encoding",
+						"value": "gzip, deflate, br",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "content-type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "x-csrftoken",
+						"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "content-length",
+						"value": "665",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "origin",
+						"value": "https://app.integry.io",
+						"type": "text"
+					},
+					{
+						"key": "connection",
+						"value": "keep-alive",
+						"type": "text"
+					},
+					{
+						"key": "referer",
+						"value": "https://app.integry.io/wapp/apps/v3/create",
+						"type": "text"
+					},
+					{
+						"key": "cookie",
+						"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "x-postman-captr",
+						"value": "9381168",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"app_id\": 33861,\r\n    \"headers\": [\r\n        {\r\n            \"key\": \"X-API-KEY\",\r\n            \"value\": \"{{ authorization.token.access_token }}\",\r\n            \"rkey\": 1,\r\n            \"header_name\": \"X-API-KEY\"\r\n        }\r\n    ],\r\n    \"headersKeys\": 1,\r\n    \"push_payload_type\": \"object\",\r\n    \"compound_statements\": \"{\\\"relation\\\":\\\"AND\\\",\\\"conditions\\\":[{\\\"operand_1\\\":\\\"\\\",\\\"operator\\\":\\\"=\\\",\\\"operand_2\\\":\\\"\\\"}]}\",\r\n    \"pg_default_page_size\": 0,\r\n    \"is_pagination\": false,\r\n    \"tracking_property_name\": \"\",\r\n    \"endpoint_type\": 454,\r\n    \"source_type\": \"poll\",\r\n    \"http_verb\": \"get\",\r\n    \"request_template\": \"\",\r\n    \"response_template\": \"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\"response\\\" object. #}\\n{\\n  \\\"user_identity\\\": \\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\"\\n}\",\r\n    \"endpoint_name\": \"API key user info endpoint\",\r\n    \"base_url_id\": 39540,\r\n    \"url_path\": \"/user\",\r\n    \"set_name\": null,\r\n    \"lookup_key\": null,\r\n    \"lookup_value\": null,\r\n    \"base_url_raw\": \"\",\r\n    \"query_configuration\": \"\"\r\n}",
+					"options": {}
+				},
+				"url": "https://beta.integry.io/api/endpoints"
+			},
+			"response": [
+				{
+					"id": "b492eb67-8e3b-46ac-bbe1-df9a98ab684b",
+					"name": "https://app.integry.io/api/endpoints/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "host",
+								"value": "app.integry.io"
+							},
+							{
+								"key": "user-agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+							},
+							{
+								"key": "accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.5"
+							},
+							{
+								"key": "accept-encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "content-type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-csrftoken",
+								"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+							},
+							{
+								"key": "content-length",
+								"value": "1481"
+							},
+							{
+								"key": "origin",
+								"value": "https://app.integry.io"
+							},
+							{
+								"key": "connection",
+								"value": "keep-alive"
+							},
+							{
+								"key": "referer",
+								"value": "https://app.integry.io/wapp/apps/v3/12136/create/authorizations/create/"
+							},
+							{
+								"key": "cookie",
+								"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+							},
+							{
+								"key": "sec-fetch-dest",
+								"value": "empty"
+							},
+							{
+								"key": "sec-fetch-mode",
+								"value": "cors"
+							},
+							{
+								"key": "sec-fetch-site",
+								"value": "same-origin"
+							},
+							{
+								"key": "x-postman-captr",
+								"value": "4224020"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"app_id\":12136,\"headers\":[{\"key\":\"Authorization\",\"value\":\"Bearer {{ query.access_token }}\",\"rkey\":1,\"header_name\":\"Authorization\"}],\"headersKeys\":1,\"push_payload_type\":\"object\",\"compound_statements\":\"{\\\"relation\\\":\\\"AND\\\",\\\"conditions\\\":[{\\\"operand_1\\\":\\\"\\\",\\\"operator\\\":\\\"=\\\",\\\"operand_2\\\":\\\"\\\"}]}\",\"pg_default_page_size\":0,\"is_pagination\":false,\"tracking_property_name\":\"\",\"endpoint_type\":140,\"source_type\":\"poll\",\"http_verb\":\"get\",\"request_template\":\"\",\"response_template\":\"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\"response\\\" object. #}\\n{\\n  \\\"user_identity\\\": \\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\"\\n}\",\"endpoint_name\":\"user info\",\"base_url_id\":256372,\"create-new-base-url\":\"\",\"url_path\":\"/test/\",\"object_id\":20,\"endpoint_action\":\"GET\",\"object_output_template\":\"{\\n    \\\"article\\\": {\\n        \\\"body\\\": \\\"\\\",\\n        \\\"name\\\": \\\"\\\",\\n        \\\"author\\\": \\\"\\\",\\n        \\\"url\\\": \\\"\\\",\\n        \\\"created_at\\\": \\\"\\\",\\n        \\\"title\\\": \\\"\\\",\\n        \\\"updated_at\\\": \\\"\\\",\\n        \\\"html_url\\\": \\\"\\\",\\n        \\\"id\\\": \\\"\\\",\\n        \\\"custom_fields\\\": \\\"\\\"\\n    }\\n}\",\"set_name\":null,\"lookup_key\":null,\"lookup_value\":null,\"base_url_raw\":\"\",\"query_configuration\":\"\"}"
+						},
+						"url": "https://app.integry.io/api/endpoints/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "server",
+							"value": "gunicorn/19.10.0"
+						},
+						{
+							"key": "date",
+							"value": "Fri, 11 Nov 2022 07:16:18 GMT"
+						},
+						{
+							"key": "content-length",
+							"value": "3829"
+						},
+						{
+							"key": "content-security-policy",
+							"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+						},
+						{
+							"key": "vary",
+							"value": "Cookie"
+						},
+						{
+							"key": "allow",
+							"value": "GET, POST, DELETE, HEAD, OPTIONS"
+						},
+						{
+							"key": "access-control-allow-origin",
+							"value": "*"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "via",
+							"value": "1.1 google"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+						},
+						{
+							"key": "connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"responseTime": null,
+					"body": "{\"id\":106750,\"guid\":\"0f9d87b7-869b-4e6c-97fc-b2e445180ff2\",\"http_verb\":\"get\",\"url\":\"https://app.integry.io/wapp/apps/v3/create?workspace=true/test/\",\"request_template\":\"\",\"response_template\":\"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\"response\\\" object. #}\\n{\\n  \\\"user_identity\\\": \\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\"\\n}\",\"sender_response_template\":\"\",\"object_output_template\":\"{\\n    \\\"article\\\": {\\n        \\\"body\\\": \\\"\\\",\\n        \\\"name\\\": \\\"\\\",\\n        \\\"author\\\": \\\"\\\",\\n        \\\"url\\\": \\\"\\\",\\n        \\\"created_at\\\": \\\"\\\",\\n        \\\"title\\\": \\\"\\\",\\n        \\\"updated_at\\\": \\\"\\\",\\n        \\\"html_url\\\": \\\"\\\",\\n        \\\"id\\\": \\\"\\\",\\n        \\\"custom_fields\\\": \\\"\\\"\\n    }\\n}\",\"source_type\":\"poll\",\"endpoint_name\":\"user info\",\"query_configuration\":\"\",\"created_on\":\"2022-11-11T07:16:18.623233Z\",\"updated_on\":\"2022-11-11T07:16:18.679488Z\",\"app_id\":12136,\"headers\":[{\"id\":84404,\"key\":\"Authorization\",\"value\":\"Bearer {{ query.access_token }}\",\"header_name\":\"Authorization\",\"endpoint_id\":106750}],\"endpoint_url\":\"https://app.integry.io/endpoints/call/106750\",\"endpoint_url_guid\":\"https://app.integry.io/endpoints/call/0f9d87b7-869b-4e6c-97fc-b2e445180ff2\",\"description\":\"\",\"tracking_property_name\":\"\",\"endpoint_type\":140,\"endpoint_type_details\":{\"id\":140,\"name\":\"User Info endpoint\",\"location_id\":\"_userinfo\",\"preset_json\":\"{\\\"pagination\\\": {\\\"display\\\": false, \\\"is_pagination\\\": false}, \\\"tracking_property\\\": {\\\"display\\\": true, \\\"value\\\": \\\"\\\"}, \\\"endpoint_direction\\\": \\\"poll\\\", \\\"response_template\\\": \\\"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\\\\\"response\\\\\\\" object. #}\\\\n{\\\\n  \\\\\\\"user_identity\\\\\\\": \\\\\\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\\\\\"\\\\n}\\\", \\\"http_verb\\\": \\\"GET\\\", \\\"request_template\\\": {\\\"display\\\": false, \\\"value\\\": \\\"\\\"}, \\\"headers\\\": [{\\\"value\\\": \\\"Bearer {{ query.access_token }}\\\", \\\"key\\\": \\\"Authorization\\\"}]}\"},\"object_id\":20,\"endpoint_action\":\"GET\",\"base_url_id\":256372,\"base_url\":{\"id\":256372,\"name\":\"base url\",\"url\":\"https://app.integry.io/wapp/apps/v3/create?workspace=true\",\"headers\":[]},\"url_path\":\"/test/\",\"is_absolute\":false,\"is_parent\":false,\"parent\":null,\"set_name\":null,\"lookup_key\":null,\"lookup_value\":null,\"is_pagination\":false,\"pagination_type\":\"OFFSET\",\"pg_limit_variable_name\":null,\"pg_limit_variable_location\":\"QUERY_PARAMS\",\"pg_default_page_size\":1000,\"pg_dynamic_page_size\":null,\"pg_dynamic_page_size_location\":\"QUERY_PARAMS\",\"pg_offset_variable_name\":null,\"pg_offset_variable_location\":\"QUERY_PARAMS\",\"pg_total_items_variable\":null,\"pg_total_items_variable_location\":\"QUERY_PARAMS\",\"pg_next_link_variable_name\":null,\"pg_next_link_variable_location\":\"QUERY_PARAMS\",\"pg_dynamic_offset_variable_name\":null,\"pg_dynamic_offset_variable_location\":\"QUERY_PARAMS\",\"pg_more_items_variable_name\":null,\"pg_more_items_variable_location\":\"QUERY_PARAMS\",\"pg_increment_offset_variable_name\":null,\"pg_increment_offset_variable_location\":\"QUERY_PARAMS\",\"url_pattern\":null,\"push_payload_type\":\"object\",\"push_payload_path\":null,\"compound_statements\":\"{\\\"relation\\\":\\\"AND\\\",\\\"conditions\\\":[{\\\"operand_1\\\":\\\"\\\",\\\"operator\\\":\\\"=\\\",\\\"operand_2\\\":\\\"\\\"}]}\",\"pg_offset_variable_send_always\":false,\"creator_id\":42,\"testing_results\":\"\",\"wizard_state\":\"\",\"base_url_raw\":\"\",\"locked_by\":null}"
+				}
+			]
+		},
+		{
+			"name": "create endpoint",
+			"_postman_id": "bd35f949-2bdc-41ec-81b9-c2bd0ea74e06",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"username": "137e59b@u7sgtfw2.mailosaur.net",
+						"password": "meAabi13119"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "I9H1gCWj4oqs1qaxi6nQ5GDjN55LQZPfXgEJrxG4O4xz8DrWURuxmdMFNfQI1K6w",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"app_id\": 33942,\n    \"base_url_id\": 39637,\n    \"base_url_raw\": \"\",\n    \"compound_statements\": \"{\\\"relation\\\":\\\"AND\\\",\\\"conditions\\\":[{\\\"operand_1\\\":\\\"\\\",\\\"operator\\\":\\\"=\\\",\\\"operand_2\\\":\\\"\\\"}]}\",\n    \"endpoint_name\": \"User Info Endpoint\",\n    \"endpoint_type\": 454,\n    \"headers\": [\n        {\n            \"header_name\": \"Authorization\",\n            \"key\": \"Authorization\",\n            \"rkey\": 1,\n            \"value\": \"OAuth {{ query.access_token }}\"\n        },\n        {\n            \"header_name\": \"Content-Type\",\n            \"key\": \"Content-Type\",\n            \"rkey\": 2,\n            \"value\": \"application/json\"\n        }\n    ],\n    \"headersKeys\": 1,\n    \"http_verb\": \"get\",\n    \"is_pagination\": false,\n    \"lookup_key\": null,\n    \"lookup_value\": null,\n    \"pg_default_page_size\": 0,\n    \"push_payload_type\": \"object\",\n    \"query_configuration\": \"\",\n    \"request_template\": \"\",\n    \"response_template\": \"{# Compose a JSON object having a key named user_identity with a value that identifies the person whose account is added. Good choices are things like email address, name, company name etc. Click on + button in upper right corner to choose suitable tags from within the \\\"response\\\" object. #}\\n{\\n  \\\"user_identity\\\": \\\"{{ response.identity.first_name }} || {{ response.identity.last_name }} || {{ response.identity.email_address }}\\\"\\n}\",\n    \"set_name\": null,\n    \"source_type\": \"poll\",\n    \"tracking_property_name\": \"\",\n    \"url_path\": \"/metadata\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://beta.integry.io/api/endpoints/"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"_postman_id": "4b42122b-da9c-47f5-a5e4-80e43bdac05c",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "token",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csrfmiddlewaretoken",
+							"value": "o1YvBcTAmq1hE6aMLBkBFIUqvcWAP4efrzLmHMTTcMpNvCmPrMaaujuPi0Y7LWZN",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "3a36cf0@u7sgtfw2.mailosaur.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "meAabi13119",
+							"type": "text"
+						},
+						{
+							"key": "next",
+							"value": "",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "https://beta.integry.io/accounts/login/"
+			},
+			"response": []
+		},
+		{
+			"name": "Login Copy",
+			"_postman_id": "f86196d9-fcc9-4a15-b4ca-2caf4e1184a4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "<token>",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "3a36cf0@u7sgtfw2.mailosaur.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "meAabi13119",
+							"type": "text"
+						},
+						{
+							"key": "next",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "https://beta.integry.io/accounts/login/"
+			},
+			"response": []
+		},
+		{
+			"name": "Login Copy 2",
+			"_postman_id": "5ceca314-707e-43b4-aa30-076592c5395a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "<token>",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sessionid",
+						"value": "<id>",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "3a36cf0@u7sgtfw2.mailosaur.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "meAabi13119",
+							"type": "text"
+						},
+						{
+							"key": "next",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "https://beta.integry.io/accounts/login/"
+			},
+			"response": []
+		},
+		{
+			"name": "upload logo",
+			"_postman_id": "fd99a18b-48ca-4645-9b96-1c94b5f4ffe1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "BjWo94qBScDWkA68l8fE23a5bS4vm7hDt82ieSbXZnvUHnFSGDrmzKlOs2Qx9Ngy",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file;",
+							"type": "file",
+							"src": "cztZ-cMMl/convertkit.png"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": "https://beta.integry.io/api/files/"
+			},
+			"response": []
+		}
+	]
+}
