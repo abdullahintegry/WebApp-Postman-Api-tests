@@ -2907,6 +2907,789 @@
 					]
 				},
 				{
+					"name": "GetState Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9412728b-9e1f-4581-b1a8-ed3edc25100d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"/* \r",
+									"this response would be stored in pm.response.json()\r",
+									"*/\r",
+									"// var saved_response = [\r",
+									"//     {\r",
+									"//         \"id\": pm.environment.get(\"authorization_type_id\"),\r",
+									"//         \"user_identity\": \"API-Key---WdAz\",\r",
+									"//         \"app_name\": \"SendInBlue\",\r",
+									"//         \"app_icon_url\": \"https://storage.googleapis.com/app-services-prod--bucket/public/ff5f3f5d-6b56-4052-9e70-3c1d2c51cba8.png\",\r",
+									"//         \"integration_count\": 0\r",
+									"//     }\r",
+									"// ];\r",
+									"\r",
+									"// function _replacePropertyValue(objKeys, newVal, object) {\r",
+									"//   const newObject = object;\r",
+									"\r",
+									"//   for (var key in object) {\r",
+									"//     if (objKeys.includes(key)) {\r",
+									"//       newObject[key] = newVal;\r",
+									"//     } else if (typeof(object[key]) === 'object' || typeof(object[key]) === 'array') {\r",
+									"//       newObject[key] = replacePropertyValue(objKeys, newVal, object[key]);\r",
+									"//     }\r",
+									"//   }\r",
+									"\r",
+									"//   return newObject;\r",
+									"// }\r",
+									"\r",
+									"// function replacePropertyValue(objKeys, newVal, object) {\r",
+									"//     if (typeof (object) === 'array') {\r",
+									"//         var items = []\r",
+									"//         for (var item in object) {\r",
+									"//             items.push(_replacePropertyValue(objKeys, newVal, item));\r",
+									"//         }\r",
+									"//         return items\r",
+									"//     } else if (typeof (object) === 'object') {\r",
+									"//         return _replacePropertyValue(objKeys, newVal, object);\r",
+									"//     } else {\r",
+									"//         return object\r",
+									"//     }\r",
+									"// }\r",
+									"\r",
+									"// var response = pm.response.json();\r",
+									"\r",
+									"// pm.test(\"Validate schema of response\", () => {\r",
+									"\r",
+									"//   pm.expect(saved_response).to.deep.equal(response);\r",
+									"// });\r",
+									"\r",
+									"pm.test(\"Test data type of the response\", () => {\r",
+									"  pm.expect(pm.response.json()).to.be.an(\"array\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a0c7b219-d8f8-41be-8bd3-af257f1d3711",
+								"exec": [
+									"const message = pm.environment.get('user_id');",
+									"const key = pm.environment.get('appSecret');",
+									"pm.environment.set(\"appHash\", CryptoJS.HmacSHA1(message, key).toString())"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "3c38d28f-005e-4c09-b26a-6edb492ef418",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/login/29667?user_id=test%2B6525071e%40u7sgtfw2.mailosaur.net&app_key=56ef4389-018b-4265-b48f-ee234bcc7099&hash=11da24cdd8c85b186bdae449258e51a6513c9f7350dedcadece2f02f5d958711",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login",
+								"29667"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "test%2B6525071e%40u7sgtfw2.mailosaur.net"
+								},
+								{
+									"key": "app_key",
+									"value": "56ef4389-018b-4265-b48f-ee234bcc7099"
+								},
+								{
+									"key": "hash",
+									"value": "11da24cdd8c85b186bdae449258e51a6513c9f7350dedcadece2f02f5d958711"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "0518b23f-77b3-4972-8809-4a49bd673744",
+							"name": "https://app.integry.io/connected-accounts/?authorization_type_id=5684&app_id=3939",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v4/3939/edit/authorizations"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "5714865"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/connected-accounts/?authorization_type_id=5684&app_id=3939",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"connected-accounts",
+										""
+									],
+									"query": [
+										{
+											"key": "authorization_type_id",
+											"value": "5684"
+										},
+										{
+											"key": "app_id",
+											"value": "3939"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:00:40 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "2"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, POST, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[]"
+						},
+						{
+							"id": "24a9fbcd-2ef7-48d3-8491-e1230181af67",
+							"name": "https://app.integry.io/connected-accounts/?authorization_type_id=3767&app_id=3939",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v4/3939/edit/authorizations"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "6947989"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/connected-accounts/?authorization_type_id=3767&app_id=3939",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"connected-accounts",
+										""
+									],
+									"query": [
+										{
+											"key": "authorization_type_id",
+											"value": "3767"
+										},
+										{
+											"key": "app_id",
+											"value": "3939"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:00:41 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "414"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, POST, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":75635,\"user_identity\":\"New Mailchimp Account\",\"app_name\":\"Mailchimp\",\"app_icon_url\":\"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/619e744ee1eb1a0001dec5f4/picture\",\"integration_count\":0},{\"id\":95503,\"user_identity\":\"OAuth2 1\",\"app_name\":\"Mailchimp\",\"app_icon_url\":\"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/619e744ee1eb1a0001dec5f4/picture\",\"integration_count\":0}]"
+						},
+						{
+							"id": "07eb8947-1539-4267-b502-9bc85b5ce65b",
+							"name": "https://app.integry.io/connected-accounts/?authorization_type_id=2234&app_id=3939",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v4/3939/edit/authorizations"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "9131237"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/connected-accounts/?authorization_type_id=2234&app_id=3939",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"connected-accounts",
+										""
+									],
+									"query": [
+										{
+											"key": "authorization_type_id",
+											"value": "2234"
+										},
+										{
+											"key": "app_id",
+											"value": "3939"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:00:41 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "213"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, POST, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":68576,\"user_identity\":\"Authorization Failed\",\"app_name\":\"Mailchimp\",\"app_icon_url\":\"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/619e744ee1eb1a0001dec5f4/picture\",\"integration_count\":0}]"
+						},
+						{
+							"id": "cbcf032e-5796-43c5-9218-4b13f68115b7",
+							"name": "https://app.integry.io/connected-accounts/?authorization_type_id=2044&app_id=3939",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v4/3939/edit/authorizations"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "6443708"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/connected-accounts/?authorization_type_id=2044&app_id=3939",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"connected-accounts",
+										""
+									],
+									"query": [
+										{
+											"key": "authorization_type_id",
+											"value": "2044"
+										},
+										{
+											"key": "app_id",
+											"value": "3939"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:00:41 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "413"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, POST, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":67992,\"user_identity\":\"AuthMCTest\",\"app_name\":\"Mailchimp\",\"app_icon_url\":\"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/619e744ee1eb1a0001dec5f4/picture\",\"integration_count\":0},{\"id\":68019,\"user_identity\":\"AuthActiveCampaign\",\"app_name\":\"Mailchimp\",\"app_icon_url\":\"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/619e744ee1eb1a0001dec5f4/picture\",\"integration_count\":0}]"
+						},
+						{
+							"id": "76b1b99f-b46a-497a-80e2-bedb2cb19f1a",
+							"name": "https://app.integry.io/connected-accounts/?authorization_type_id=5684&app_id=3939",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v4/3939/edit/authorizations/5684/edit"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "3287274"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/connected-accounts/?authorization_type_id=5684&app_id=3939",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"connected-accounts",
+										""
+									],
+									"query": [
+										{
+											"key": "authorization_type_id",
+											"value": "5684"
+										},
+										{
+											"key": "app_id",
+											"value": "3939"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:04:05 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "2"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, POST, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[]"
+						}
+					]
+				},
+				{
 					"name": "Connect Account Copy",
 					"event": [
 						{
