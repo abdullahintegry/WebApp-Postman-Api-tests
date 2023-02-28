@@ -3765,7 +3765,7 @@
 							"script": {
 								"id": "a0c7b219-d8f8-41be-8bd3-af257f1d3711",
 								"exec": [
-									"const message = pm.environment.get('user_id');",
+									"const message = pm.environment.get('username');",
 									"const key = pm.environment.get('appSecret');",
 									"pm.environment.set(\"appHash\", CryptoJS.HmacSHA1(message, key).toString())"
 								],
