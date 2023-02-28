@@ -744,6 +744,52 @@
 					{
 						"key": "X-CSRFToken",
 						"value": "token",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "csrfmiddlewaretoken",
+							"value": "o1YvBcTAmq1hE6aMLBkBFIUqvcWAP4efrzLmHMTTcMpNvCmPrMaaujuPi0Y7LWZN",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "3a36cf0@u7sgtfw2.mailosaur.net",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "meAabi13119",
+							"type": "text"
+						},
+						{
+							"key": "next",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": "https://beta.integry.io/accounts/login/"
+			},
+			"response": []
+		},
+		{
+			"name": "Login Copy",
+			"id": "cb78a4b9-8ef3-45b4-b564-53ed52381a4e",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "token",
 						"type": "text"
 					}
 				],
