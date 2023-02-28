@@ -2217,10 +2217,6 @@
 						},
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": []
-						},
 						"url": {
 							"raw": "{{base_url}}/auth/login/{{authorization_type_id}}?user_id={{username}}&app_key={{appKey}}&hash={{appHash}}",
 							"host": [
