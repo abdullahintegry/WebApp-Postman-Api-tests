@@ -2201,7 +2201,8 @@
 								"exec": [
 									"const message = pm.environment.get('username');",
 									"const key = pm.environment.get('appSecret');",
-									"pm.environment.set(\"appHash\", CryptoJS.HmacSHA1(message, key).toString())"
+									"const signBytes = CryptoJS.HmacSHA1(message, key).toString()",
+									"pm.environment.set(\"appHash\", CryptoJS.enc.Hex.stringify(signBytes))"
 								],
 								"type": "text/javascript"
 							}
