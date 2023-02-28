@@ -2219,43 +2219,7 @@
 						"header": [],
 						"body": {
 							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "auth_name",
-									"value": "Insightly Integration",
-									"type": "text"
-								},
-								{
-									"key": "url",
-									"value": "http://www.insightly.com",
-									"type": "text"
-								},
-								{
-									"key": "apikey",
-									"value": "d66ac9d4-a3c0-4021-9027-b2c21428690f",
-									"type": "text"
-								},
-								{
-									"key": "userId",
-									"value": "{{username}}",
-									"type": "text"
-								},
-								{
-									"key": "appKey",
-									"value": "{{appKey}}",
-									"type": "text"
-								},
-								{
-									"key": "hash",
-									"value": "{{appHash}}",
-									"type": "text"
-								},
-								{
-									"key": "state",
-									"value": "",
-									"type": "text"
-								}
-							]
+							"formdata": []
 						},
 						"url": {
 							"raw": "{{base_url}}/auth/login/{{authorization_type_id}}?user_id={{username}}&app_key={{appKey}}&hash={{appHash}}",
