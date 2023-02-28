@@ -2982,9 +2982,10 @@
 							"script": {
 								"id": "a0c7b219-d8f8-41be-8bd3-af257f1d3711",
 								"exec": [
-									"const message = pm.environment.get('user_id');",
+									"const message = pm.environment.get('username');",
 									"const key = pm.environment.get('appSecret');",
-									"pm.environment.set(\"appHash\", CryptoJS.HmacSHA1(message, key).toString())"
+									"const signBytes = CryptoJS.HmacSHA1(message, key).toString()",
+									"pm.environment.set(\"appHash\", CryptoJS.enc.Hex.stringify(signBytes))"
 								],
 								"type": "text/javascript"
 							}
@@ -2992,7 +2993,8 @@
 					],
 					"id": "3c38d28f-005e-4c09-b26a-6edb492ef418",
 					"protocolProfileBehavior": {
-						"disableBodyPruning": true
+						"disableBodyPruning": true,
+						"followRedirects": false
 					},
 					"request": {
 						"auth": {
