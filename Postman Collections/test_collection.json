@@ -3770,7 +3770,7 @@
 								"exec": [
 									"const message = pm.environment.get('username');",
 									"const key = pm.environment.get('appSecret');",
-									"const signBytes = CryptoJS.HmacSHA1(message, key)",
+									"const signBytes = CryptoJS.HmacSHA256(message, key)",
 									"pm.environment.set(\"appHash\", CryptoJS.enc.Hex.stringify(signBytes))"
 								],
 								"type": "text/javascript"
