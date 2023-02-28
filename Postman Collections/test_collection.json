@@ -2210,7 +2210,8 @@
 					],
 					"id": "642edec1-2a0c-42a3-a99c-5500bc45a750",
 					"protocolProfileBehavior": {
-						"disableBodyPruning": true
+						"disableBodyPruning": true,
+						"followRedirects": false
 					},
 					"request": {
 						"auth": {
