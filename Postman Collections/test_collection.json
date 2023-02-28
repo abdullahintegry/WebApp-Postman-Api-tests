@@ -899,5 +899,34 @@
 			},
 			"response": []
 		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": {
+			"password": "{{password}}",
+			"username": "{{username}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "e52bbd76-2122-4a79-8e61-64b4f1be00ec",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4dcd6271-cfa7-4a60-9a06-4433d51f8cfa",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
 	]
 }
