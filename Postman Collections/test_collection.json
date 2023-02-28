@@ -2215,7 +2215,7 @@
 						"auth": {
 							"type": "noauth"
 						},
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "formdata",
@@ -2258,14 +2258,14 @@
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}/auth/apikey-with-url/config?user_id={{username}}&app_key={{appKey}}&hash={{appHash}}&state=",
+							"raw": "{{base_url}}/auth/login/{{authorization_type_id}}?user_id={{username}}&app_key={{appKey}}&hash={{appHash}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"auth",
-								"apikey-with-url",
-								"config"
+								"login",
+								"{{authorization_type_id}}"
 							],
 							"query": [
 								{
@@ -2279,10 +2279,6 @@
 								{
 									"key": "hash",
 									"value": "{{appHash}}"
-								},
-								{
-									"key": "state",
-									"value": ""
 								}
 							]
 						}
