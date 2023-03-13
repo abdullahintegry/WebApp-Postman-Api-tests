@@ -7456,7 +7456,7 @@
 						}
 					}
 				},
-				"url": "{{base_url}}/api/v1/apps/{{app_id2}}/activities/"
+				"url": "{{base_url}}/api/v1/apps/{{app_id}}/activities/"
 			},
 			"response": []
 		}
