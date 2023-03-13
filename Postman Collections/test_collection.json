@@ -6480,6 +6480,1568 @@
 			"id": "2e2e4f08-4274-4755-8221-f121727d5a5a"
 		},
 		{
+			"name": "Activity V1",
+			"item": [
+				{
+					"name": "Create Activity V1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "53c858b8-b706-4dd9-879d-3d7c5f57717e",
+								"exec": [
+									"pm.environment.set(\"app_id\", 12256);\r",
+									"pm.environment.set(\"authorization_type_id\", 25049);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "6fbb6756-33b7-44cc-bb4f-35b37e33167d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Create a public or private channel-based conversation.\",\r\n    \"description\": \"Create a public or private channel-based conversation.\",\r\n    \"authorization_type_id\": {{authorization_type_id}},\r\n    \"type\": \"ACTION\",\r\n    \"method\": \"POST\",\r\n    \"auth_description\": \"scopes needed: contacts.read\",\r\n    \"url\": \"https://api.slack.com/methods/admin.conversations.create\",\r\n    \"headers\": [\r\n        {\r\n            \"key\": \"token\",\r\n            \"value\": \"{authorization.token.access_token}\"\r\n        }\r\n    ],\r\n    \"body\": {\r\n        \"name\": \"{name}\",\r\n        \"description\": \"{description}\",\r\n        \"is_private\": \"{is_private}\",\r\n        \"org_wide\": \"{org_wide}\",\r\n        \"team_id\": \"{team_id}\"\r\n    },\r\n    \"query_parameters\": [],\r\n    \"activity_fields\": [\r\n        {\r\n            \"name\": \"Name\",\r\n            \"type\": \"TEXTFIELD\",\r\n            \"machine_name\": \"name\",\r\n            \"description\": \"Name of the public or private channel to create.\",\r\n            \"is_required\": true,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Description\",\r\n            \"type\": \"TEXTAREA\",\r\n            \"machine_name\": \"description\",\r\n            \"description\": \"Description of the public or private channel to create.\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Is Private\",\r\n            \"type\": \"RADIO\",\r\n            \"machine_name\": \"is_private\",\r\n            \"description\": \"When `true`, creates a private channel instead of a public channel\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\",\r\n            \"choices\": [\r\n                {\r\n                    \"id\": \"true\",\r\n                    \"value\": \"True\"\r\n                },\r\n                {\r\n                    \"id\": \"false\",\r\n                    \"value\": \"False\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Org Wide\",\r\n            \"type\": \"CHECKBOX\",\r\n            \"machine_name\": \"org_wide\",\r\n            \"description\": \"When `true`, the channel will be available org-wide. Note: if the channel is not `org_wide=true`, you must specify a `team_id` for this channel\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Team ID\",\r\n            \"type\": \"SELECT\",\r\n            \"machine_name\": \"team_id\",\r\n            \"description\": \"The workspace to create the channel in. Note: this argument is required unless you set `org_wide=true`.\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\",\r\n            \"data_src_endpoint_id\": 6\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/v1/apps/{{app_id}}/activities/"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Activity Fields filtered by Activity ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "587f910f-5d30-4353-84fd-e0fb5686af9a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response not to be Null\", () => {\r",
+									"    const jsonData = pm.response.json();\r",
+									"\r",
+									"  pm.expect(pm.jsonData).not.to.be.null\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify the values are not null\", function () {\r",
+									"    const reqBody = request.data;\r",
+									"\r",
+									"    pm.expect(reqBody.id).to.not.null;\r",
+									"    pm.expect(reqBody.machine_name).to.not.null;\r",
+									"    pm.expect(reqBody.title).to.not.null;\r",
+									"    pm.expect(reqBody.object_field).to.not.null;\r",
+									"    pm.expect(reqBody.auto_machine_name).to.not.null;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "4f39a6cb-3508-44c0-8b52-93aeca9cc9b6",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/api/activity_fields/?activity={{activityId}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"activity_fields",
+								""
+							],
+							"query": [
+								{
+									"key": "activity",
+									"value": "{{activityId}}"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "8c29d535-fab5-4336-857e-8ec6c8e8416a",
+							"name": "https://app.integry.io/api/activity_fields/?activity=1739",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/templates/v6/?app=1028&page_size=15&publishing_status=published&ordering=-last_modified"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "9235576"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=1739",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "1739"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 06:57:06 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "2"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[]"
+						},
+						{
+							"id": "349f64c3-6e88-4dae-ac18-f61407a42704",
+							"name": "https://app.integry.io/api/activity_fields/?activity=1005",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/templates/v6/?app=1028&page_size=15&publishing_status=published&ordering=-last_modified"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "66672"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=1005",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "1005"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 06:57:07 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "1233"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":2986,\"machine_name\":\"input_array\",\"type\":\"TEXTFIELD\",\"title\":\"Array\",\"description\":\"\",\"weight\":1,\"is_required\":true,\"object_field\":null,\"child_fields\":null,\"is_dynamic\":false,\"data_src\":null,\"data_src_endpoint\":null,\"parent_fields\":null,\"dynamic_field_src\":null,\"default_value\":null,\"auto_machine_name\":\"2986_input_array\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":2987,\"machine_name\":\"current_item_variable_name\",\"type\":\"TEXTFIELD\",\"title\":\"Variable Name\",\"description\":\"\",\"weight\":2,\"is_required\":true,\"object_field\":null,\"child_fields\":null,\"is_dynamic\":false,\"data_src\":null,\"data_src_endpoint\":null,\"parent_fields\":null,\"dynamic_field_src\":null,\"default_value\":null,\"auto_machine_name\":\"2987_current_item_variable_name\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null}]"
+						},
+						{
+							"id": "d1873808-9e85-47f3-a248-1e27e96a81d5",
+							"name": "https://app.integry.io/api/activity_fields/?activity=541",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/templates/v6/?app=1028&page_size=15&publishing_status=published&ordering=-last_modified"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "1903664"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=541",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "541"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 06:57:07 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "614"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":1740,\"machine_name\":\"condition_json\",\"type\":\"HIDDEN\",\"title\":\"Condition\",\"description\":\"Condition\",\"weight\":1,\"is_required\":true,\"object_field\":null,\"child_fields\":null,\"is_dynamic\":false,\"data_src\":null,\"data_src_endpoint\":null,\"parent_fields\":null,\"dynamic_field_src\":null,\"default_value\":null,\"auto_machine_name\":\"1740_condition_json\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null}]"
+						},
+						{
+							"id": "156e43d4-2f22-4664-af34-5b15f82d4169",
+							"name": "https://app.integry.io/api/activity_fields/?activity=1739",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v3/"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "4072835"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=1739",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "1739"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:07:09 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "2"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[]"
+						},
+						{
+							"id": "ef21d0bf-8d33-4406-a6b1-5980134781eb",
+							"name": "https://app.integry.io/api/activity_fields/?activity=541",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v3/"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "8251296"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=541",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "541"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:07:10 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "614"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":1740,\"machine_name\":\"condition_json\",\"type\":\"HIDDEN\",\"title\":\"Condition\",\"description\":\"Condition\",\"weight\":1,\"is_required\":true,\"object_field\":null,\"child_fields\":null,\"is_dynamic\":false,\"data_src\":null,\"data_src_endpoint\":null,\"parent_fields\":null,\"dynamic_field_src\":null,\"default_value\":null,\"auto_machine_name\":\"1740_condition_json\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null}]"
+						},
+						{
+							"id": "8641e0f6-d082-4068-a4bb-4283d44287cf",
+							"name": "https://app.integry.io/api/activity_fields/?activity=1005",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v3/"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "2032293"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=1005",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "1005"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:07:10 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "1233"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":2986,\"machine_name\":\"input_array\",\"type\":\"TEXTFIELD\",\"title\":\"Array\",\"description\":\"\",\"weight\":1,\"is_required\":true,\"object_field\":null,\"child_fields\":null,\"is_dynamic\":false,\"data_src\":null,\"data_src_endpoint\":null,\"parent_fields\":null,\"dynamic_field_src\":null,\"default_value\":null,\"auto_machine_name\":\"2986_input_array\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":2987,\"machine_name\":\"current_item_variable_name\",\"type\":\"TEXTFIELD\",\"title\":\"Variable Name\",\"description\":\"\",\"weight\":2,\"is_required\":true,\"object_field\":null,\"child_fields\":null,\"is_dynamic\":false,\"data_src\":null,\"data_src_endpoint\":null,\"parent_fields\":null,\"dynamic_field_src\":null,\"default_value\":null,\"auto_machine_name\":\"2987_current_item_variable_name\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null}]"
+						},
+						{
+							"id": "9d3945cc-1741-409c-a284-44de4545c759",
+							"name": "https://app.integry.io/api/activity_fields/?activity=1374",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v3/"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "4512133"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=1374",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "1374"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:07:10 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "7999"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":3810,\"machine_name\":\"day_of_the_month\",\"type\":\"TEXTFIELD\",\"title\":\"Day of the Month\",\"description\":\"* = any (default), 1-31 (once a month) or comma separated numbers (1,3,10,20) (runs on these dates)\",\"weight\":0,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3810_day_of_the_month\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":3811,\"machine_name\":\"day_of_the_week\",\"type\":\"TEXTFIELD\",\"title\":\"Day of the Week\",\"description\":\"* = any (default), 0-6 (once a week) or comma separated numbers (0,2,5) (runs on these days)\",\"weight\":1,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3811_day_of_the_week\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":3812,\"machine_name\":\"run_hour\",\"type\":\"TEXTFIELD\",\"title\":\"Run Hour\",\"description\":\"* = any (default), 0-23 (once a day) or comma separated numbers (0,2,5,14) (runs on these hours)\",\"weight\":2,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3812_run_hour\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":3813,\"machine_name\":\"run_minute\",\"type\":\"TEXTFIELD\",\"title\":\"Run Minute\",\"description\":\"* = any (default), 0-59 (once an hour) or comma separated numbers (0,10,20,30,40,50) (runs on these minutes)\",\"weight\":3,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3813_run_minute\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":3820,\"machine_name\":\"month\",\"type\":\"TEXTFIELD\",\"title\":\"Month\",\"description\":\"* = any (default), 1-12 (once a year) or comma separated numbers (0,1,4) (runs on these months)\",\"weight\":4,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3820_month\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8254,\"machine_name\":\"day\",\"type\":\"TEXTFIELD\",\"title\":\"Day of the Month (text)\",\"description\":\"Day of the month on which to run scheduled task\",\"weight\":5,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8254_day\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8255,\"machine_name\":\"days\",\"type\":\"TEXTFIELD\",\"title\":\"Days of the Week (text)\",\"description\":\"JSON array of days of the week ([\\\"Monday\\\", \\\"Friday\\\"]) (runs on these days)\",\"weight\":6,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8255_days\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8256,\"machine_name\":\"hours\",\"type\":\"TEXTFIELD\",\"title\":\"Run Hour (text)\",\"description\":\"Hour of the Day on which to run scheduled task\",\"weight\":7,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8256_hours\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8257,\"machine_name\":\"minutes\",\"type\":\"TEXTFIELD\",\"title\":\"Run Minute (text)\",\"description\":\"Minute of the hour on which to run scheduled task\",\"weight\":8,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8257_minutes\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8392,\"machine_name\":\"offset_min\",\"type\":\"TEXTFIELD\",\"title\":\"Offset in minutes (text)\",\"description\":\"Offset in minutes. This field does not affect cron fields\",\"weight\":9,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8392_offset_min\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8403,\"machine_name\":\"timezone\",\"type\":\"TEXTFIELD\",\"title\":\"Timezone (text)\",\"description\":\"E.g. Europe/London. Default: UTC\",\"weight\":10,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8403_timezone\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8404,\"machine_name\":\"json\",\"type\":\"TEXTFIELD\",\"title\":\"JSON\",\"description\":\"The above fields can be entered using a JSON as well\",\"weight\":11,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8404_json\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null}]"
+						},
+						{
+							"id": "a058d049-216e-46ce-83f1-4d7e6b3f0eeb",
+							"name": "https://app.integry.io/api/activity_fields/?activity=1739",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v3/"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "3927331"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=1739",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "1739"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:07:23 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "2"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[]"
+						},
+						{
+							"id": "4d7e01ee-146c-4a51-9f5e-af6f9d7d6cd1",
+							"name": "https://app.integry.io/api/activity_fields/?activity=1005",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v3/"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "2137288"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=1005",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "1005"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:07:23 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "1233"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":2986,\"machine_name\":\"input_array\",\"type\":\"TEXTFIELD\",\"title\":\"Array\",\"description\":\"\",\"weight\":1,\"is_required\":true,\"object_field\":null,\"child_fields\":null,\"is_dynamic\":false,\"data_src\":null,\"data_src_endpoint\":null,\"parent_fields\":null,\"dynamic_field_src\":null,\"default_value\":null,\"auto_machine_name\":\"2986_input_array\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":2987,\"machine_name\":\"current_item_variable_name\",\"type\":\"TEXTFIELD\",\"title\":\"Variable Name\",\"description\":\"\",\"weight\":2,\"is_required\":true,\"object_field\":null,\"child_fields\":null,\"is_dynamic\":false,\"data_src\":null,\"data_src_endpoint\":null,\"parent_fields\":null,\"dynamic_field_src\":null,\"default_value\":null,\"auto_machine_name\":\"2987_current_item_variable_name\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null}]"
+						},
+						{
+							"id": "5f3faaad-400d-45af-a647-d26877c4ee97",
+							"name": "https://app.integry.io/api/activity_fields/?activity=1374",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v3/"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "5288904"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/activity_fields/?activity=1374",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"activity_fields",
+										""
+									],
+									"query": [
+										{
+											"key": "activity",
+											"value": "1374"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:07:23 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "7999"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "[{\"id\":3810,\"machine_name\":\"day_of_the_month\",\"type\":\"TEXTFIELD\",\"title\":\"Day of the Month\",\"description\":\"* = any (default), 1-31 (once a month) or comma separated numbers (1,3,10,20) (runs on these dates)\",\"weight\":0,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3810_day_of_the_month\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":3811,\"machine_name\":\"day_of_the_week\",\"type\":\"TEXTFIELD\",\"title\":\"Day of the Week\",\"description\":\"* = any (default), 0-6 (once a week) or comma separated numbers (0,2,5) (runs on these days)\",\"weight\":1,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3811_day_of_the_week\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":3812,\"machine_name\":\"run_hour\",\"type\":\"TEXTFIELD\",\"title\":\"Run Hour\",\"description\":\"* = any (default), 0-23 (once a day) or comma separated numbers (0,2,5,14) (runs on these hours)\",\"weight\":2,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3812_run_hour\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":3813,\"machine_name\":\"run_minute\",\"type\":\"TEXTFIELD\",\"title\":\"Run Minute\",\"description\":\"* = any (default), 0-59 (once an hour) or comma separated numbers (0,10,20,30,40,50) (runs on these minutes)\",\"weight\":3,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3813_run_minute\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":3820,\"machine_name\":\"month\",\"type\":\"TEXTFIELD\",\"title\":\"Month\",\"description\":\"* = any (default), 1-12 (once a year) or comma separated numbers (0,1,4) (runs on these months)\",\"weight\":4,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"3820_month\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8254,\"machine_name\":\"day\",\"type\":\"TEXTFIELD\",\"title\":\"Day of the Month (text)\",\"description\":\"Day of the month on which to run scheduled task\",\"weight\":5,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8254_day\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8255,\"machine_name\":\"days\",\"type\":\"TEXTFIELD\",\"title\":\"Days of the Week (text)\",\"description\":\"JSON array of days of the week ([\\\"Monday\\\", \\\"Friday\\\"]) (runs on these days)\",\"weight\":6,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8255_days\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8256,\"machine_name\":\"hours\",\"type\":\"TEXTFIELD\",\"title\":\"Run Hour (text)\",\"description\":\"Hour of the Day on which to run scheduled task\",\"weight\":7,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8256_hours\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8257,\"machine_name\":\"minutes\",\"type\":\"TEXTFIELD\",\"title\":\"Run Minute (text)\",\"description\":\"Minute of the hour on which to run scheduled task\",\"weight\":8,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8257_minutes\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8392,\"machine_name\":\"offset_min\",\"type\":\"TEXTFIELD\",\"title\":\"Offset in minutes (text)\",\"description\":\"Offset in minutes. This field does not affect cron fields\",\"weight\":9,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8392_offset_min\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8403,\"machine_name\":\"timezone\",\"type\":\"TEXTFIELD\",\"title\":\"Timezone (text)\",\"description\":\"E.g. Europe/London. Default: UTC\",\"weight\":10,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8403_timezone\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null},{\"id\":8404,\"machine_name\":\"json\",\"type\":\"TEXTFIELD\",\"title\":\"JSON\",\"description\":\"The above fields can be entered using a JSON as well\",\"weight\":11,\"is_required\":false,\"object_field\":\"None\",\"child_fields\":\"\",\"is_dynamic\":false,\"data_src\":\"\",\"data_src_endpoint\":null,\"parent_fields\":\"\",\"dynamic_field_src\":\"\",\"default_value\":null,\"auto_machine_name\":\"8404_json\",\"dynamic_field_src_endpoint\":null,\"regex\":null,\"is_searchable\":false,\"data_conversion\":null,\"placeholder\":null,\"regex_error_message\":null,\"sample_data_src\":null,\"sample_data_src_endpoint\":null,\"is_hidden\":false,\"is_manual_machine_name\":false,\"conditional_fields\":null}]"
+						}
+					]
+				},
+				{
+					"name": "/api/activities/21489/",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46abfdff-2e49-45c2-80af-f9178d733303",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Test data type of the response\", () => {\r",
+									"  pm.expect(response).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"var saved_response = {\r",
+									"    \"message\": \"Activity deleted successfully\",\r",
+									"    \"success\": true\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Test response\", () => {\r",
+									"  pm.expect(response).to.eql(saved_response);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "be0d4bc8-2f35-4353-8451-df203b5c2029",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{base_url}}/api/activities/{{activityId}}/"
+					},
+					"response": [
+						{
+							"id": "1fc5f9f5-146f-4093-a77b-dc76a4b223e5",
+							"name": "https://app.integry.io/api/activities/21489/",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "origin",
+										"value": "https://app.integry.io"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v3/12136/edit/triggers/"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "2759375"
+									},
+									{
+										"key": "content-length",
+										"value": "0"
+									}
+								],
+								"url": "https://app.integry.io/api/activities/21489/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:25:10 GMT"
+								},
+								{
+									"key": "content-length",
+									"value": "58"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "allow",
+									"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\":\"Activity deleted successfully\",\"success\":true}"
+						}
+					]
+				}
+			],
+			"id": "dd36ad4e-2b87-4b42-9cc4-32a08d56a1b1"
+		},
+		{
 			"name": "/api/endpoints/ Copy",
 			"event": [
 				{
@@ -7435,28 +8997,6 @@
 					]
 				},
 				"url": "https://beta.integry.io/api/files/"
-			},
-			"response": []
-		},
-		{
-			"name": "Create Activity V1",
-			"id": "04515dcd-efaf-4ff3-89df-a98c80a12037",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Create a public or private channel-based conversation.\",\r\n    \"description\": \"Create a public or private channel-based conversation.\",\r\n    \"authorization_type_id\": {{authorization_type_id}},\r\n    \"type\": \"ACTION\",\r\n    \"method\": \"POST\",\r\n    \"auth_description\": \"scopes needed: contacts.read\",\r\n    \"url\": \"https://api.slack.com/methods/admin.conversations.create\",\r\n    \"headers\": [\r\n        {\r\n            \"key\": \"token\",\r\n            \"value\": \"{authorization.token.access_token}\"\r\n        }\r\n    ],\r\n    \"body\": {\r\n        \"name\": \"{name}\",\r\n        \"description\": \"{description}\",\r\n        \"is_private\": \"{is_private}\",\r\n        \"org_wide\": \"{org_wide}\",\r\n        \"team_id\": \"{team_id}\"\r\n    },\r\n    \"query_parameters\": [],\r\n    \"activity_fields\": [\r\n        {\r\n            \"name\": \"Name\",\r\n            \"type\": \"TEXTFIELD\",\r\n            \"machine_name\": \"name\",\r\n            \"description\": \"Name of the public or private channel to create.\",\r\n            \"is_required\": true,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Description\",\r\n            \"type\": \"TEXTAREA\",\r\n            \"machine_name\": \"description\",\r\n            \"description\": \"Description of the public or private channel to create.\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Is Private\",\r\n            \"type\": \"RADIO\",\r\n            \"machine_name\": \"is_private\",\r\n            \"description\": \"When `true`, creates a private channel instead of a public channel\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\",\r\n            \"choices\": [\r\n                {\r\n                    \"id\": \"true\",\r\n                    \"value\": \"True\"\r\n                },\r\n                {\r\n                    \"id\": \"false\",\r\n                    \"value\": \"False\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Org Wide\",\r\n            \"type\": \"CHECKBOX\",\r\n            \"machine_name\": \"org_wide\",\r\n            \"description\": \"When `true`, the channel will be available org-wide. Note: if the channel is not `org_wide=true`, you must specify a `team_id` for this channel\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Team ID\",\r\n            \"type\": \"SELECT\",\r\n            \"machine_name\": \"team_id\",\r\n            \"description\": \"The workspace to create the channel in. Note: this argument is required unless you set `org_wide=true`.\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\",\r\n            \"data_src_endpoint_id\": 6\r\n        }\r\n    ]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "{{base_url}}/api/v1/apps/{{app_id}}/activities/"
 			},
 			"response": []
 		}
