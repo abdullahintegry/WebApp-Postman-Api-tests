@@ -6776,7 +6776,7 @@
 									"\r",
 									"const deleteDropdownSourceEndpoint = {\r",
 									"    method: 'DELETE',\r",
-									"    url: `${pm.environment.get('base_url')}/api/endpoints/${dropdown_source_endpoint_id}/`,\r",
+									"    url: `${pm.environment.get('base_url')}/api/endpoints/${pm.environment.get('dropdown_source_endpoint_id')}/`,\r",
 									"    header: {\r",
 									"        'Content-Type': 'application/json',\r",
 									"        'Accept-Language': 'en'\r",
