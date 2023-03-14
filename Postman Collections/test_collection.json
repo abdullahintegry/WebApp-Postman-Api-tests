@@ -6732,6 +6732,7 @@
 									"  value,\r",
 									"  parentKey = '',\r",
 									") {\r",
+									"  console.log('value' + value);\r",
 									"  if (value.constructor === Array) {\r",
 									"    for (let index = 0; index < value.length; index++) {\r",
 									"      let qualifiedKey = index.toString();\r",
