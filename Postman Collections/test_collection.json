@@ -6537,7 +6537,7 @@
 									"pm.sendRequest(createDropdownSourceEndpoint, (err, res2) => {\r",
 									"    const response2 = res2.json();\r",
 									"    pm.environment.set(\"dropdown_source_endpoint_id\", response2.id);\r",
-									"    console.log(response2);\r",
+									"    // console.log(response2);\r",
 									"});"
 								],
 								"type": "text/javascript"
