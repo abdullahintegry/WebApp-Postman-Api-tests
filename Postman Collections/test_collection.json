@@ -6761,7 +6761,7 @@
 									"const actual_response = replacePropertyValue(keys_to_update, response);\r",
 									"\r",
 									"pm.test(\"Test data type of the response\", () => {\r",
-									"  pm.expect(pm.response.json()).to.be.an(\"object\");\r",
+									"  pm.expect(response).to.be.an(\"object\");\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Validate schema of response\", () => {\r",
