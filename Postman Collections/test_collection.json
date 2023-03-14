@@ -6558,7 +6558,7 @@
 									"this response would be stored in pm.response.json()\r",
 									"*/\r",
 									"const saved_response = {\r",
-									"    \"status\": \"UPDATED\",\r",
+									"    \"status\": \"CREATED\",\r",
 									"    \"activity\": {\r",
 									"        \"id\": 40681,\r",
 									"        \"name\": \"Create a public or private channel-based conversation.\",\r",
