@@ -6551,6 +6551,7 @@
 									"let response = pm.response.json();\r",
 									"console.log(`activity ID: ${response.activity.id}`);\r",
 									"pm.environment.set(\"activityId\", response.activity.id);\r",
+									"pm.environment.set(\"radio_source_endpoint_id\", response.activity.activity_fields[3].id);\r",
 									"\r",
 									"pm.test(\"Status code is 201\", () => {\r",
 									"  pm.response.to.have.status(201);\r",
@@ -6797,9 +6798,9 @@
 									"    const response2 = res2.json();\r",
 									"});\r",
 									"\r",
-									"const deleteDropdownSourceEndpoint = {\r",
+									"const deleteRadioSourceEndpoint = {\r",
 									"    method: 'DELETE',\r",
-									"    url: `${pm.environment.get('base_url')}/api/endpoints/`,\r",
+									"    url: `${pm.environment.get('base_url')}/api/endpoints/${pm.environment.get('radio_source_endpoint_id')}`,\r",
 									"    header: {\r",
 									"        'Content-Type': 'application/json',\r",
 									"        'Accept-Language': 'en'\r",
@@ -6816,7 +6817,10 @@
 									"        raw: {}\r",
 									"    }\r",
 									"};\r",
-									""
+									"\r",
+									"pm.sendRequest(deleteRadioSourceEndpoint, (err, res2) => {\r",
+									"    const response2 = res2.json();\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}
