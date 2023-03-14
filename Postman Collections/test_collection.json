@@ -6754,8 +6754,6 @@
 									"    }\r",
 									"}\r",
 									"\r",
-									"response = pm.response.json();\r",
-									"\r",
 									"const keys_to_update = [\"activity.id\", \"activity.method.activity_field_id\", \"activity.url.activity_field_id\", \"activity.parameters.activity_field_id\", \"activity.headers.activity_field_id\", \"activity.body.activity_field_id\", \"activity.activity_fields[0].id\", \"activity.activity_fields[1].id\", \"activity.activity_fields[2].id\", \"activity.activity_fields[3].id\", \"activity.activity_fields[4].id\",\"activity.activity_fields[5].id\",\"activity.activity_fields[6].id\",\"activity.activity_fields[7].id\",\"activity.activity_fields[8].id\", \"activity.activity_fields[9].id\",\r",
 									"    \"activity.activity_fields[3].data_src_endpoint_id\", \"activity.activity_fields[3].data_src\"];\r",
 									"\r",
