@@ -6549,6 +6549,7 @@
 								"id": "8b679024-0878-4e24-9a74-a45a8de963b1",
 								"exec": [
 									"let response = pm.response.json();\r",
+									"console.log(`activity ID: ${response.activity.id}`);\r",
 									"pm.environment.set(\"activityId\", response.activity.id);\r",
 									"\r",
 									"pm.test(\"Status code is 200\", () => {\r",
