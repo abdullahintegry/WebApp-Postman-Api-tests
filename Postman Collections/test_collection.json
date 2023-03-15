@@ -6483,7 +6483,7 @@
 			"name": "Flow Smoke",
 			"item": [
 				{
-					"name": "New Request",
+					"name": "POST initial flow with insighlty",
 					"event": [
 						{
 							"listen": "prerequest",
