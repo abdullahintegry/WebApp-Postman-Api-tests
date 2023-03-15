@@ -6493,6 +6493,7 @@
 									"pm.environment.set(\"app_id\", 48)",
 									"pm.environment.set(\"authorization_type_id\", 1186)",
 									"pm.environment.set(\"account_id\", 2)",
+									"pm.environment.set(\"user_id\", 1)",
 									"pm.environment.set(\"endpoint_id\", 9409)",
 									"pm.environment.set(\"activityId\", 4389)",
 									"pm.environment.set(\"default_endpoint_id\", 9422)",
