@@ -6481,7 +6481,20 @@
 		},
 		{
 			"name": "Flow Smoke",
-			"item": [],
+			"item": [
+				{
+					"name": "New Request",
+					"id": "8a63d673-53ae-4a70-a984-08986655aa7d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			],
 			"id": "77ee7aca-0a05-44e0-82f2-6c20d0198b10"
 		},
 		{
