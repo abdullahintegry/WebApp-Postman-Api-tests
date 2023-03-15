@@ -6484,13 +6484,44 @@
 			"item": [
 				{
 					"name": "New Request",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "c60b9a57-1fb4-4a37-a0a9-e2c1a8dcf7bc",
+								"exec": [
+									"pm.environment.set(\"app_id\", 48)",
+									"pm.environment.set(\"authorization_type_id\", 1186)",
+									"pm.environment.set(\"account_id\", 2)",
+									"pm.environment.set(\"endpoint_id\", 9409)",
+									"pm.environment.set(\"activityId\", 4389)",
+									"pm.environment.set(\"default_endpoint_id\", 9422)",
+									"pm.environment.set(\"polling_endpoint_id\", 9424)",
+									"pm.environment.set(\"auth_id\", 131874)",
+									"pm.environment.set(\"workspace_app_id\", 4209) // temporarily",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "8a63d673-53ae-4a70-a984-08986655aa7d",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"meta\": {\n        \"publishing_status\": \"DRAFT\",\n        \"branding_app_id\": {{app_id}},\n        \"product_info\": {\n            \"images\": [],\n            \"icon_url\": \"\"\n        },\n        \"branding_app\": {\n            \"id\": {{app_id}},\n            \"name\": \"Insightly\",\n            \"description\": \"Increase your productivity and collaborate efficiently with Insightly. Insightly develops cloud-based customer relationship management (CRM) and project management tools.\",\n            \"icon_url\": \"https://storage.googleapis.com/app-services-prod--bucket/public/d7ee3d42-aa51-4c38-aa41-e450bdd59236.png\",\n            \"color\": \"#FFEDE6\",\n            \"status\": 1,\n            \"app_url\": \"http://www.insightly.com\",\n            \"system_app\": false,\n            \"category\": [\n                {\n                    \"id\": 15,\n                    \"name\": \"Sales\",\n                    \"description\": null,\n                    \"slug\": \"sales\"\n                },\n                {\n                    \"id\": 168,\n                    \"name\": \"Productivity\",\n                    \"description\": null,\n                    \"slug\": \"productivity\"\n                }\n            ],\n            \"publishing_status\": \"PUBLISHED\",\n            \"is_public\": true,\n            \"is_app_ready\": true,\n            \"is_cloneable\": true,\n            \"account_id\": 2,\n            \"show_product_page\": false,\n            \"app_type\": \"INTEGRY\",\n            \"action_url\": null,\n            \"is_workspace\": true,\n            \"creator_id\": 1,\n            \"is_popular\": false,\n            \"is_visible\": true,\n            \"key\": \"a3011676-be6b-4583-9a65-c2f5f0296ae4\",\n            \"secret\": \"271d0f19-0353-44fb-8054-96b7be0b8a93\",\n            \"app_images\": [\n                {\n                    \"image_url\": \"https://storage.googleapis.com/app-services-prod--bucket/public/890661f4-60cb-456c-8374-dd125214f665.JPG\",\n                    \"id\": 9728\n                },\n                {\n                    \"image_url\": \"https://storage.googleapis.com/app-services-prod--bucket/public/00eadd88-28ac-4ac5-97b7-45331853122f.JPG\",\n                    \"id\": 9729\n                },\n                {\n                    \"image_url\": \"https://storage.googleapis.com/app-services-prod--bucket/public/2af4e01b-884a-499d-abdd-f2b12786ccaa.JPG\",\n                    \"id\": 9730\n                },\n                {\n                    \"image_url\": \"https://storage.googleapis.com/app-services-prod--bucket/public/c032d927-2f16-477d-8a2f-a7cb3e6d61ba.JPG\",\n                    \"id\": 9731\n                },\n                {\n                    \"image_url\": \"https://storage.googleapis.com/app-services-prod--bucket/public/836ba458-d8f7-4671-9838-f18d3ff386ad.JPG\",\n                    \"id\": 9732\n                }\n            ],\n            \"auto_created\": false,\n            \"authorization_type_count\": 2,\n            \"filters_count\": 0,\n            \"triggers_count\": 3,\n            \"actions_count\": 4,\n            \"queries_count\": 1,\n            \"adapters_count\": 0,\n            \"is_owned\": false\n        },\n        \"enable_error_throttle\": false,\n        \"is_error_notification_enabled\": true,\n        \"title\": \"Insigthly - SIB (Create Contact)\",\n        \"description\": \"trigger - action\",\n        \"lastInteractedStep\": {\n            \"stepPath\": \"steps[0]\",\n            \"stepData\": {\n                \"activity_id\": 4389,\n                \"activity_type\": \"TRIGGER\",\n                \"app_id\": {{app_id}},\n                \"fields\": [],\n                \"isCollapsed\": false,\n                \"is_visible\": true,\n                \"showChilds\": true,\n                \"step_uniqeId\": \"step_1\",\n                \"steps\": [],\n                \"title\": \"Configure Insightly\",\n                \"weight\": 1,\n                \"app_name\": \"Insightly\",\n                \"app\": {\n                    \"id\": {{app_id}},\n                    \"name\": \"Insightly\",\n                    \"description\": \"Increase your productivity and collaborate efficiently with Insightly. Insightly develops cloud-based customer relationship management (CRM) and project management tools.\",\n                    \"icon_url\": \"https://storage.googleapis.com/app-services-prod--bucket/public/d7ee3d42-aa51-4c38-aa41-e450bdd59236.png\",\n                    \"color\": \"#FFEDE6\",\n                    \"status\": 1,\n                    \"app_url\": \"http://www.insightly.com\",\n                    \"system_app\": false,\n                    \"category\": [\n                        {\n                            \"id\": 15,\n                            \"name\": \"Sales\",\n                            \"description\": null,\n                            \"slug\": \"sales\"\n                        },\n                        {\n                            \"id\": 168,\n                            \"name\": \"Productivity\",\n                            \"description\": null,\n                            \"slug\": \"productivity\"\n                        }\n                    ],\n                    \"publishing_status\": \"PUBLISHED\",\n                    \"is_public\": true,\n                    \"is_app_ready\": true,\n                    \"is_cloneable\": true,\n                    \"account_id\": 2,\n                    \"show_product_page\": false,\n                    \"app_type\": \"INTEGRY\",\n                    \"action_url\"Show more",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/v2/templates/"
 					},
 					"response": []
 				}
