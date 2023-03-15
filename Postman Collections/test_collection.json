@@ -6830,7 +6830,7 @@
 					]
 				},
 				{
-					"name": "Delete Activity",
+					"name": "Delete Activity and Cleanup Endpoints",
 					"event": [
 						{
 							"listen": "test",
