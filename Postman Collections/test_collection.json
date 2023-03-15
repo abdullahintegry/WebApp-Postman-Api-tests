@@ -6534,16 +6534,12 @@
 							"script": {
 								"id": "c60b9a57-1fb4-4a37-a0a9-e2c1a8dcf7bc",
 								"exec": [
-									"pm.environment.set(\"app_id\", 48)",
-									"pm.environment.set(\"authorization_type_id\", 1186)",
-									"pm.environment.set(\"account_id\", 2)",
-									"pm.environment.set(\"endpoint_id\", 9409)",
-									"pm.environment.set(\"activityId\", 4389)",
-									"pm.environment.set(\"default_endpoint_id\", 9422)",
-									"pm.environment.set(\"polling_endpoint_id\", 9424)",
-									"pm.environment.set(\"auth_id\", 131874)",
-									"pm.environment.set(\"workspace_app_id\", 4209) // temporarily",
-									""
+									"pm.environment.set(\"app_id\", 423)",
+									"pm.environment.set(\"authorization_type_id2\", 600)",
+									"pm.environment.set(\"endpoint_id2\", 5091)",
+									"pm.environment.set(\"activityId2\", 7272)",
+									"pm.environment.set(\"action_endpoint_id\", 21239)",
+									"pm.environment.set(\"auth_id2\", 131862)"
 								],
 								"type": "text/javascript"
 							}
