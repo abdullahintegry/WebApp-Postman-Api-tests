@@ -9435,56 +9435,50 @@
 			"name": "Pinecone Backfill",
 			"item": [
 				{
-					"name": "Dropdown Endpoints",
-					"item": [
+					"name": "Lists Dropdown Endpoints - Pinecone Backfill",
+					"event": [
 						{
-							"name": "Lists Dropdown Endpoints - Pinecone Backfill",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "4093c82b-f3ee-4ce8-a51c-ed33b94605d9",
-										"exec": [
-											"pm.test(\"Status code is 200\", () => {\r",
-											"  pm.response.to.have.status(200);\r",
-											"});\r",
-											"\r",
-											"pm.test(\"Content-Type header is present\", () => {\r",
-											"  pm.response.to.have.header(\"Content-Type\");\r",
-											"});\r",
-											"\r",
-											"const response = pm.response.json();\r",
-											"\r",
-											"pm.test(\"Test data type of the response\", () => {\r",
-											"  pm.expect(response).to.be.an(\"array\");\r",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"id": "648d67ba-a4e2-4b34-a9c6-9932b449794f",
-							"protocolProfileBehavior": {
-								"disableBodyPruning": true
-							},
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "GET",
-								"header": [
-									{
-										"key": "x-integry-hash",
-										"value": "{{internal_request_hash}}",
-										"type": "text"
-									}
+							"listen": "test",
+							"script": {
+								"id": "4093c82b-f3ee-4ce8-a51c-ed33b94605d9",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is present\", () => {\r",
+									"  pm.response.to.have.header(\"Content-Type\");\r",
+									"});\r",
+									"\r",
+									"const response = pm.response.json();\r",
+									"\r",
+									"pm.test(\"Test data type of the response\", () => {\r",
+									"  pm.expect(response).to.be.an(\"array\");\r",
+									"});"
 								],
-								"url": "{{base_url}}/api/v1/pinecone_backfill/dropdown_endpoints/"
-							},
-							"response": []
+								"type": "text/javascript"
+							}
 						}
 					],
-					"id": "553e8eda-428e-4236-8a79-80adbb470452"
+					"id": "648d67ba-a4e2-4b34-a9c6-9932b449794f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-integry-hash",
+								"value": "{{internal_request_hash}}",
+								"type": "text"
+							}
+						],
+						"url": "{{base_url}}/api/v1/pinecone_backfill/dropdown_endpoints/"
+					},
+					"response": []
 				}
 			],
 			"id": "435e74a9-5db3-47fe-80c0-18362252112d"
