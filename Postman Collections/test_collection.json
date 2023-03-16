@@ -7793,7 +7793,7 @@
 									"}\r",
 									"\r",
 									"var response = pm.response.json();\r",
-									"pm.environment.set(\"datatree_id\", response[0].id);\r",
+									"pm.environment.set(\"flow_poll_test_id\", response.test_guid);\r",
 									"\r",
 									"var keys_to_update = [\"id\", \"created\", \"last_modified\", \"trigger\"]\r",
 									"\r",
@@ -7818,11 +7818,7 @@
 							"script": {
 								"id": "4ead3193-0e38-4405-8732-899584831f9d",
 								"exec": [
-									"// const message = pm.environment.get('username');",
-									"const message = \"abdullah@integry.io\";",
-									"const key = pm.environment.get('appSecret');",
-									"const signBytes = CryptoJS.HmacSHA256(message, key)",
-									"pm.environment.set(\"appHash\", CryptoJS.enc.Hex.stringify(signBytes))"
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -7837,7 +7833,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"step_type\": \"TRIGGER\",\n    \"step_activity_id\": 4389,\n    \"fields\": {}\n}",
+							"raw": "{\n    \"authorization_id\": \"131874\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7845,18 +7841,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/endpoints/test/template/{{flow_id}}/datatree/{{datatree_id}}/replace_tags?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
+							"raw": "{{base_url}}/endpoints/test/trigger/{{activityId}}?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"endpoints",
 								"test",
-								"template",
-								"{{flow_id}}",
-								"datatree",
-								"{{datatree_id}}",
-								"replace_tags"
+								"trigger",
+								"{{activityId}}"
 							],
 							"query": [
 								{
