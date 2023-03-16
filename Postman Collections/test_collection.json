@@ -8620,7 +8620,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"authorization_id\": \"131874\"\n}",
+							"raw": "{}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -8628,7 +8628,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/endpoints/test/trigger/{{activityId}}?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
+							"raw": "{{base_url}}/endpoints/test/trigger/{{flow_poll_test_id}}/poll?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
 							"host": [
 								"{{base_url}}"
 							],
@@ -8636,7 +8636,8 @@
 								"endpoints",
 								"test",
 								"trigger",
-								"{{activityId}}"
+								"{{flow_poll_test_id}}",
+								"poll"
 							],
 							"query": [
 								{
