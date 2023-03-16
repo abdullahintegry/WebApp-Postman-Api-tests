@@ -6597,6 +6597,26 @@
 					"item": [
 						{
 							"name": "Lists Dropdown Endpoints - Pinecone Backfill",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4093c82b-f3ee-4ce8-a51c-ed33b94605d9",
+										"exec": [
+											"pm.test(\"Status code is 200\", () => {\r",
+											"  pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"const response = pm.response.json();\r",
+											"\r",
+											"pm.test(\"Test data type of the response\", () => {\r",
+											"  pm.expect(response).to.be.an(\"array\");\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"id": "648d67ba-a4e2-4b34-a9c6-9932b449794f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
