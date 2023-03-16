@@ -8505,64 +8505,6 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", () => {\r",
 									"  pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"var saved_response = [\r",
-									"    {\r",
-									"        \"id\": \"0b1cf2e3-007f-49a5-b1ad-3d21c5e0b685\",\r",
-									"        \"name\": \"Default\",\r",
-									"        \"template_id\": pm.environment.get(\"flow_id\"),\r",
-									"        \"user_id\": pm.environment.get(\"user_id\"),\r",
-									"        \"created\": \"2023-03-02T15:01:53.630631Z\",\r",
-									"        \"last_modified\": \"2023-03-02T15:01:53.630674Z\",\r",
-									"        \"trigger\": \"{\\\"instance_id\\\": \\\"16646.0b1cf2e3-007f-49a5-b1ad-3d21c5e0b685\\\"}\"\r",
-									"    }\r",
-									"]\r",
-									"\r",
-									"function _replacePropertyValue(objKeys, newVal, object) {\r",
-									"  const newObject = object;\r",
-									"\r",
-									"  for (var key in object) {\r",
-									"    if (objKeys.includes(key)) {\r",
-									"      newObject[key] = newVal;\r",
-									"    } else if (typeof(object[key]) === 'object' || typeof(object[key]) === 'array') {\r",
-									"      newObject[key] = replacePropertyValue(objKeys, newVal, object[key]);\r",
-									"    }\r",
-									"  }\r",
-									"\r",
-									"  return newObject;\r",
-									"}\r",
-									"\r",
-									"function replacePropertyValue(objKeys, newVal, object) {\r",
-									"    if (typeof (object) === 'array') {\r",
-									"        var items = []\r",
-									"        for (var item in object) {\r",
-									"            items.push(_replacePropertyValue(objKeys, newVal, item));\r",
-									"        }\r",
-									"        return items\r",
-									"    } else if (typeof (object) === 'object') {\r",
-									"        return _replacePropertyValue(objKeys, newVal, object);\r",
-									"    } else {\r",
-									"        return object\r",
-									"    }\r",
-									"}\r",
-									"\r",
-									"var response = pm.response.json();\r",
-									"pm.environment.set(\"flow_poll_test_id\", response.test_guid);\r",
-									"\r",
-									"var keys_to_update = [\"id\", \"created\", \"last_modified\", \"trigger\"]\r",
-									"\r",
-									"var expected_response = replacePropertyValue(keys_to_update, 0, saved_response);\r",
-									"var actual_response = replacePropertyValue(keys_to_update, 0, response);\r",
-									"\r",
-									"pm.test(\"Test data type of the response\", () => {\r",
-									"  pm.expect(pm.response.json()).to.be.an(\"array\");\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Validate schema of response\", () => {\r",
-									"  console.log(JSON.stringify(expected_response));\r",
-									"  console.log(JSON.stringify(actual_response));\r",
-									"  pm.expect(expected_response).to.deep.equal(actual_response);\r",
 									"});"
 								],
 								"type": "text/javascript"
@@ -8584,44 +8526,25 @@
 						"disableBodyPruning": true
 					},
 					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": {
+								"password": "https://api.na1.insightly.com",
+								"username": "b6150dda-34dd-46a2-9d12-034e279cb782"
+							}
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{}",
+							"raw": "{\n    \"FIRST_NAME\": \"test_{{uniqueId}}\",\n    \"EMAIL_ADDRESS\": \"test@integry.io\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "{{base_url}}/endpoints/test/trigger/{{flow_poll_test_id}}/poll?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"endpoints",
-								"test",
-								"trigger",
-								"{{flow_poll_test_id}}",
-								"poll"
-							],
-							"query": [
-								{
-									"key": "user_id",
-									"value": "abdullah@integry.io"
-								},
-								{
-									"key": "app_key",
-									"value": "{{appKey}}"
-								},
-								{
-									"key": "hash",
-									"value": "{{appHash}}"
-								}
-							]
-						}
+						"url": "https://api.na1.insightly.com/v3.1/Contacts"
 					},
 					"response": [
 						{
