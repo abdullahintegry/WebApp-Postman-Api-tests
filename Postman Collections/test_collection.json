@@ -6596,7 +6596,7 @@
 					"name": "Dropdown Endpoints",
 					"item": [
 						{
-							"name": "New Request",
+							"name": "Lists Dropdown Endpoints - Pinecone Backfill",
 							"id": "648d67ba-a4e2-4b34-a9c6-9932b449794f",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
