@@ -10494,7 +10494,7 @@
 									"                        \"type\": \"string\"\r",
 									"                    },\r",
 									"                    \"description\": {\r",
-									"                        \"type\": \"string\"\r",
+									"                        \"type\": [\"string\", \"null\"]\r",
 									"                    },\r",
 									"                    \"app\": {\r",
 									"                        \"type\": \"object\",\r",
