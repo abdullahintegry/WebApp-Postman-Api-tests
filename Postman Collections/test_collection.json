@@ -6594,7 +6594,20 @@
 			"item": [
 				{
 					"name": "Dropdown Endpoints",
-					"item": [],
+					"item": [
+						{
+							"name": "New Request",
+							"id": "648d67ba-a4e2-4b34-a9c6-9932b449794f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					],
 					"id": "553e8eda-428e-4236-8a79-80adbb470452"
 				}
 			],
