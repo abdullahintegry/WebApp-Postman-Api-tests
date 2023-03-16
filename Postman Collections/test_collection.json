@@ -8528,7 +8528,7 @@
 					]
 				},
 				{
-					"name": "/endpoints/test/trigger/4389 Copy",
+					"name": "Poll test",
 					"event": [
 						{
 							"listen": "test",
