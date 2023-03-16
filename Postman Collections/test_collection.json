@@ -6947,7 +6947,7 @@
 									"pm.environment.set(\"flow_parent_id\", response.meta.root_node_id);",
 									"pm.environment.set(\"flow_step_id\", response.steps[0].id);",
 									"",
-									"var keys_to_update = [\"meta.id\", \"steps[0].id\", \"meta.last_modified\", \"meta.created\", \"meta.revision_number\", \"meta.root_node_id\", \"steps.parent_id\", \"meta.last_modified_by.first_name\", \"meta.last_modified_by.last_name\"];",
+									"var keys_to_update = [\"meta.id\", \"steps[0].id\", \"meta.last_modified\", \"meta.created\", \"meta.revision_number\", \"meta.root_node_id\", \"steps[0].parent_id\", \"meta.last_modified_by.first_name\", \"meta.last_modified_by.last_name\"];",
 									"",
 									"var expected_response = replacePropertyValue(keys_to_update, saved_response);",
 									"var actual_response = replacePropertyValue(keys_to_update, response);",
