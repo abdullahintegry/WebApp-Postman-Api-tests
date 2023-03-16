@@ -6591,7 +6591,13 @@
 		},
 		{
 			"name": "Pinecone Backfill",
-			"item": [],
+			"item": [
+				{
+					"name": "New Folder",
+					"item": [],
+					"id": "553e8eda-428e-4236-8a79-80adbb470452"
+				}
+			],
 			"id": "435e74a9-5db3-47fe-80c0-18362252112d"
 		},
 		{
