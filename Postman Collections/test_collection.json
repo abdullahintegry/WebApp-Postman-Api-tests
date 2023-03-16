@@ -6603,7 +6603,8 @@
 							},
 							"request": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": "{{base_url}}/api/v1/pinecone_backfill/dropdown_endpoints/"
 							},
 							"response": []
 						}
