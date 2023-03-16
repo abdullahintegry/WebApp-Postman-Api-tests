@@ -8964,11 +8964,7 @@
 							"script": {
 								"id": "4ead3193-0e38-4405-8732-899584831f9d",
 								"exec": [
-									"// const message = pm.environment.get('username');",
-									"const message = \"abdullah@integry.io\";",
-									"const key = pm.environment.get('appSecret');",
-									"const signBytes = CryptoJS.HmacSHA256(message, key)",
-									"pm.environment.set(\"appHash\", CryptoJS.enc.Hex.stringify(signBytes))"
+									""
 								],
 								"type": "text/javascript"
 							}
