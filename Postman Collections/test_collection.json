@@ -7415,6 +7415,20 @@
 								],
 								"type": "text/javascript"
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ead3193-0e38-4405-8732-899584831f9d",
+								"exec": [
+									"// const message = pm.environment.get('username');",
+									"const message = \"abdullah@integry.io\";",
+									"const key = pm.environment.get('appSecret');",
+									"const signBytes = CryptoJS.HmacSHA256(message, key)",
+									"pm.environment.set(\"appHash\", CryptoJS.enc.Hex.stringify(signBytes))"
+								],
+								"type": "text/javascript"
+							}
 						}
 					],
 					"id": "4839cf52-24b3-499b-ae77-3bdaed880342",
@@ -7422,7 +7436,7 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -7433,7 +7447,38 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/api/v2/templates/{{flow_id}}/datatree/"
+						"url": {
+							"raw": "{{base_url}}/endpoints/test/template/{{flow_id}}/datatree/{{datatree_id}}/replace_tags?user_id=abdullah@integry.io&app_key={{appKey}}&hash=249ac0f9045081132dd206de2fc09a6219bb2167c11c736d1f3757761545975c",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"endpoints",
+								"test",
+								"template",
+								"{{flow_id}}",
+								"datatree",
+								"{{datatree_id}}",
+								"replace_tags"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "abdullah@integry.io",
+									"type": "text"
+								},
+								{
+									"key": "app_key",
+									"value": "{{appKey}}",
+									"type": "text"
+								},
+								{
+									"key": "hash",
+									"value": "249ac0f9045081132dd206de2fc09a6219bb2167c11c736d1f3757761545975c",
+									"type": "text"
+								}
+							]
+						}
 					},
 					"response": [
 						{
