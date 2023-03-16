@@ -6590,6 +6590,11 @@
 			"id": "77ee7aca-0a05-44e0-82f2-6c20d0198b10"
 		},
 		{
+			"name": "New Folder",
+			"item": [],
+			"id": "435e74a9-5db3-47fe-80c0-18362252112d"
+		},
+		{
 			"name": "/api/endpoints/ Copy",
 			"event": [
 				{
