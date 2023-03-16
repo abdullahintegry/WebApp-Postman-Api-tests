@@ -8505,7 +8505,9 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", () => {\r",
 									"  pm.response.to.have.status(200);\r",
-									"});"
+									"});\r",
+									"\r",
+									"pm.environment.set(\"insightly_contact_id\", pm.response.json().CONTACT_ID)"
 								],
 								"type": "text/javascript"
 							}
@@ -8537,7 +8539,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"FIRST_NAME\": \"test_{{uniqueId}}\",\n    \"EMAIL_ADDRESS\": \"test@integry.io\"\n}",
+							"raw": "{\n    \"FIRST_NAME\": \"test_{{uniqueId}}\",\n    \"LAST_NAME\": \"integry\",\n    \"EMAIL_ADDRESS\": \"test@integry.io\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
