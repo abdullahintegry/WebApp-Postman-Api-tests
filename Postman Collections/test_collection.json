@@ -7440,7 +7440,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\n    \"step_type\": \"TRIGGER\",\n    \"step_activity_id\": 4389,\n    \"fields\": {}\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -7448,7 +7448,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/endpoints/test/template/{{flow_id}}/datatree/{{datatree_id}}/replace_tags?user_id=abdullah@integry.io&app_key={{appKey}}&hash=249ac0f9045081132dd206de2fc09a6219bb2167c11c736d1f3757761545975c",
+							"raw": "{{base_url}}/endpoints/test/template/{{flow_id}}/datatree/{{datatree_id}}/replace_tags?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
 							"host": [
 								"{{base_url}}"
 							],
@@ -7464,18 +7464,15 @@
 							"query": [
 								{
 									"key": "user_id",
-									"value": "abdullah@integry.io",
-									"type": "text"
+									"value": "abdullah@integry.io"
 								},
 								{
 									"key": "app_key",
-									"value": "{{appKey}}",
-									"type": "text"
+									"value": "{{appKey}}"
 								},
 								{
 									"key": "hash",
-									"value": "249ac0f9045081132dd206de2fc09a6219bb2167c11c736d1f3757761545975c",
-									"type": "text"
+									"value": "{{appHash}}"
 								}
 							]
 						}
