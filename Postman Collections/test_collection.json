@@ -9252,7 +9252,7 @@
 					]
 				},
 				{
-					"name": "Update Datatree meta-data",
+					"name": "Update Datatree trigger_metadata",
 					"event": [
 						{
 							"listen": "test",
