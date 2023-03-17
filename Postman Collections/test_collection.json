@@ -10010,9 +10010,18 @@
 							"script": {
 								"id": "4ead3193-0e38-4405-8732-899584831f9d",
 								"exec": [
+									"pm.environment.set(\"app_id2\", 423)",
+									"pm.environment.set(\"authorization_type_id2\", 600)",
+									"pm.environment.set(\"endpoint_id2\", 5091)",
+									"pm.environment.set(\"activityId2\", 7272)",
+									"pm.environment.set(\"action_endpoint_id\", 21239)",
+									"pm.environment.set(\"auth_id2\", 131862)",
+									"pm.environment.set(\"appKey2\", \"ee8d7314-6205-49df-b9d9-8611bdef09d9\")",
+									"pm.environment.set(\"appSecret2\", \"24972327-cfac-4ba3-9d5d-0ff3f45e1c81\")",
+									"",
 									"// const message = pm.environment.get('username');",
 									"const message = \"abdullah@integry.io\";",
-									"const key = pm.environment.get('appSecret');",
+									"const key = pm.environment.get('appSecret2');",
 									"const signBytes = CryptoJS.HmacSHA256(message, key)",
 									"pm.environment.set(\"appHash\", CryptoJS.enc.Hex.stringify(signBytes))"
 								],
@@ -10037,7 +10046,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/endpoints/test/template/{{flow_id}}/datatree/{{datatree_id}}/replace_tags?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
+							"raw": "{{base_url}}/endpoints/test/template/{{flow_id}}/datatree/{{datatree_id}}/replace_tags?user_id=abdullah@integry.io&app_key={{appKey2}}&hash={{appHash2}}",
 							"host": [
 								"{{base_url}}"
 							],
@@ -10057,11 +10066,11 @@
 								},
 								{
 									"key": "app_key",
-									"value": "{{appKey}}"
+									"value": "{{appKey2}}"
 								},
 								{
 									"key": "hash",
-									"value": "{{appHash}}"
+									"value": "{{appHash2}}"
 								}
 							]
 						}
