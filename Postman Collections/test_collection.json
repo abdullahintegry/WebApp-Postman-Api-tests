@@ -8539,7 +8539,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"FIRST_NAME\": \"test_{{uniqueId}}\",\n    \"LAST_NAME\": \"integry\",\n    \"EMAIL_ADDRESS\": \"test@integry.io\"\n}",
+							"raw": "{\n    \"FIRST_NAME\": \"test_{{uniqueId}}\",\n    \"LAST_NAME\": \"integry\",\n    \"EMAIL_ADDRESS\": \"test+{{uniqueId}}@integry.io\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
