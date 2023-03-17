@@ -10443,112 +10443,36 @@
 					"response": []
 				}
 			],
-			"id": "77ee7aca-0a05-44e0-82f2-6c20d0198b10"
-		},
-		{
-			"name": "Pinecone Backfill",
-			"item": [
-				{
-					"name": "Lists Dropdown Endpoints - Pinecone Backfill",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "4093c82b-f3ee-4ce8-a51c-ed33b94605d9",
-								"exec": [
-									"pm.test(\"Status code is 200\", () => {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Content-Type header is present\", () => {\r",
-									"    pm.response.to.have.header(\"Content-Type\");\r",
-									"});\r",
-									"\r",
-									"const response = pm.response.json();\r",
-									"\r",
-									"pm.test(\"Test data type of the response\", () => {\r",
-									"    pm.expect(response).to.be.an(\"object\");\r",
-									"});\r",
-									"\r",
-									"const schema = {\r",
-									"    \"type\": \"object\",\r",
-									"    \"properties\": {\r",
-									"        \"count\": {\r",
-									"            \"type\": \"integer\"\r",
-									"        },\r",
-									"        \"next\": {\r",
-									"            \"type\": \"string\"\r",
-									"        },\r",
-									"        \"previous\": {\r",
-									"            \"type\": [\"string\", \"null\"]\r",
-									"        },\r",
-									"        \"results\": {\r",
-									"            \"type\": \"array\",\r",
-									"            \"items\": {\r",
-									"                \"type\": \"object\",\r",
-									"                \"properties\": {\r",
-									"                    \"id\": {\r",
-									"                        \"type\": \"integer\"\r",
-									"                    },\r",
-									"                    \"name\": {\r",
-									"                        \"type\": \"string\"\r",
-									"                    },\r",
-									"                    \"description\": {\r",
-									"                        \"type\": [\"string\", \"null\"]\r",
-									"                    },\r",
-									"                    \"app\": {\r",
-									"                        \"type\": \"object\",\r",
-									"                        \"properties\": {\r",
-									"                            \"id\": {\r",
-									"                                \"type\": \"integer\"\r",
-									"                            },\r",
-									"                            \"name\": {\r",
-									"                                \"type\": \"string\"\r",
-									"                            }\r",
-									"                        },\r",
-									"                        \"required\": [\"id\", \"name\"]\r",
-									"                    }\r",
-									"                },\r",
-									"                \"required\": [\"id\", \"name\", \"description\", \"app\"]\r",
-									"            }\r",
-									"        }\r",
-									"    },\r",
-									"    \"required\": [\"count\", \"next\", \"previous\", \"results\"]\r",
-									"};\r",
-									"\r",
-									"pm.test('Schema is valid', function () {\r",
-									"    const result = tv4.validateMultiple(response, schema);\r",
-									"    if (!result.valid)\r",
-									"        console.log('Errors', result.errors);\r",
-									"    pm.expect(result.valid).to.be.true;\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "648d67ba-a4e2-4b34-a9c6-9932b449794f",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "x-integry-hash",
-								"value": "{{internal_request_hash}}",
-								"type": "text"
-							}
-						],
-						"url": "{{base_url}}/api/v1/pinecone_backfill/dropdown_endpoints/"
-					},
-					"response": []
+			"id": "77ee7aca-0a05-44e0-82f2-6c20d0198b10",
+			"auth": {
+				"type": "basic",
+				"basic": {
+					"password": "Integry@13119",
+					"username": "abdullah@integry.io"
 				}
-			],
-			"id": "435e74a9-5db3-47fe-80c0-18362252112d"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c69fe189-77d0-4345-ae13-e8ebd20697bd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "15c12dcb-45b6-4dd8-83e0-37a05011a281",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Test Flow",
