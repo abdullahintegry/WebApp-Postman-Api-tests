@@ -6490,9 +6490,9 @@
 							"script": {
 								"id": "c60b9a57-1fb4-4a37-a0a9-e2c1a8dcf7bc",
 								"exec": [
-									"// pm.environment.set(\"app_id\", 48)",
-									"// pm.environment.set(\"authorization_type_id\", 1186)",
-									"// pm.environment.set(\"account_id\", 2)",
+									"pm.environment.set(\"app_id\", 48)",
+									"pm.environment.set(\"authorization_type_id\", 1186)",
+									"pm.environment.set(\"account_id\", 791)",
 									"pm.environment.set(\"user_id\", 1)",
 									"pm.environment.set(\"endpoint_id\", 9409)",
 									"pm.environment.set(\"activityId\", 4389)",
@@ -6501,7 +6501,7 @@
 									"pm.environment.set(\"auth_id\", 131874)",
 									"pm.environment.set(\"appKey\", \"a3011676-be6b-4583-9a65-c2f5f0296ae4\")",
 									"pm.environment.set(\"appSecret\", \"271d0f19-0353-44fb-8054-96b7be0b8a93\")",
-									"pm.environment.set(\"workspace_app_id\", 4209) // temporarily",
+									"pm.environment.set(\"workspace_app_id\", 12825) // temporarily",
 									""
 								],
 								"type": "text/javascript"
