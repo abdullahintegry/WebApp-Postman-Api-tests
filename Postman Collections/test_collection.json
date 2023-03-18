@@ -11249,7 +11249,7 @@
 					]
 				},
 				{
-					"name": "Poll test Copy",
+					"name": "Action test",
 					"event": [
 						{
 							"listen": "test",
