@@ -10005,6 +10005,15 @@
 							"script": {
 								"id": "4ead3193-0e38-4405-8732-899584831f9d",
 								"exec": [
+									"pm.environment.set(\"app_id2\", 423)",
+									"pm.environment.set(\"authorization_type_id2\", 600)",
+									"pm.environment.set(\"endpoint_id2\", 5091)",
+									"pm.environment.set(\"activityId2\", 7272)",
+									"pm.environment.set(\"action_endpoint_id\", 21239)",
+									"pm.environment.set(\"auth_id2\", 131862)",
+									"pm.environment.set(\"appKey2\", \"ee8d7314-6205-49df-b9d9-8611bdef09d9\")",
+									"pm.environment.set(\"appSecret2\", \"0a0a670f-4004-4a21-89bf-32fb7da4f4ee\")",
+									"",
 									"// const message = pm.environment.get('username');",
 									"const message = \"abdullah@integry.io\";",
 									"const key = pm.environment.get('appSecret2');",
