@@ -11349,7 +11349,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/endpoints/test/action/{{activityId2}}/poll?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
+							"raw": "{{base_url}}/endpoints/test/action/{{activityId2}}/poll?user_id=abdullah@integry.io&app_key={{appKey2}}&hash={{appHash2}}",
 							"host": [
 								"{{base_url}}"
 							],
@@ -11367,11 +11367,11 @@
 								},
 								{
 									"key": "app_key",
-									"value": "{{appKey}}"
+									"value": "{{appKey2}}"
 								},
 								{
 									"key": "hash",
-									"value": "{{appHash}}"
+									"value": "{{appHash2}}"
 								}
 							]
 						}
