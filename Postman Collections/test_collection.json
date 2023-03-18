@@ -11341,7 +11341,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{}",
+							"raw": "{\n    \"authorization_id\": \"131862\",\n    \"input_data\": {\n        \"email\": \"test+{{uniqueId}}@integry.io\",\n        \"listid\": \"3\",\n        \"sendinblue_attributes\": [],\n        \"emailBlacklisted\": \"0\",\n        \"smsBlacklisted\": \"0\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -11349,15 +11349,15 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/endpoints/test/trigger/{{flow_poll_test_id}}/poll?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
+							"raw": "{{base_url}}/endpoints/test/action/{{activityId2}}/poll?user_id=abdullah@integry.io&app_key={{appKey}}&hash={{appHash}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"endpoints",
 								"test",
-								"trigger",
-								"{{flow_poll_test_id}}",
+								"action",
+								"{{activityId2}}",
 								"poll"
 							],
 							"query": [
