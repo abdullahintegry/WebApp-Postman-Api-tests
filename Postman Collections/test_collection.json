@@ -10031,15 +10031,6 @@
 					"request": {
 						"method": "POST",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"step_type\": \"ACTION\",\n    \"step_activity_id\": 7272,\n    \"fields\": {\n        \"email\": \"test+{{uniqueId}}@integry.io\",\n        \"listid\": \"3\",\n        \"sendinblue_attributes\": {},\n        \"emailBlacklisted\": false,\n        \"smsBlacklisted\": false\n    }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
 						"url": {
 							"raw": "{{base_url}}/auth/verify?user_id=abdullah@integry.io&app_key={{appKey2}}&hash={{appHash2}}&account_id=791&authorization_id=131862&return_error=true",
 							"host": [
@@ -10052,33 +10043,27 @@
 							"query": [
 								{
 									"key": "user_id",
-									"value": "abdullah@integry.io",
-									"type": "text"
+									"value": "abdullah@integry.io"
 								},
 								{
 									"key": "app_key",
-									"value": "{{appKey2}}",
-									"type": "text"
+									"value": "{{appKey2}}"
 								},
 								{
 									"key": "hash",
-									"value": "{{appHash2}}",
-									"type": "text"
+									"value": "{{appHash2}}"
 								},
 								{
 									"key": "account_id",
-									"value": "791",
-									"type": "text"
+									"value": "791"
 								},
 								{
 									"key": "authorization_id",
-									"value": "131862",
-									"type": "text"
+									"value": "131862"
 								},
 								{
 									"key": "return_error",
-									"value": "true",
-									"type": "text"
+									"value": "true"
 								}
 							]
 						}
