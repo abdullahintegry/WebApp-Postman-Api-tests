@@ -11741,7 +11741,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/endpoints/test/action/{{activityId2}}/poll?user_id=abdullah@integry.io&app_key={{appKey2}}&hash={{appHash2}}",
+							"raw": "{{base_url}}/endpoints/test/action/{{activityId2}}?user_id=abdullah@integry.io&app_key={{appKey2}}&hash={{appHash2}}",
 							"host": [
 								"{{base_url}}"
 							],
@@ -11749,8 +11749,7 @@
 								"endpoints",
 								"test",
 								"action",
-								"{{activityId2}}",
-								"poll"
+								"{{activityId2}}"
 							],
 							"query": [
 								{
