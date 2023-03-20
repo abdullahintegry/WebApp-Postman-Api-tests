@@ -11179,7 +11179,7 @@
 									"var response = pm.response.json();",
 									"pm.environment.set(\"flow_revision_number\", response.meta.revision_number);",
 									"pm.environment.set(\"flow_step_id\", response.steps[0].id);",
-									"pm.environment.set(\"flow_step_id2\", response.steps[0].steps[0].id);",
+									"pm.environment.set(\"flow_step_id2\", response.steps[1].id);",
 									"",
 									"var keys_to_update = [\"last_modified\", \"revision_number\",\"name\", \"bundle_url\", \"fields\", \"created\", \"id\", \"system_app\", \"type\", \"app_id\", \"triggers_count\", \"queries_count\", \"actions_count\", \"custom_fields\", \"user_identity\", \"title\", \"is_visible\", \"publishing_status\", \"hide_authorization\", \"first_name\", \"last_name\"];",
 									"",
