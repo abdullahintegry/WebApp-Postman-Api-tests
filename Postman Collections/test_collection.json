@@ -10018,7 +10018,7 @@
 									"const message = \"abdullah@integry.io\";",
 									"const key = pm.environment.get('appSecret2');",
 									"const signBytes = CryptoJS.HmacSHA256(message, key)",
-									"pm.environment.set(\"appHash\", CryptoJS.enc.Hex.stringify(signBytes))"
+									"pm.environment.set(\"appHash2\", CryptoJS.enc.Hex.stringify(signBytes))"
 								],
 								"type": "text/javascript"
 							}
@@ -10032,7 +10032,7 @@
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/auth/verify?user_id=abdullah@integry.io&app_key={{appKey2}}&hash={{appHash2}}&account_id=791&authorization_id=131862&return_error=true",
+							"raw": "{{base_url}}/auth/verify?user_id=abdullah@integry.io&app_key={{appKey2}}&hash={{appHash2}}&account_id=791&authorization_id=131862",
 							"host": [
 								"{{base_url}}"
 							],
@@ -10063,7 +10063,8 @@
 								},
 								{
 									"key": "return_error",
-									"value": "true"
+									"value": "true",
+									"disabled": true
 								}
 							]
 						}
