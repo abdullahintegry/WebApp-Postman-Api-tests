@@ -15868,7 +15868,7 @@
 									"                    console.log (response);",
 									"                    pm.sendRequest (createContactInInsightly, (err, res) => {",
 									"                        const response = res.json ();",
-									"                        pm.environment.set(\"insightly_contact_id\", pm.response.json().CONTACT_ID)",
+									"                        pm.environment.set(\"insightly_contact_id\", response.CONTACT_ID)",
 									"                        console.log (response);",
 									"                        pm.sendRequest (pollTest, (err, res) => {",
 									"                            const response = res.json ();",
