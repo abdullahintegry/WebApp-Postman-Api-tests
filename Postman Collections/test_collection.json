@@ -12928,6 +12928,994 @@
 						"url": "{{base_url}}/api/bundles/"
 					},
 					"response": []
+				},
+				{
+					"name": "Create Integration",
+					"id": "634e1f2a-aae9-4854-9961-4052edf633cf",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"SDK (Insightly - SIB)\",\n    \"cards\": [\n        {\n            \"template_id\": {{flow_id}},\n            \"type\": \"template\",\n            \"weight\": 1,\n            \"id\": {{flow_id}}\n        }\n    ],\n    \"app_id\": 12825,\n    \"status\": 1,\n    \"bundle_type\": \"SDK\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/bundles/"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/v3/templates/3144/integrations/ Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e675e3d6-1e24-48d4-b09e-ca1e970f3641",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Test data type of the response\", () => {\r",
+									"  pm.expect(response).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"var saved_response = {\r",
+									"    \"count\": 0,\r",
+									"    \"meta\": {\r",
+									"        \"template\": {\r",
+									"            \"id\": pm.environment.get(\"flow_id\"),\r",
+									"            \"name\": \"Insightly Flow\",\r",
+									"            \"description\": \"This is created by QA Bot for Testing.\",\r",
+									"            \"app\": {\r",
+									"                \"id\": pm.environment.get(\"app_id\"),\r",
+									"                \"name\": \"Insightly Test App\",\r",
+									"                \"description\": \"qa\",\r",
+									"                \"icon_url\": \"https://storage.googleapis.com/app-services-bucket/public/4e1ebaa3-1982-4145-8098-dab714571424.jpeg\",\r",
+									"                \"color\": \"#df6c6c\",\r",
+									"                \"publishing_status\": \"PUBLISHED\",\r",
+									"                \"category\": null,\r",
+									"                \"app_type\": \"INTEGRY\"\r",
+									"            },\r",
+									"            \"steps\": [\r",
+									"                {\r",
+									"                    \"id\": 60581,\r",
+									"                    \"weight\": 1,\r",
+									"                    \"title\": \"Tree Root: Insightly Test Flow\",\r",
+									"                    \"is_visible\": true,\r",
+									"                    \"activity\": null,\r",
+									"                    \"allow_multiple_authorizations\": true,\r",
+									"                    \"summary\": null,\r",
+									"                    \"auth_description\": null\r",
+									"                },\r",
+									"                {\r",
+									"                    \"id\": 60582,\r",
+									"                    \"weight\": 1,\r",
+									"                    \"title\": \"Configure Insightly_Test_App\",\r",
+									"                    \"is_visible\": true,\r",
+									"                    \"activity\": {\r",
+									"                        \"id\": 41269,\r",
+									"                        \"name\": \"Trigger the new created Contacts.\",\r",
+									"                        \"type\": \"TRIGGER\",\r",
+									"                        \"endpoint\": \"https://beta.integry.io/endpoints/call/120907\",\r",
+									"                        \"auth_required\": true,\r",
+									"                        \"total_fields\": 0,\r",
+									"                        \"app\": {\r",
+									"                            \"id\": 39273,\r",
+									"                            \"name\": \"Insightly Test App\",\r",
+									"                            \"description\": \"qa\",\r",
+									"                            \"icon_url\": \"https://storage.googleapis.com/app-services-bucket/public/4e1ebaa3-1982-4145-8098-dab714571424.jpeg\",\r",
+									"                            \"color\": \"#df6c6c\",\r",
+									"                            \"publishing_status\": \"PUBLISHED\",\r",
+									"                            \"category\": null,\r",
+									"                            \"app_type\": \"INTEGRY\"\r",
+									"                        },\r",
+									"                        \"activity_output\": null,\r",
+									"                        \"activity_output_url\": null\r",
+									"                    },\r",
+									"                    \"allow_multiple_authorizations\": true,\r",
+									"                    \"summary\": \"\",\r",
+									"                    \"auth_description\": null\r",
+									"                },\r",
+									"                {\r",
+									"                    \"id\": 60583,\r",
+									"                    \"weight\": 1,\r",
+									"                    \"title\": \"Configure SendInBlue_Test_App\",\r",
+									"                    \"is_visible\": true,\r",
+									"                    \"activity\": {\r",
+									"                        \"id\": 41270,\r",
+									"                        \"name\": \"Action: Create Contact in Send In Blue\",\r",
+									"                        \"type\": \"ACTION\",\r",
+									"                        \"endpoint\": \"https://beta.integry.io/endpoints/call/120905\",\r",
+									"                        \"auth_required\": true,\r",
+									"                        \"total_fields\": 3,\r",
+									"                        \"app\": {\r",
+									"                            \"id\": 39274,\r",
+									"                            \"name\": \"SendInBlue_\",\r",
+									"                            \"description\": \"Sendinblue is a SaaS solution for relationship marketing. Build deeper and meaningful relationships with your customers.\",\r",
+									"                            \"icon_url\": \"https://storage.googleapis.com/app-services-bucket/public/8c0f3e48-a9b3-4df1-8e2f-ab44ccbce4e0.png\",\r",
+									"                            \"color\": null,\r",
+									"                            \"publishing_status\": \"PUBLISHED\",\r",
+									"                            \"category\": null,\r",
+									"                            \"app_type\": \"INTEGRY\"\r",
+									"                        },\r",
+									"                        \"activity_output\": null,\r",
+									"                        \"activity_output_url\": null\r",
+									"                    },\r",
+									"                    \"allow_multiple_authorizations\": true,\r",
+									"                    \"summary\": \"\",\r",
+									"                    \"auth_description\": null\r",
+									"                },\r",
+									"                {\r",
+									"                    \"id\": 60584,\r",
+									"                    \"weight\": 1,\r",
+									"                    \"title\": \"Configure SendInBlue_Test_App\",\r",
+									"                    \"is_visible\": true,\r",
+									"                    \"activity\": {\r",
+									"                        \"id\": 41270,\r",
+									"                        \"name\": \"Action: Create Contact in Send In Blue\",\r",
+									"                        \"type\": \"ACTION\",\r",
+									"                        \"endpoint\": \"https://beta.integry.io/endpoints/call/120905\",\r",
+									"                        \"auth_required\": true,\r",
+									"                        \"total_fields\": 3,\r",
+									"                        \"app\": {\r",
+									"                            \"id\": 39274,\r",
+									"                            \"name\": \"SendInBlue_\",\r",
+									"                            \"description\": \"Sendinblue is a SaaS solution for relationship marketing. Build deeper and meaningful relationships with your customers.\",\r",
+									"                            \"icon_url\": \"https://storage.googleapis.com/app-services-bucket/public/8c0f3e48-a9b3-4df1-8e2f-ab44ccbce4e0.png\",\r",
+									"                            \"color\": null,\r",
+									"                            \"publishing_status\": \"PUBLISHED\",\r",
+									"                            \"category\": null,\r",
+									"                            \"app_type\": \"INTEGRY\"\r",
+									"                        },\r",
+									"                        \"activity_output\": null,\r",
+									"                        \"activity_output_url\": null\r",
+									"                    },\r",
+									"                    \"allow_multiple_authorizations\": true,\r",
+									"                    \"summary\": \"\",\r",
+									"                    \"auth_description\": null\r",
+									"                },\r",
+									"                {\r",
+									"                    \"id\": 60585,\r",
+									"                    \"weight\": 1,\r",
+									"                    \"title\": \"Configure SendInBlue_Test_App\",\r",
+									"                    \"is_visible\": true,\r",
+									"                    \"activity\": {\r",
+									"                        \"id\": 41270,\r",
+									"                        \"name\": \"Action: Create Contact in Send In Blue\",\r",
+									"                        \"type\": \"ACTION\",\r",
+									"                        \"endpoint\": \"https://beta.integry.io/endpoints/call/120905\",\r",
+									"                        \"auth_required\": true,\r",
+									"                        \"total_fields\": 3,\r",
+									"                        \"app\": {\r",
+									"                            \"id\": 39274,\r",
+									"                            \"name\": \"SendInBlue_\",\r",
+									"                            \"description\": \"Sendinblue is a SaaS solution for relationship marketing. Build deeper and meaningful relationships with your customers.\",\r",
+									"                            \"icon_url\": \"https://storage.googleapis.com/app-services-bucket/public/8c0f3e48-a9b3-4df1-8e2f-ab44ccbce4e0.png\",\r",
+									"                            \"color\": null,\r",
+									"                            \"publishing_status\": \"PUBLISHED\",\r",
+									"                            \"category\": null,\r",
+									"                            \"app_type\": \"INTEGRY\"\r",
+									"                        },\r",
+									"                        \"activity_output\": null,\r",
+									"                        \"activity_output_url\": null\r",
+									"                    },\r",
+									"                    \"allow_multiple_authorizations\": true,\r",
+									"                    \"summary\": \"\",\r",
+									"                    \"auth_description\": null\r",
+									"                }\r",
+									"            ],\r",
+									"            \"icon_url\": null,\r",
+									"            \"publishing_status\": \"PUBLISHED\",\r",
+									"            \"is_wizard\": false,\r",
+									"            \"button_text\": null,\r",
+									"            \"branding_app\": {\r",
+									"                \"id\": 39273,\r",
+									"                \"name\": \"Insightly Test App\",\r",
+									"                \"icon_url\": \"https://storage.googleapis.com/app-services-bucket/public/4e1ebaa3-1982-4145-8098-dab714571424.jpeg\",\r",
+									"                \"color\": \"#df6c6c\",\r",
+									"                \"publishing_status\": \"PUBLISHED\",\r",
+									"                \"category\": null\r",
+									"            },\r",
+									"            \"tags\": null\r",
+									"        }\r",
+									"    },\r",
+									"    \"total_pages\": 1,\r",
+									"    \"results\": [],\r",
+									"    \"links\": {\r",
+									"        \"previous\": null,\r",
+									"        \"next\": null\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"function _replacePropertyValue(objKeys, newVal, object) {\r",
+									"  const newObject = object;\r",
+									"\r",
+									"  for (var key in object) {\r",
+									"    if (objKeys.includes(key)) {\r",
+									"      newObject[key] = newVal;\r",
+									"    } else if (typeof(object[key]) === 'object' || typeof(object[key]) === 'array') {\r",
+									"      newObject[key] = replacePropertyValue(objKeys, newVal, object[key]);\r",
+									"    }\r",
+									"  }\r",
+									"\r",
+									"  return newObject;\r",
+									"}\r",
+									"\r",
+									"function replacePropertyValue(objKeys, newVal, object) {\r",
+									"    if (typeof (object) === 'array') {\r",
+									"        var items = []\r",
+									"        for (var item in object) {\r",
+									"            items.push(_replacePropertyValue(objKeys, newVal, item));\r",
+									"        }\r",
+									"        return items\r",
+									"    } else if (typeof (object) === 'object') {\r",
+									"        return _replacePropertyValue(objKeys, newVal, object);\r",
+									"    } else {\r",
+									"        return object\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"var response = pm.response.json();\r",
+									"\r",
+									"var keys_to_update = [\"id\", \"endpoint\"];\r",
+									"\r",
+									"\r",
+									"var expected_response = replacePropertyValue(keys_to_update, 0, saved_response);\r",
+									"var actual_response = replacePropertyValue(keys_to_update, 0, response);\r",
+									"\r",
+									"pm.test(\"Validate schema of response\", () => {\r",
+									"  pm.environment.set(\"expected\", JSON.stringify(expected_response));\r",
+									"  pm.environment.set(\"actual\", JSON.stringify(actual_response));\r",
+									"  pm.expect(expected_response).to.deep.equal(actual_response);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "e689cb3a-3317-4b4a-a053-7c7347fda7d5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://app.integry.io/api/v3/templates/{{flow_id}}/integrations/?page=1&page_size=10&ordering=-last_run_start_time",
+							"protocol": "https",
+							"host": [
+								"app",
+								"integry",
+								"io"
+							],
+							"path": [
+								"api",
+								"v3",
+								"templates",
+								"{{flow_id}}",
+								"integrations",
+								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "page_size",
+									"value": "10"
+								},
+								{
+									"key": "ordering",
+									"value": "-last_run_start_time"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"id": "44a2d962-a4f7-4e2a-bcaa-72f20e21af60",
+							"name": "https://app.integry.io/api/v3/templates/3144/integrations/?status=enabled",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/view/flow/3144/integrations/?status=enabled"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "8310956"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/v3/templates/3144/integrations/?status=enabled",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"v3",
+										"templates",
+										"3144",
+										"integrations",
+										""
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "enabled"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:59:37 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "9861"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"count\":0,\"meta\":{\"template\":{\"id\":3144,\"name\":\"Mailchimp\",\"description\":null,\"app\":{\"id\":1028,\"name\":\"5th may mahima\",\"description\":\"mahima is testing app\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/4f64c600-c4f0-487e-8b4d-871a05b13a53.jpg\",\"color\":\"#d90808\",\"publishing_status\":\"DRAFT\",\"category\":[\"Accounting Software\",\"Accounting Software\"],\"app_type\":\"INTEGRY\"},\"steps\":[{\"id\":41038,\"weight\":0,\"title\":\"Tree Root: HubSpot\",\"is_visible\":true,\"activity\":null,\"allow_multiple_authorizations\":true,\"summary\":null,\"auth_description\":null},{\"id\":41042,\"weight\":1,\"title\":\"Configure Mailchimp\",\"is_visible\":false,\"activity\":{\"id\":3081,\"name\":\"New subscriber in list V1\",\"type\":\"TRIGGER\",\"endpoint\":\"https://app.integry.io/endpoints/call/6595\",\"auth_required\":true,\"total_fields\":3,\"app\":{\"id\":502,\"name\":\"Mailchimp\",\"description\":\"Mailchimp is a marketing automation platform and an email marketing service and a trading name of its operator, Rocket Science Group, an American company founded in 2001. Mailchimp began as a paid service and added a freemium option in 2009.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/316c9627-8f84-4e83-9264-6e4fcf06cf0c.png\",\"color\":\"#dddddd\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\r\\n\\\"id\\\": \\\"\\\",\\r\\n\\\"list_id\\\": \\\"\\\",\\r\\n\\\"email\\\": \\\"\\\",\\r\\n\\\"email_type\\\": \\\"\\\",\\r\\n\\\"ip_opt\\\": \\\"\\\",\\r\\n\\\"ip_signup\\\": \\\"\\\"\\r\\n}\",\"activity_output_url\":\"https://app.integry.io/endpoints/call/6614\"},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":41043,\"weight\":1,\"title\":\"Configure Mailchimp\",\"is_visible\":false,\"activity\":{\"id\":3336,\"name\":\"Create Subscriber in List V2\",\"type\":\"ACTION\",\"endpoint\":\"https://app.integry.io/endpoints/call/7382\",\"auth_required\":true,\"total_fields\":6,\"app\":{\"id\":502,\"name\":\"Mailchimp\",\"description\":\"Mailchimp is a marketing automation platform and an email marketing service and a trading name of its operator, Rocket Science Group, an American company founded in 2001. Mailchimp began as a paid service and added a freemium option in 2009.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/316c9627-8f84-4e83-9264-6e4fcf06cf0c.png\",\"color\":\"#dddddd\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\\"id\\\":\\\"c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"email_address\\\":\\\"contact1_1@email.com\\\",\\\"unique_email_id\\\":\\\"2b82dee252\\\",\\\"full_name\\\":\\\"testFirstname1 LastName1\\\",\\\"web_id\\\":547497465,\\\"email_type\\\":\\\"html\\\",\\\"status\\\":\\\"subscribed\\\",\\\"merge_fields\\\":{\\\"FNAME\\\":\\\"testFirstname1\\\",\\\"LNAME\\\":\\\"LastName1\\\",\\\"ADDRESS\\\":\\\"\\\",\\\"PHONE\\\":\\\"\\\",\\\"BIRTHDAY\\\":\\\"\\\"},\\\"stats\\\":{\\\"avg_open_rate\\\":0,\\\"avg_click_rate\\\":0},\\\"ip_signup\\\":\\\"\\\",\\\"timestamp_signup\\\":\\\"\\\",\\\"ip_opt\\\":\\\"35.193.88.148\\\",\\\"timestamp_opt\\\":\\\"2021-06-03T06:03:53+00:00\\\",\\\"member_rating\\\":2,\\\"last_changed\\\":\\\"2021-06-03T06:03:54+00:00\\\",\\\"language\\\":\\\"\\\",\\\"vip\\\":false,\\\"email_client\\\":\\\"\\\",\\\"location\\\":{\\\"latitude\\\":0,\\\"longitude\\\":0,\\\"gmtoff\\\":0,\\\"dstoff\\\":0,\\\"country_code\\\":\\\"\\\",\\\"timezone\\\":\\\"\\\"},\\\"source\\\":\\\"Integry\\\",\\\"tags_count\\\":0,\\\"tags\\\":[],\\\"list_id\\\":\\\"fb11146672\\\",\\\"_links\\\":[{\\\"rel\\\":\\\"self\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json\\\"},{\\\"rel\\\":\\\"parent\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/CollectionResponse.json\\\",\\\"schema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Paths/Lists/Members/Collection.json\\\"},{\\\"rel\\\":\\\"update\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"method\\\":\\\"PATCH\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json\\\",\\\"schema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PATCH.json\\\"},{\\\"rel\\\":\\\"upsert\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"method\\\":\\\"PUT\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json\\\",\\\"schema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PUT.json\\\"},{\\\"rel\\\":\\\"delete\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"method\\\":\\\"DELETE\\\"},{\\\"rel\\\":\\\"activity\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/activity\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Activity/Response.json\\\"},{\\\"rel\\\":\\\"goals\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/goals\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Goals/Response.json\\\"},{\\\"rel\\\":\\\"notes\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/notes\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Notes/CollectionResponse.json\\\"},{\\\"rel\\\":\\\"events\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/events\\\",\\\"method\\\":\\\"POST\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Events/POST.json\\\"},{\\\"rel\\\":\\\"delete_permanent\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/actions/delete-permanent\\\",\\\"method\\\":\\\"POST\\\"}]}\",\"activity_output_url\":null},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":63251,\"weight\":2,\"title\":\"Configure Google Contacts\",\"is_visible\":true,\"activity\":{\"id\":5211,\"name\":\"Contact Created\",\"type\":\"TRIGGER\",\"endpoint\":\"https://app.integry.io/endpoints/call/11593\",\"auth_required\":true,\"total_fields\":0,\"app\":{\"id\":61,\"name\":\"Google Contacts\",\"description\":\"Manage your contacts with Google Contacts. Keep a track of all your conversations and enhance your relationships with your contacts. \",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/7bd15606-1085-4069-aa38-7078246de5ee.png\",\"color\":\"#E9F1FD\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"Sales\",\"Chat\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\n\\t\\\"resourceName\\\": \\\"people/c3116038828324585270\\\",\\n\\t\\\"etag\\\": \\\"%EgUBAj03LhoEAQIFByIMaGNUVGhqNTdOcmM9\\\",\\n\\t\\\"names\\\": [{\\n\\t\\t\\\"metadata\\\": {\\n\\t\\t\\t\\\"primary\\\": true,\\n\\t\\t\\t\\\"source\\\": {\\n\\t\\t\\t\\t\\\"type\\\": \\\"CONTACT\\\",\\n\\t\\t\\t\\t\\\"id\\\": \\\"2b3e64ce0c9c7f36\\\"\\n\\t\\t\\t}\\n\\t\\t},\\n\\t\\t\\\"displayName\\\": \\\"Ali Raza\\\",\\n\\t\\t\\\"familyName\\\": \\\"Raza\\\",\\n\\t\\t\\\"givenName\\\": \\\"Ali\\\",\\n\\t\\t\\\"displayNameLastFirst\\\": \\\"Raza, Ali\\\"\\n\\t}]\\n}\",\"activity_output_url\":\"https://integry-app.appspot.com/endpoints/call/11573\"},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":41046,\"weight\":2,\"title\":\"If\",\"is_visible\":false,\"activity\":{\"id\":540,\"name\":\"If\",\"type\":\"CONDITION_IF\",\"endpoint\":\"\",\"auth_required\":false,\"total_fields\":1,\"app\":{\"id\":228,\"name\":\"Conditions\",\"description\":\"Add conditional branching to your workflows using if, else if, and else steps\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/01f73010-9685-4a30-86da-16acb1f6d097.svg\",\"color\":\"#f1b810\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"Integry Utilities\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"\",\"activity_output_url\":null},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":63254,\"weight\":3,\"title\":\"Configure Mailchimp\",\"is_visible\":true,\"activity\":{\"id\":3081,\"name\":\"New subscriber in list V1\",\"type\":\"TRIGGER\",\"endpoint\":\"https://app.integry.io/endpoints/call/6595\",\"auth_required\":true,\"total_fields\":3,\"app\":{\"id\":502,\"name\":\"Mailchimp\",\"description\":\"Mailchimp is a marketing automation platform and an email marketing service and a trading name of its operator, Rocket Science Group, an American company founded in 2001. Mailchimp began as a paid service and added a freemium option in 2009.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/316c9627-8f84-4e83-9264-6e4fcf06cf0c.png\",\"color\":\"#dddddd\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\r\\n\\\"id\\\": \\\"\\\",\\r\\n\\\"list_id\\\": \\\"\\\",\\r\\n\\\"email\\\": \\\"\\\",\\r\\n\\\"email_type\\\": \\\"\\\",\\r\\n\\\"ip_opt\\\": \\\"\\\",\\r\\n\\\"ip_signup\\\": \\\"\\\"\\r\\n}\",\"activity_output_url\":\"https://app.integry.io/endpoints/call/6614\"},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":41047,\"weight\":3,\"title\":\"Loop Activity\",\"is_visible\":false,\"activity\":{\"id\":1005,\"name\":\"Loop\",\"type\":\"LOOP\",\"endpoint\":\"\",\"auth_required\":false,\"total_fields\":2,\"app\":{\"id\":311,\"name\":\"Loop\",\"description\":\"Loop app\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/d8614845-66f0-4965-95c8-ca46a94e0aef.svg\",\"color\":\"#170303\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"Integry Utilities\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"\",\"activity_output_url\":null},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null}],\"icon_url\":null,\"publishing_status\":\"PUBLISHED\",\"is_wizard\":false,\"button_text\":null,\"branding_app\":{\"id\":502,\"name\":\"Mailchimp\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/316c9627-8f84-4e83-9264-6e4fcf06cf0c.png\",\"color\":\"#dddddd\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"]},\"tags\":null}},\"total_pages\":1,\"results\":[],\"links\":{\"previous\":null,\"next\":null}}"
+						},
+						{
+							"id": "baab0d10-2170-44a9-84eb-f1ddddf9abdf",
+							"name": "https://app.integry.io/api/v3/templates/3144/integrations/?page=1&page_size=10&ordering=-last_run_start_time",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/view/flow/3144/integrations/?page=1&page_size=10&ordering=-last_run_start_time"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "5783335"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/v3/templates/3144/integrations/?page=1&page_size=10&ordering=-last_run_start_time",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"v3",
+										"templates",
+										"3144",
+										"integrations",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "ordering",
+											"value": "-last_run_start_time"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:59:43 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "9861"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"count\":0,\"meta\":{\"template\":{\"id\":3144,\"name\":\"Mailchimp\",\"description\":null,\"app\":{\"id\":1028,\"name\":\"5th may mahima\",\"description\":\"mahima is testing app\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/4f64c600-c4f0-487e-8b4d-871a05b13a53.jpg\",\"color\":\"#d90808\",\"publishing_status\":\"DRAFT\",\"category\":[\"Accounting Software\",\"Accounting Software\"],\"app_type\":\"INTEGRY\"},\"steps\":[{\"id\":41038,\"weight\":0,\"title\":\"Tree Root: HubSpot\",\"is_visible\":true,\"activity\":null,\"allow_multiple_authorizations\":true,\"summary\":null,\"auth_description\":null},{\"id\":41042,\"weight\":1,\"title\":\"Configure Mailchimp\",\"is_visible\":false,\"activity\":{\"id\":3081,\"name\":\"New subscriber in list V1\",\"type\":\"TRIGGER\",\"endpoint\":\"https://app.integry.io/endpoints/call/6595\",\"auth_required\":true,\"total_fields\":3,\"app\":{\"id\":502,\"name\":\"Mailchimp\",\"description\":\"Mailchimp is a marketing automation platform and an email marketing service and a trading name of its operator, Rocket Science Group, an American company founded in 2001. Mailchimp began as a paid service and added a freemium option in 2009.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/316c9627-8f84-4e83-9264-6e4fcf06cf0c.png\",\"color\":\"#dddddd\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\r\\n\\\"id\\\": \\\"\\\",\\r\\n\\\"list_id\\\": \\\"\\\",\\r\\n\\\"email\\\": \\\"\\\",\\r\\n\\\"email_type\\\": \\\"\\\",\\r\\n\\\"ip_opt\\\": \\\"\\\",\\r\\n\\\"ip_signup\\\": \\\"\\\"\\r\\n}\",\"activity_output_url\":\"https://app.integry.io/endpoints/call/6614\"},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":41043,\"weight\":1,\"title\":\"Configure Mailchimp\",\"is_visible\":false,\"activity\":{\"id\":3336,\"name\":\"Create Subscriber in List V2\",\"type\":\"ACTION\",\"endpoint\":\"https://app.integry.io/endpoints/call/7382\",\"auth_required\":true,\"total_fields\":6,\"app\":{\"id\":502,\"name\":\"Mailchimp\",\"description\":\"Mailchimp is a marketing automation platform and an email marketing service and a trading name of its operator, Rocket Science Group, an American company founded in 2001. Mailchimp began as a paid service and added a freemium option in 2009.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/316c9627-8f84-4e83-9264-6e4fcf06cf0c.png\",\"color\":\"#dddddd\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\\"id\\\":\\\"c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"email_address\\\":\\\"contact1_1@email.com\\\",\\\"unique_email_id\\\":\\\"2b82dee252\\\",\\\"full_name\\\":\\\"testFirstname1 LastName1\\\",\\\"web_id\\\":547497465,\\\"email_type\\\":\\\"html\\\",\\\"status\\\":\\\"subscribed\\\",\\\"merge_fields\\\":{\\\"FNAME\\\":\\\"testFirstname1\\\",\\\"LNAME\\\":\\\"LastName1\\\",\\\"ADDRESS\\\":\\\"\\\",\\\"PHONE\\\":\\\"\\\",\\\"BIRTHDAY\\\":\\\"\\\"},\\\"stats\\\":{\\\"avg_open_rate\\\":0,\\\"avg_click_rate\\\":0},\\\"ip_signup\\\":\\\"\\\",\\\"timestamp_signup\\\":\\\"\\\",\\\"ip_opt\\\":\\\"35.193.88.148\\\",\\\"timestamp_opt\\\":\\\"2021-06-03T06:03:53+00:00\\\",\\\"member_rating\\\":2,\\\"last_changed\\\":\\\"2021-06-03T06:03:54+00:00\\\",\\\"language\\\":\\\"\\\",\\\"vip\\\":false,\\\"email_client\\\":\\\"\\\",\\\"location\\\":{\\\"latitude\\\":0,\\\"longitude\\\":0,\\\"gmtoff\\\":0,\\\"dstoff\\\":0,\\\"country_code\\\":\\\"\\\",\\\"timezone\\\":\\\"\\\"},\\\"source\\\":\\\"Integry\\\",\\\"tags_count\\\":0,\\\"tags\\\":[],\\\"list_id\\\":\\\"fb11146672\\\",\\\"_links\\\":[{\\\"rel\\\":\\\"self\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json\\\"},{\\\"rel\\\":\\\"parent\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/CollectionResponse.json\\\",\\\"schema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Paths/Lists/Members/Collection.json\\\"},{\\\"rel\\\":\\\"update\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"method\\\":\\\"PATCH\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json\\\",\\\"schema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PATCH.json\\\"},{\\\"rel\\\":\\\"upsert\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"method\\\":\\\"PUT\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Response.json\\\",\\\"schema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/PUT.json\\\"},{\\\"rel\\\":\\\"delete\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60\\\",\\\"method\\\":\\\"DELETE\\\"},{\\\"rel\\\":\\\"activity\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/activity\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Activity/Response.json\\\"},{\\\"rel\\\":\\\"goals\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/goals\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Goals/Response.json\\\"},{\\\"rel\\\":\\\"notes\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/notes\\\",\\\"method\\\":\\\"GET\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Notes/CollectionResponse.json\\\"},{\\\"rel\\\":\\\"events\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/events\\\",\\\"method\\\":\\\"POST\\\",\\\"targetSchema\\\":\\\"https://us6.api.mailchimp.com/schema/3.0/Definitions/Lists/Members/Events/POST.json\\\"},{\\\"rel\\\":\\\"delete_permanent\\\",\\\"href\\\":\\\"https://us6.api.mailchimp.com/3.0/lists/fb11146672/members/c0fc0e51ecedb26779b1b5b370ef7c60/actions/delete-permanent\\\",\\\"method\\\":\\\"POST\\\"}]}\",\"activity_output_url\":null},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":63251,\"weight\":2,\"title\":\"Configure Google Contacts\",\"is_visible\":true,\"activity\":{\"id\":5211,\"name\":\"Contact Created\",\"type\":\"TRIGGER\",\"endpoint\":\"https://app.integry.io/endpoints/call/11593\",\"auth_required\":true,\"total_fields\":0,\"app\":{\"id\":61,\"name\":\"Google Contacts\",\"description\":\"Manage your contacts with Google Contacts. Keep a track of all your conversations and enhance your relationships with your contacts. \",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/7bd15606-1085-4069-aa38-7078246de5ee.png\",\"color\":\"#E9F1FD\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"Sales\",\"Chat\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\n\\t\\\"resourceName\\\": \\\"people/c3116038828324585270\\\",\\n\\t\\\"etag\\\": \\\"%EgUBAj03LhoEAQIFByIMaGNUVGhqNTdOcmM9\\\",\\n\\t\\\"names\\\": [{\\n\\t\\t\\\"metadata\\\": {\\n\\t\\t\\t\\\"primary\\\": true,\\n\\t\\t\\t\\\"source\\\": {\\n\\t\\t\\t\\t\\\"type\\\": \\\"CONTACT\\\",\\n\\t\\t\\t\\t\\\"id\\\": \\\"2b3e64ce0c9c7f36\\\"\\n\\t\\t\\t}\\n\\t\\t},\\n\\t\\t\\\"displayName\\\": \\\"Ali Raza\\\",\\n\\t\\t\\\"familyName\\\": \\\"Raza\\\",\\n\\t\\t\\\"givenName\\\": \\\"Ali\\\",\\n\\t\\t\\\"displayNameLastFirst\\\": \\\"Raza, Ali\\\"\\n\\t}]\\n}\",\"activity_output_url\":\"https://integry-app.appspot.com/endpoints/call/11573\"},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":41046,\"weight\":2,\"title\":\"If\",\"is_visible\":false,\"activity\":{\"id\":540,\"name\":\"If\",\"type\":\"CONDITION_IF\",\"endpoint\":\"\",\"auth_required\":false,\"total_fields\":1,\"app\":{\"id\":228,\"name\":\"Conditions\",\"description\":\"Add conditional branching to your workflows using if, else if, and else steps\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/01f73010-9685-4a30-86da-16acb1f6d097.svg\",\"color\":\"#f1b810\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"Integry Utilities\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"\",\"activity_output_url\":null},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":63254,\"weight\":3,\"title\":\"Configure Mailchimp\",\"is_visible\":true,\"activity\":{\"id\":3081,\"name\":\"New subscriber in list V1\",\"type\":\"TRIGGER\",\"endpoint\":\"https://app.integry.io/endpoints/call/6595\",\"auth_required\":true,\"total_fields\":3,\"app\":{\"id\":502,\"name\":\"Mailchimp\",\"description\":\"Mailchimp is a marketing automation platform and an email marketing service and a trading name of its operator, Rocket Science Group, an American company founded in 2001. Mailchimp began as a paid service and added a freemium option in 2009.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/316c9627-8f84-4e83-9264-6e4fcf06cf0c.png\",\"color\":\"#dddddd\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\r\\n\\\"id\\\": \\\"\\\",\\r\\n\\\"list_id\\\": \\\"\\\",\\r\\n\\\"email\\\": \\\"\\\",\\r\\n\\\"email_type\\\": \\\"\\\",\\r\\n\\\"ip_opt\\\": \\\"\\\",\\r\\n\\\"ip_signup\\\": \\\"\\\"\\r\\n}\",\"activity_output_url\":\"https://app.integry.io/endpoints/call/6614\"},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":41047,\"weight\":3,\"title\":\"Loop Activity\",\"is_visible\":false,\"activity\":{\"id\":1005,\"name\":\"Loop\",\"type\":\"LOOP\",\"endpoint\":\"\",\"auth_required\":false,\"total_fields\":2,\"app\":{\"id\":311,\"name\":\"Loop\",\"description\":\"Loop app\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/d8614845-66f0-4965-95c8-ca46a94e0aef.svg\",\"color\":\"#170303\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"Integry Utilities\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"\",\"activity_output_url\":null},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null}],\"icon_url\":null,\"publishing_status\":\"PUBLISHED\",\"is_wizard\":false,\"button_text\":null,\"branding_app\":{\"id\":502,\"name\":\"Mailchimp\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/316c9627-8f84-4e83-9264-6e4fcf06cf0c.png\",\"color\":\"#dddddd\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"]},\"tags\":null}},\"total_pages\":1,\"results\":[],\"links\":{\"previous\":null,\"next\":null}}"
+						},
+						{
+							"id": "2174581e-c90a-43f9-9b82-b37492059b39",
+							"name": "https://app.integry.io/api/v3/templates/17986/integrations/?page=1&page_size=10&ordering=-last_run_start_time",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "3lSpjxK1Ig0ooPCot1RZ9sPMZBvo2I3eCUp6AOwfrMxhf2Ve1TyLQIX9biFuc1DA"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/view/flow/17986/integrations?page=1&page_size=10&ordering=-last_run_start_time"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=3lSpjxK1Ig0ooPCot1RZ9sPMZBvo2I3eCUp6AOwfrMxhf2Ve1TyLQIX9biFuc1DA; fs_uid=#ZGZ24#6625311412998144:5175561358692352:::#34c83614#/1691220696; fs_cid=1.0; sessionid=40ogvro8phdp409zl3t51eqeylzkpllm"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "4438863"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/v3/templates/17986/integrations/?page=1&page_size=10&ordering=-last_run_start_time",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"v3",
+										"templates",
+										"17986",
+										"integrations",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "ordering",
+											"value": "-last_run_start_time"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 08:23:30 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "6671"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"count\":1,\"meta\":{\"template\":{\"id\":17986,\"name\":\"create card on trello\",\"description\":null,\"app\":{\"id\":118,\"name\":\"Accelo\",\"description\":\"The #1 Service Operations Automation (ServOps) featuring sales, project management, email integration, retainer management, sales tracking, and support.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/e36d9d8c-8188-40e9-9fbf-9f4b5433e4ee.png\",\"color\":\"#eefcff\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"Project Management\",\"Sales\",\"Marketing Automation\",\"Productivity\"],\"app_type\":\"INTEGRY\"},\"steps\":[{\"id\":151931,\"weight\":0,\"title\":\"Tree Root: Jira issues\",\"is_visible\":true,\"activity\":null,\"allow_multiple_authorizations\":true,\"summary\":null,\"auth_description\":null},{\"id\":151987,\"weight\":1,\"title\":\"Configure Salesforce\",\"is_visible\":true,\"activity\":{\"id\":20499,\"name\":\"Campaign Created\",\"type\":\"TRIGGER\",\"endpoint\":\"https://app.integry.io/endpoints/call/103812\",\"auth_required\":true,\"total_fields\":0,\"app\":{\"id\":420,\"name\":\"Salesforce\",\"description\":\"A leading CRM that helps you grow your sales and close deals like never before. Focus on your customers and make your customer journeys more personalized.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/8c446a6b-e1e6-4624-a41a-256172656dee.png\",\"color\":\"#edfaff\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\\"id\\\":\\\"7015i000000PzpwAAC\\\",\\\"name\\\":\\\"Marketing Campaign\\\",\\\"custom_fields\\\":{\\\"attributes\\\":{\\\"type\\\":\\\"Campaign\\\",\\\"url\\\":\\\"/services/data/v54.0/sobjects/Campaign/7015i000000PzpwAAC\\\"},\\\"IsDeleted\\\":false,\\\"ParentId\\\":\\\"7015i0000019ok9AAA\\\",\\\"Type\\\":\\\"Conference\\\",\\\"Status\\\":\\\"Planned\\\",\\\"StartDate\\\":\\\"2022-08-08\\\",\\\"EndDate\\\":null,\\\"ExpectedRevenue\\\":0,\\\"BudgetedCost\\\":100,\\\"ActualCost\\\":0,\\\"ExpectedResponse\\\":0,\\\"NumberSent\\\":0,\\\"IsActive\\\":true,\\\"Description\\\":\\\"This is a marketing campaign\\\",\\\"NumberOfLeads\\\":0,\\\"NumberOfConvertedLeads\\\":0,\\\"NumberOfContacts\\\":0,\\\"NumberOfResponses\\\":0,\\\"NumberOfOpportunities\\\":0,\\\"NumberOfWonOpportunities\\\":0,\\\"AmountAllOpportunities\\\":0,\\\"AmountWonOpportunities\\\":0,\\\"OwnerId\\\":\\\"0055i0000040iAMAAY\\\",\\\"CreatedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"CreatedById\\\":\\\"0055i0000040iAMAAY\\\",\\\"LastModifiedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"LastModifiedById\\\":\\\"0055i0000040iAMAAY\\\",\\\"SystemModstamp\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"LastActivityDate\\\":null,\\\"LastViewedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"LastReferencedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"CampaignMemberRecordTypeId\\\":null,\\\"Salutaion__c\\\":null,\\\"Full_Name__c\\\":null,\\\"DateTime__c\\\":null,\\\"GeoLocation__Latitude__s\\\":null,\\\"GeoLocation__Longitude__s\\\":null,\\\"Picklist_Mullti__c\\\":null,\\\"Text_Encrypted__c\\\":null,\\\"AutoNumber__c\\\":\\\"92\\\",\\\"Currency__c\\\":null,\\\"Date__c\\\":null,\\\"Email__c\\\":null,\\\"Number__c\\\":null,\\\"Percent__c\\\":null,\\\"Phone__c\\\":null,\\\"Picklist__c\\\":null,\\\"Time__c\\\":null,\\\"URL__c\\\":null,\\\"Checkbox__c\\\":false}}\",\"activity_output_url\":\"https://app.integry.io/endpoints/call/103726\"},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":151989,\"weight\":1,\"title\":\"Configure Trello v2\",\"is_visible\":true,\"activity\":{\"id\":3625,\"name\":\"Create Card\",\"type\":\"ACTION\",\"endpoint\":\"https://app.integry.io/endpoints/call/7925\",\"auth_required\":true,\"total_fields\":16,\"app\":{\"id\":605,\"name\":\"Trello v2\",\"description\":\"Trello is a Kanban-style, list making app that helps you organize and plan projects and more. Go from an idea to action in seconds with boards, lists and cards. Trello keeps track of everything, from the big picture to the minute details.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/1292f678-3419-4452-ad73-d7d889a7c3bf.com\",\"color\":\"#E6F2F9\",\"publishing_status\":\"DRAFT\",\"category\":[\"Project Management\",\"Productivity\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\n    \\\"id\\\": \\\"5ffdbcf529f313263bacd27c\\\",\\n    \\\"checkItemStates\\\": [],\\n    \\\"closed\\\": false,\\n    \\\"dateLastActivity\\\": \\\"2021-01-12T15:15:01.400Z\\\",\\n    \\\"desc\\\": \\\"\\\",\\n    \\\"descData\\\": {\\n        \\\"emoji\\\": {}\\n    },\\n    \\\"dueReminder\\\": null,\\n    \\\"idBoard\\\": \\\"5fed3c1bcc7f585538081d2c\\\",\\n    \\\"idList\\\": \\\"5fed3c1bcc7f585538081d2d\\\",\\n    \\\"idMembersVoted\\\": [],\\n    \\\"idShort\\\": 19,\\n    \\\"idAttachmentCover\\\": null,\\n    \\\"idLabels\\\": [],\\n    \\\"manualCoverAttachment\\\": false,\\n    \\\"name\\\": \\\"newcard\\\",\\n    \\\"pos\\\": 196607,\\n    \\\"shortLink\\\": \\\"Ihr9pawi\\\",\\n    \\\"isTemplate\\\": false,\\n    \\\"cardRole\\\": null,\\n    \\\"dueComplete\\\": false,\\n    \\\"due\\\": null,\\n    \\\"email\\\": null,\\n    \\\"labels\\\": [],\\n    \\\"shortUrl\\\": \\\"https://trello.com/c/Ihr9pawi\\\",\\n    \\\"start\\\": null,\\n    \\\"url\\\": \\\"https://trello.com/c/Ihr9pawi/19-newcard\\\",\\n    \\\"cover\\\": {\\n        \\\"idAttachment\\\": null,\\n        \\\"color\\\": null,\\n        \\\"idUploadedBackground\\\": null,\\n        \\\"size\\\": \\\"normal\\\",\\n        \\\"brightness\\\": \\\"light\\\"\\n    },\\n    \\\"idMembers\\\": [],\\n    \\\"idChecklists\\\": [],\\n    \\\"attachments\\\": [],\\n    \\\"badges\\\": {\\n        \\\"attachmentsByType\\\": {\\n            \\\"trello\\\": {\\n                \\\"board\\\": 0,\\n                \\\"card\\\": 0\\n            }\\n        },\\n        \\\"location\\\": false,\\n        \\\"votes\\\": 0,\\n        \\\"viewingMemberVoted\\\": false,\\n        \\\"subscribed\\\": false,\\n        \\\"fogbugz\\\": \\\"\\\",\\n        \\\"checkItems\\\": 0,\\n        \\\"checkItemsChecked\\\": 0,\\n        \\\"checkItemsEarliestDue\\\": null,\\n        \\\"comments\\\": 0,\\n        \\\"attachments\\\": 0,\\n        \\\"description\\\": false,\\n        \\\"due\\\": null,\\n        \\\"dueComplete\\\": false,\\n        \\\"start\\\": null\\n    },\\n    \\\"subscribed\\\": false,\\n    \\\"stickers\\\": [],\\n    \\\"limits\\\": {}\\n}\",\"activity_output_url\":null},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null}],\"icon_url\":null,\"publishing_status\":\"PUBLISHED\",\"is_wizard\":false,\"button_text\":null,\"branding_app\":{\"id\":420,\"name\":\"Salesforce\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/8c446a6b-e1e6-4624-a41a-256172656dee.png\",\"color\":\"#edfaff\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"]},\"tags\":null}},\"total_pages\":1,\"results\":[{\"status\":\"ACTIVE\",\"has_runs\":true,\"last_run_start_time\":\"2022-11-11T08:09:26+0000\",\"creator\":1656271,\"app_auth_id\":\"muhammadumairmirza(u044m4hp45d)-4342\",\"last_run_end_time\":\"2022-11-11T08:09:28+0000\",\"id\":154634,\"last_run_status\":\"ok\",\"created\":1668153671,\"user_identity\":\"muhammadumairmirza(u044m4hp45d)-4342\",\"last_run_response_code\":\"200\",\"user_profile_link\":null,\"user_name\":\"muhammadumairmirza(u044m4hp45d)-4342\",\"last_run_start_time_timestamp\":1668154166}],\"links\":{\"previous\":null,\"next\":null}}"
+						},
+						{
+							"id": "f46a68fb-d09e-4403-b076-123b1b37498c",
+							"name": "https://app.integry.io/api/v3/templates/17986/integrations/?page=1&page_size=10&ordering=-last_run_start_time",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "3lSpjxK1Ig0ooPCot1RZ9sPMZBvo2I3eCUp6AOwfrMxhf2Ve1TyLQIX9biFuc1DA"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/view/flow/17986/integrations?page=1&page_size=10&ordering=-last_run_start_time"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=3lSpjxK1Ig0ooPCot1RZ9sPMZBvo2I3eCUp6AOwfrMxhf2Ve1TyLQIX9biFuc1DA; fs_uid=#ZGZ24#6625311412998144:5175561358692352:::#34c83614#/1691220696; fs_cid=1.0; sessionid=40ogvro8phdp409zl3t51eqeylzkpllm"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "7116234"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/v3/templates/17986/integrations/?page=1&page_size=10&ordering=-last_run_start_time",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"v3",
+										"templates",
+										"17986",
+										"integrations",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "ordering",
+											"value": "-last_run_start_time"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 08:24:31 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "6671"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"count\":1,\"meta\":{\"template\":{\"id\":17986,\"name\":\"create card on trello\",\"description\":null,\"app\":{\"id\":118,\"name\":\"Accelo\",\"description\":\"The #1 Service Operations Automation (ServOps) featuring sales, project management, email integration, retainer management, sales tracking, and support.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/e36d9d8c-8188-40e9-9fbf-9f4b5433e4ee.png\",\"color\":\"#eefcff\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"Project Management\",\"Sales\",\"Marketing Automation\",\"Productivity\"],\"app_type\":\"INTEGRY\"},\"steps\":[{\"id\":151931,\"weight\":0,\"title\":\"Tree Root: Jira issues\",\"is_visible\":true,\"activity\":null,\"allow_multiple_authorizations\":true,\"summary\":null,\"auth_description\":null},{\"id\":151987,\"weight\":1,\"title\":\"Configure Salesforce\",\"is_visible\":true,\"activity\":{\"id\":20499,\"name\":\"Campaign Created\",\"type\":\"TRIGGER\",\"endpoint\":\"https://app.integry.io/endpoints/call/103812\",\"auth_required\":true,\"total_fields\":0,\"app\":{\"id\":420,\"name\":\"Salesforce\",\"description\":\"A leading CRM that helps you grow your sales and close deals like never before. Focus on your customers and make your customer journeys more personalized.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/8c446a6b-e1e6-4624-a41a-256172656dee.png\",\"color\":\"#edfaff\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\\"id\\\":\\\"7015i000000PzpwAAC\\\",\\\"name\\\":\\\"Marketing Campaign\\\",\\\"custom_fields\\\":{\\\"attributes\\\":{\\\"type\\\":\\\"Campaign\\\",\\\"url\\\":\\\"/services/data/v54.0/sobjects/Campaign/7015i000000PzpwAAC\\\"},\\\"IsDeleted\\\":false,\\\"ParentId\\\":\\\"7015i0000019ok9AAA\\\",\\\"Type\\\":\\\"Conference\\\",\\\"Status\\\":\\\"Planned\\\",\\\"StartDate\\\":\\\"2022-08-08\\\",\\\"EndDate\\\":null,\\\"ExpectedRevenue\\\":0,\\\"BudgetedCost\\\":100,\\\"ActualCost\\\":0,\\\"ExpectedResponse\\\":0,\\\"NumberSent\\\":0,\\\"IsActive\\\":true,\\\"Description\\\":\\\"This is a marketing campaign\\\",\\\"NumberOfLeads\\\":0,\\\"NumberOfConvertedLeads\\\":0,\\\"NumberOfContacts\\\":0,\\\"NumberOfResponses\\\":0,\\\"NumberOfOpportunities\\\":0,\\\"NumberOfWonOpportunities\\\":0,\\\"AmountAllOpportunities\\\":0,\\\"AmountWonOpportunities\\\":0,\\\"OwnerId\\\":\\\"0055i0000040iAMAAY\\\",\\\"CreatedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"CreatedById\\\":\\\"0055i0000040iAMAAY\\\",\\\"LastModifiedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"LastModifiedById\\\":\\\"0055i0000040iAMAAY\\\",\\\"SystemModstamp\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"LastActivityDate\\\":null,\\\"LastViewedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"LastReferencedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"CampaignMemberRecordTypeId\\\":null,\\\"Salutaion__c\\\":null,\\\"Full_Name__c\\\":null,\\\"DateTime__c\\\":null,\\\"GeoLocation__Latitude__s\\\":null,\\\"GeoLocation__Longitude__s\\\":null,\\\"Picklist_Mullti__c\\\":null,\\\"Text_Encrypted__c\\\":null,\\\"AutoNumber__c\\\":\\\"92\\\",\\\"Currency__c\\\":null,\\\"Date__c\\\":null,\\\"Email__c\\\":null,\\\"Number__c\\\":null,\\\"Percent__c\\\":null,\\\"Phone__c\\\":null,\\\"Picklist__c\\\":null,\\\"Time__c\\\":null,\\\"URL__c\\\":null,\\\"Checkbox__c\\\":false}}\",\"activity_output_url\":\"https://app.integry.io/endpoints/call/103726\"},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":151989,\"weight\":1,\"title\":\"Configure Trello v2\",\"is_visible\":true,\"activity\":{\"id\":3625,\"name\":\"Create Card\",\"type\":\"ACTION\",\"endpoint\":\"https://app.integry.io/endpoints/call/7925\",\"auth_required\":true,\"total_fields\":16,\"app\":{\"id\":605,\"name\":\"Trello v2\",\"description\":\"Trello is a Kanban-style, list making app that helps you organize and plan projects and more. Go from an idea to action in seconds with boards, lists and cards. Trello keeps track of everything, from the big picture to the minute details.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/1292f678-3419-4452-ad73-d7d889a7c3bf.com\",\"color\":\"#E6F2F9\",\"publishing_status\":\"DRAFT\",\"category\":[\"Project Management\",\"Productivity\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\n    \\\"id\\\": \\\"5ffdbcf529f313263bacd27c\\\",\\n    \\\"checkItemStates\\\": [],\\n    \\\"closed\\\": false,\\n    \\\"dateLastActivity\\\": \\\"2021-01-12T15:15:01.400Z\\\",\\n    \\\"desc\\\": \\\"\\\",\\n    \\\"descData\\\": {\\n        \\\"emoji\\\": {}\\n    },\\n    \\\"dueReminder\\\": null,\\n    \\\"idBoard\\\": \\\"5fed3c1bcc7f585538081d2c\\\",\\n    \\\"idList\\\": \\\"5fed3c1bcc7f585538081d2d\\\",\\n    \\\"idMembersVoted\\\": [],\\n    \\\"idShort\\\": 19,\\n    \\\"idAttachmentCover\\\": null,\\n    \\\"idLabels\\\": [],\\n    \\\"manualCoverAttachment\\\": false,\\n    \\\"name\\\": \\\"newcard\\\",\\n    \\\"pos\\\": 196607,\\n    \\\"shortLink\\\": \\\"Ihr9pawi\\\",\\n    \\\"isTemplate\\\": false,\\n    \\\"cardRole\\\": null,\\n    \\\"dueComplete\\\": false,\\n    \\\"due\\\": null,\\n    \\\"email\\\": null,\\n    \\\"labels\\\": [],\\n    \\\"shortUrl\\\": \\\"https://trello.com/c/Ihr9pawi\\\",\\n    \\\"start\\\": null,\\n    \\\"url\\\": \\\"https://trello.com/c/Ihr9pawi/19-newcard\\\",\\n    \\\"cover\\\": {\\n        \\\"idAttachment\\\": null,\\n        \\\"color\\\": null,\\n        \\\"idUploadedBackground\\\": null,\\n        \\\"size\\\": \\\"normal\\\",\\n        \\\"brightness\\\": \\\"light\\\"\\n    },\\n    \\\"idMembers\\\": [],\\n    \\\"idChecklists\\\": [],\\n    \\\"attachments\\\": [],\\n    \\\"badges\\\": {\\n        \\\"attachmentsByType\\\": {\\n            \\\"trello\\\": {\\n                \\\"board\\\": 0,\\n                \\\"card\\\": 0\\n            }\\n        },\\n        \\\"location\\\": false,\\n        \\\"votes\\\": 0,\\n        \\\"viewingMemberVoted\\\": false,\\n        \\\"subscribed\\\": false,\\n        \\\"fogbugz\\\": \\\"\\\",\\n        \\\"checkItems\\\": 0,\\n        \\\"checkItemsChecked\\\": 0,\\n        \\\"checkItemsEarliestDue\\\": null,\\n        \\\"comments\\\": 0,\\n        \\\"attachments\\\": 0,\\n        \\\"description\\\": false,\\n        \\\"due\\\": null,\\n        \\\"dueComplete\\\": false,\\n        \\\"start\\\": null\\n    },\\n    \\\"subscribed\\\": false,\\n    \\\"stickers\\\": [],\\n    \\\"limits\\\": {}\\n}\",\"activity_output_url\":null},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null}],\"icon_url\":null,\"publishing_status\":\"PUBLISHED\",\"is_wizard\":false,\"button_text\":null,\"branding_app\":{\"id\":420,\"name\":\"Salesforce\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/8c446a6b-e1e6-4624-a41a-256172656dee.png\",\"color\":\"#edfaff\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"]},\"tags\":null}},\"total_pages\":1,\"results\":[{\"status\":\"ACTIVE\",\"has_runs\":true,\"last_run_start_time\":\"2022-11-11T08:09:26+0000\",\"creator\":1656271,\"app_auth_id\":\"muhammadumairmirza(u044m4hp45d)-4342\",\"last_run_end_time\":\"2022-11-11T08:09:28+0000\",\"id\":154634,\"last_run_status\":\"ok\",\"created\":1668153671,\"user_identity\":\"muhammadumairmirza(u044m4hp45d)-4342\",\"last_run_response_code\":\"200\",\"user_profile_link\":null,\"user_name\":\"muhammadumairmirza(u044m4hp45d)-4342\",\"last_run_start_time_timestamp\":1668154166}],\"links\":{\"previous\":null,\"next\":null}}"
+						},
+						{
+							"id": "edd1815b-3f82-44e5-97ea-5139ab9259d6",
+							"name": "https://app.integry.io/api/v3/templates/17986/integrations/?page=1&page_size=10&ordering=-last_run_start_time",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "3lSpjxK1Ig0ooPCot1RZ9sPMZBvo2I3eCUp6AOwfrMxhf2Ve1TyLQIX9biFuc1DA"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/view/flow/17986/integrations?page=1&page_size=10&ordering=-last_run_start_time"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=3lSpjxK1Ig0ooPCot1RZ9sPMZBvo2I3eCUp6AOwfrMxhf2Ve1TyLQIX9biFuc1DA; fs_uid=#ZGZ24#6625311412998144:5175561358692352:::#34c83614#/1691220696; fs_cid=1.0; sessionid=40ogvro8phdp409zl3t51eqeylzkpllm"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "8363778"
+									}
+								],
+								"url": {
+									"raw": "https://app.integry.io/api/v3/templates/17986/integrations/?page=1&page_size=10&ordering=-last_run_start_time",
+									"protocol": "https",
+									"host": [
+										"app",
+										"integry",
+										"io"
+									],
+									"path": [
+										"api",
+										"v3",
+										"templates",
+										"17986",
+										"integrations",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "ordering",
+											"value": "-last_run_start_time"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 08:24:54 GMT"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "content-length",
+									"value": "6671"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"count\":1,\"meta\":{\"template\":{\"id\":17986,\"name\":\"create card on trello\",\"description\":null,\"app\":{\"id\":118,\"name\":\"Accelo\",\"description\":\"The #1 Service Operations Automation (ServOps) featuring sales, project management, email integration, retainer management, sales tracking, and support.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/e36d9d8c-8188-40e9-9fbf-9f4b5433e4ee.png\",\"color\":\"#eefcff\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"Project Management\",\"Sales\",\"Marketing Automation\",\"Productivity\"],\"app_type\":\"INTEGRY\"},\"steps\":[{\"id\":151931,\"weight\":0,\"title\":\"Tree Root: Jira issues\",\"is_visible\":true,\"activity\":null,\"allow_multiple_authorizations\":true,\"summary\":null,\"auth_description\":null},{\"id\":151987,\"weight\":1,\"title\":\"Configure Salesforce\",\"is_visible\":true,\"activity\":{\"id\":20499,\"name\":\"Campaign Created\",\"type\":\"TRIGGER\",\"endpoint\":\"https://app.integry.io/endpoints/call/103812\",\"auth_required\":true,\"total_fields\":0,\"app\":{\"id\":420,\"name\":\"Salesforce\",\"description\":\"A leading CRM that helps you grow your sales and close deals like never before. Focus on your customers and make your customer journeys more personalized.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/8c446a6b-e1e6-4624-a41a-256172656dee.png\",\"color\":\"#edfaff\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\\"id\\\":\\\"7015i000000PzpwAAC\\\",\\\"name\\\":\\\"Marketing Campaign\\\",\\\"custom_fields\\\":{\\\"attributes\\\":{\\\"type\\\":\\\"Campaign\\\",\\\"url\\\":\\\"/services/data/v54.0/sobjects/Campaign/7015i000000PzpwAAC\\\"},\\\"IsDeleted\\\":false,\\\"ParentId\\\":\\\"7015i0000019ok9AAA\\\",\\\"Type\\\":\\\"Conference\\\",\\\"Status\\\":\\\"Planned\\\",\\\"StartDate\\\":\\\"2022-08-08\\\",\\\"EndDate\\\":null,\\\"ExpectedRevenue\\\":0,\\\"BudgetedCost\\\":100,\\\"ActualCost\\\":0,\\\"ExpectedResponse\\\":0,\\\"NumberSent\\\":0,\\\"IsActive\\\":true,\\\"Description\\\":\\\"This is a marketing campaign\\\",\\\"NumberOfLeads\\\":0,\\\"NumberOfConvertedLeads\\\":0,\\\"NumberOfContacts\\\":0,\\\"NumberOfResponses\\\":0,\\\"NumberOfOpportunities\\\":0,\\\"NumberOfWonOpportunities\\\":0,\\\"AmountAllOpportunities\\\":0,\\\"AmountWonOpportunities\\\":0,\\\"OwnerId\\\":\\\"0055i0000040iAMAAY\\\",\\\"CreatedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"CreatedById\\\":\\\"0055i0000040iAMAAY\\\",\\\"LastModifiedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"LastModifiedById\\\":\\\"0055i0000040iAMAAY\\\",\\\"SystemModstamp\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"LastActivityDate\\\":null,\\\"LastViewedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"LastReferencedDate\\\":\\\"2022-08-05T09:34:39.000+0000\\\",\\\"CampaignMemberRecordTypeId\\\":null,\\\"Salutaion__c\\\":null,\\\"Full_Name__c\\\":null,\\\"DateTime__c\\\":null,\\\"GeoLocation__Latitude__s\\\":null,\\\"GeoLocation__Longitude__s\\\":null,\\\"Picklist_Mullti__c\\\":null,\\\"Text_Encrypted__c\\\":null,\\\"AutoNumber__c\\\":\\\"92\\\",\\\"Currency__c\\\":null,\\\"Date__c\\\":null,\\\"Email__c\\\":null,\\\"Number__c\\\":null,\\\"Percent__c\\\":null,\\\"Phone__c\\\":null,\\\"Picklist__c\\\":null,\\\"Time__c\\\":null,\\\"URL__c\\\":null,\\\"Checkbox__c\\\":false}}\",\"activity_output_url\":\"https://app.integry.io/endpoints/call/103726\"},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null},{\"id\":151989,\"weight\":1,\"title\":\"Configure Trello v2\",\"is_visible\":true,\"activity\":{\"id\":3625,\"name\":\"Create Card\",\"type\":\"ACTION\",\"endpoint\":\"https://app.integry.io/endpoints/call/7925\",\"auth_required\":true,\"total_fields\":16,\"app\":{\"id\":605,\"name\":\"Trello v2\",\"description\":\"Trello is a Kanban-style, list making app that helps you organize and plan projects and more. Go from an idea to action in seconds with boards, lists and cards. Trello keeps track of everything, from the big picture to the minute details.\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/1292f678-3419-4452-ad73-d7d889a7c3bf.com\",\"color\":\"#E6F2F9\",\"publishing_status\":\"DRAFT\",\"category\":[\"Project Management\",\"Productivity\"],\"app_type\":\"INTEGRY\"},\"activity_output\":\"{\\n    \\\"id\\\": \\\"5ffdbcf529f313263bacd27c\\\",\\n    \\\"checkItemStates\\\": [],\\n    \\\"closed\\\": false,\\n    \\\"dateLastActivity\\\": \\\"2021-01-12T15:15:01.400Z\\\",\\n    \\\"desc\\\": \\\"\\\",\\n    \\\"descData\\\": {\\n        \\\"emoji\\\": {}\\n    },\\n    \\\"dueReminder\\\": null,\\n    \\\"idBoard\\\": \\\"5fed3c1bcc7f585538081d2c\\\",\\n    \\\"idList\\\": \\\"5fed3c1bcc7f585538081d2d\\\",\\n    \\\"idMembersVoted\\\": [],\\n    \\\"idShort\\\": 19,\\n    \\\"idAttachmentCover\\\": null,\\n    \\\"idLabels\\\": [],\\n    \\\"manualCoverAttachment\\\": false,\\n    \\\"name\\\": \\\"newcard\\\",\\n    \\\"pos\\\": 196607,\\n    \\\"shortLink\\\": \\\"Ihr9pawi\\\",\\n    \\\"isTemplate\\\": false,\\n    \\\"cardRole\\\": null,\\n    \\\"dueComplete\\\": false,\\n    \\\"due\\\": null,\\n    \\\"email\\\": null,\\n    \\\"labels\\\": [],\\n    \\\"shortUrl\\\": \\\"https://trello.com/c/Ihr9pawi\\\",\\n    \\\"start\\\": null,\\n    \\\"url\\\": \\\"https://trello.com/c/Ihr9pawi/19-newcard\\\",\\n    \\\"cover\\\": {\\n        \\\"idAttachment\\\": null,\\n        \\\"color\\\": null,\\n        \\\"idUploadedBackground\\\": null,\\n        \\\"size\\\": \\\"normal\\\",\\n        \\\"brightness\\\": \\\"light\\\"\\n    },\\n    \\\"idMembers\\\": [],\\n    \\\"idChecklists\\\": [],\\n    \\\"attachments\\\": [],\\n    \\\"badges\\\": {\\n        \\\"attachmentsByType\\\": {\\n            \\\"trello\\\": {\\n                \\\"board\\\": 0,\\n                \\\"card\\\": 0\\n            }\\n        },\\n        \\\"location\\\": false,\\n        \\\"votes\\\": 0,\\n        \\\"viewingMemberVoted\\\": false,\\n        \\\"subscribed\\\": false,\\n        \\\"fogbugz\\\": \\\"\\\",\\n        \\\"checkItems\\\": 0,\\n        \\\"checkItemsChecked\\\": 0,\\n        \\\"checkItemsEarliestDue\\\": null,\\n        \\\"comments\\\": 0,\\n        \\\"attachments\\\": 0,\\n        \\\"description\\\": false,\\n        \\\"due\\\": null,\\n        \\\"dueComplete\\\": false,\\n        \\\"start\\\": null\\n    },\\n    \\\"subscribed\\\": false,\\n    \\\"stickers\\\": [],\\n    \\\"limits\\\": {}\\n}\",\"activity_output_url\":null},\"allow_multiple_authorizations\":true,\"summary\":\"\",\"auth_description\":null}],\"icon_url\":null,\"publishing_status\":\"PUBLISHED\",\"is_wizard\":false,\"button_text\":null,\"branding_app\":{\"id\":420,\"name\":\"Salesforce\",\"icon_url\":\"https://storage.googleapis.com/app-services-prod--bucket/public/8c446a6b-e1e6-4624-a41a-256172656dee.png\",\"color\":\"#edfaff\",\"publishing_status\":\"PUBLISHED\",\"category\":[\"CRM\"]},\"tags\":null}},\"total_pages\":1,\"results\":[{\"status\":\"ACTIVE\",\"has_runs\":true,\"last_run_start_time\":\"2022-11-11T08:09:26+0000\",\"creator\":1656271,\"app_auth_id\":\"muhammadumairmirza(u044m4hp45d)-4342\",\"last_run_end_time\":\"2022-11-11T08:09:28+0000\",\"id\":154634,\"last_run_status\":\"ok\",\"created\":1668153671,\"user_identity\":\"muhammadumairmirza(u044m4hp45d)-4342\",\"last_run_response_code\":\"200\",\"user_profile_link\":null,\"user_name\":\"muhammadumairmirza(u044m4hp45d)-4342\",\"last_run_start_time_timestamp\":1668154166}],\"links\":{\"previous\":null,\"next\":null}}"
+						}
+					]
 				}
 			],
 			"id": "77ee7aca-0a05-44e0-82f2-6c20d0198b10",
