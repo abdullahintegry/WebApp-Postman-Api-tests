@@ -15957,7 +15957,6 @@
 									"    pm.environment.set(\"deployment_id\", response.id)",
 									"    console.log (response);",
 									"});",
-									"",
 									""
 								],
 								"type": "text/javascript"
