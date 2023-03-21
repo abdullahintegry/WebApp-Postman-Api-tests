@@ -13078,6 +13078,7 @@
 								"exec": [
 									"pm.environment.set(\"appKeyWorkspace\", \"ee8d7314-6205-49df-b9d9-8611bdef09d9\")",
 									"pm.environment.set(\"appSecretWorkspace\", \"0a0a670f-4004-4a21-89bf-32fb7da4f4ee\")",
+									"pm.environment.set(\"deployment_id\", 10497)",
 									"",
 									"// const message = pm.environment.get('username');",
 									"const message = \"abdullah@integry.io\";",
@@ -13098,7 +13099,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"SDK (Insightly - SIB)\",\n    \"cards\": [\n        {\n            \"template_id\": {{flow_id}},\n            \"type\": \"template\",\n            \"weight\": 1,\n            \"id\": {{flow_id}}\n        }\n    ],\n    \"app_id\": 12825,\n    \"status\": 1,\n    \"bundle_type\": \"SDK\"\n}",
+							"raw": "{\n    \"name\": \"Insightly - SIB (Create Contact)\",\n    \"notification_email\": \"\",\n    \"template\": {{flow_id}},\n    \"bundle_id\": {{deployment_id}},\n    \"steps\": [\n        {\n            \"id\": 165407,\n            \"authorization\": 131874,\n            \"template_step\": 165407,\n            \"app_user_data\": []\n        },\n        {\n            \"id\": 165408,\n            \"authorization\": 131862,\n            \"template_step\": 165408,\n            \"app_user_data\": [\n                {\n                    \"id\": 474693,\n                    \"value\": \"{contact_v1.email}\",\n                    \"template_field\": 474693\n                },\n                {\n                    \"id\": 474694,\n                    \"value\": \"3\",\n                    \"template_field\": 474694\n                },\n                {\n                    \"id\": 474695,\n                    \"value\": \"{\\\"LASTNAME\\\":\\\"{contact_v1.last_name}\\\",\\\"FIRSTNAME\\\":\\\"{contact_v1.first_name}\\\"}\",\n                    \"template_field\": 474695\n                },\n                {\n                    \"id\": 474696,\n                    \"value\": \"\",\n                    \"template_field\": 474696\n                },\n                {\n                    \"id\": 474697,\n                    \"value\": \"\",\n                    \"template_field\": 474697\n                }\n            ]\n        }\n    ]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
