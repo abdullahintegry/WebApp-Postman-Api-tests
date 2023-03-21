@@ -12931,6 +12931,25 @@
 				},
 				{
 					"name": "Create Integration",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "2e05d5bb-e07e-44b7-bf7d-d73d2b29ea54",
+								"exec": [
+									"pm.environment.set(\"appKeyWorkspace\", \"ee8d7314-6205-49df-b9d9-8611bdef09d9\")",
+									"pm.environment.set(\"appSecretWorkspace\", \"0a0a670f-4004-4a21-89bf-32fb7da4f4ee\")",
+									"",
+									"// const message = pm.environment.get('username');",
+									"const message = \"abdullah@integry.io\";",
+									"const key = pm.environment.get('appSecretWorkspace');",
+									"const signBytes = CryptoJS.HmacSHA256(message, key)",
+									"pm.environment.set(\"appHashWorkspace\", CryptoJS.enc.Hex.stringify(signBytes))"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "634e1f2a-aae9-4854-9961-4052edf633cf",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -12947,7 +12966,44 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/api/bundles/"
+						"url": {
+							"raw": "{{base_url}}/v2/integration/?async=false&app_key=ee8d7314-6205-49df-b9d9-8611bdef09d9&hash=cd431b65ac822fee2cfc7d2eaa0949d44af0a48ff3589aa44b06e5d88e0a6f0e&user_id=abdullah%40integry.io&activate=true",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"v2",
+								"integration",
+								""
+							],
+							"query": [
+								{
+									"key": "async",
+									"value": "false",
+									"type": "text"
+								},
+								{
+									"key": "app_key",
+									"value": "ee8d7314-6205-49df-b9d9-8611bdef09d9",
+									"type": "text"
+								},
+								{
+									"key": "hash",
+									"value": "cd431b65ac822fee2cfc7d2eaa0949d44af0a48ff3589aa44b06e5d88e0a6f0e",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "abdullah%40integry.io",
+									"type": "text"
+								},
+								{
+									"key": "activate",
+									"value": "true",
+									"type": "text"
+								}
+							]
+						}
 					},
 					"response": []
 				},
