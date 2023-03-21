@@ -12967,7 +12967,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/v2/integration/?async=false&app_key={{appKeyWorkspace}}&hash={{appHashWorkspace}}&user_id=abdullah%40integry.io&activate=true",
+							"raw": "{{base_url}}/v2/integration/?async=false&app_key={{appKeyWorkspace}}&hash={{appHashWorkspace}}&user_id=abdullah@integry.io&activate=true",
 							"host": [
 								"{{base_url}}"
 							],
@@ -12991,7 +12991,7 @@
 								},
 								{
 									"key": "user_id",
-									"value": "abdullah%40integry.io"
+									"value": "abdullah@integry.io"
 								},
 								{
 									"key": "activate",
