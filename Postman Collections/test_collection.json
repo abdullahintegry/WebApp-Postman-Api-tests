@@ -10439,7 +10439,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/endpoints/test/template/{{flow_id}}/datatree/{{datatree_id}}/replace_tags?user_id=abdullah@integry.io&app_key={{appKey2}}&hash={{appHash2}}",
+							"raw": "{{base_url}}/endpoints/test/template/{{flow_id}}/datatree/{{datatree_id}}/replace_tags?user_id=abdullah@integry.io&app_key={{appKeyWorkspace}}&hash={{appHashWorkspace}}",
 							"host": [
 								"{{base_url}}"
 							],
@@ -10459,11 +10459,11 @@
 								},
 								{
 									"key": "app_key",
-									"value": "{{appKey2}}"
+									"value": "{{appKeyWorkspace}}"
 								},
 								{
 									"key": "hash",
-									"value": "{{appHash2}}"
+									"value": "{{appHashWorkspace}}"
 								}
 							]
 						}
