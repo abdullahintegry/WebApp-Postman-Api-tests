@@ -12914,8 +12914,18 @@
 						"disableBodyPruning": true
 					},
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"SDK (Insightly - SIB)\",\n    \"cards\": [\n        {\n            \"template_id\": {{flow_id}},\n            \"type\": \"template\",\n            \"weight\": 1,\n            \"id\": {{flow_id}}\n        }\n    ],\n    \"app_id\": 12825,\n    \"status\": 1,\n    \"bundle_type\": \"SDK\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{base_url}}/api/bundles/"
 					},
 					"response": []
 				}
