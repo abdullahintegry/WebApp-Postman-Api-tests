@@ -15373,6 +15373,11 @@
 									"    console.log (response);",
 									"});",
 									"",
+									"pm.sendRequest (createDatatree3, (err, res) => {",
+									"    pm.expect(res.status).to.eql(200);",
+									"    const response = res.json ();",
+									"    console.log (response);",
+									"});",
 									""
 								],
 								"type": "text/javascript"
