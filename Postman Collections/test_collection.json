@@ -15890,7 +15890,7 @@
 									"",
 									"                                var createSDKDeployment = {",
 									"                                  method: 'POST',",
-									"                                  url: `${pm.environment.get('base_url')}/api/bundles`,",
+									"                                  url: `${pm.environment.get('base_url')}/api/bundles/`,",
 									"                                  header: {",
 									"                                    'Content-Type': 'application/json',",
 									"                                    'Accept-Language': 'en'",
