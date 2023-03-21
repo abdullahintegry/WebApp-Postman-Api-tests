@@ -12908,7 +12908,7 @@
 					"response": []
 				},
 				{
-					"name": "New Request",
+					"name": "Create SDK Deployment",
 					"id": "b109f7f6-15d3-46da-8f3f-2be792db4769",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
