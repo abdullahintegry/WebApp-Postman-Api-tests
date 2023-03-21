@@ -11693,7 +11693,6 @@
 									"}\r",
 									"\r",
 									"var response = pm.response.json();\r",
-									"pm.environment.set(\"flow_poll_test_id\", response.test_guid);\r",
 									"\r",
 									"var keys_to_update = [\"id\", \"created\", \"last_modified\", \"trigger\"]\r",
 									"\r",
