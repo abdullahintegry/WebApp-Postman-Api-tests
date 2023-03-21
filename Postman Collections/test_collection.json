@@ -12967,7 +12967,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/v2/integration/?async=false&app_key=ee8d7314-6205-49df-b9d9-8611bdef09d9&hash=cd431b65ac822fee2cfc7d2eaa0949d44af0a48ff3589aa44b06e5d88e0a6f0e&user_id=abdullah%40integry.io&activate=true",
+							"raw": "{{base_url}}/v2/integration/?async=false&app_key={{appKeyWorkspace}}&hash={{appHashWorkspace}}&user_id=abdullah%40integry.io&activate=true",
 							"host": [
 								"{{base_url}}"
 							],
@@ -12979,28 +12979,23 @@
 							"query": [
 								{
 									"key": "async",
-									"value": "false",
-									"type": "text"
+									"value": "false"
 								},
 								{
 									"key": "app_key",
-									"value": "ee8d7314-6205-49df-b9d9-8611bdef09d9",
-									"type": "text"
+									"value": "{{appKeyWorkspace}}"
 								},
 								{
 									"key": "hash",
-									"value": "cd431b65ac822fee2cfc7d2eaa0949d44af0a48ff3589aa44b06e5d88e0a6f0e",
-									"type": "text"
+									"value": "{{appHashWorkspace}}"
 								},
 								{
 									"key": "user_id",
-									"value": "abdullah%40integry.io",
-									"type": "text"
+									"value": "abdullah%40integry.io"
 								},
 								{
 									"key": "activate",
-									"value": "true",
-									"type": "text"
+									"value": "true"
 								}
 							]
 						}
