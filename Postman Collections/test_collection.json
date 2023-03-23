@@ -16134,13 +16134,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/v2/integratin/?async=false&app_key={{appKeyWorkspace}}&hash={{appHashWorkspace}}&user_id=abdullah@integry.io&activate=true",
+							"raw": "{{base_url}}/v2/integration/?async=false&app_key={{appKeyWorkspace}}&hash={{appHashWorkspace}}&user_id=abdullah@integry.io&activate=true",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"v2",
-								"integratin",
+								"integration",
 								""
 							],
 							"query": [
