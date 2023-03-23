@@ -17751,7 +17751,7 @@
 									"const response = pm.response.json();\r",
 									"console.log(`activity ID: ${response.activity.id}`);\r",
 									"pm.environment.set(\"activityId\", response.activity.id);\r",
-									"pm.environment.set(\"radio_source_endpoint_id\", response.activity.activity_fields[3].data_src_endpoint_id);\r",
+									"pm.environment.set(\"radio_source_endpoint_id\", response.activity.activity_fields[5].data_src_endpoint_id);\r",
 									"console.log(`radio endpoint ID: ${pm.environment.get('radio_source_endpoint_id')}`)\r",
 									"\r",
 									"pm.test(\"Status code is 201\", () => {\r",
