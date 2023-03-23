@@ -17793,7 +17793,7 @@
 									"        },\r",
 									"        \"body\": {\r",
 									"            \"machine_name\": \"body\",\r",
-									"            \"value\": \"{\\\"name\\\": \\\"{{requestBody.data.body_name_0}}\\\", \\\"org_wide\\\": \\\"{{requestBody.data.body_org_wide_1 == 1 ? \\\\\\\"true\\\\\\\" : \\\\\\\"false\\\\\\\"}}\\\", \\\"list\\\": [{\\\"tag_key\\\": \\\"{{requestBody.data.body_list_0_tag_key_2}}\\\", \\\"key\\\": \\\"value\\\"}], \\\"team_id\\\": \\\"{{requestBody.data.body_team_id_3}}\\\", \\\"is_private\\\": \\\"{{requestBody.data.body_is_private_4}}\\\", \\\"description\\\": \\\"{{requestBody.data.body_description_5}}\\\"}\",\r",
+									"            \"value\": \"{\\\"name\\\": \\\"{{requestBody.data.body_name_0}}\\\", \\\"org_wide\\\": \\\"{{requestBody.data.body_org_wide_1 == 1 ? \\\\\\\"true\\\\\\\" : \\\\\\\"false\\\\\\\"}}\\\", \\\"list\\\": [{\\\"tag_key\\\": \\\"{{requestBody.data.body_list_0_tag_key_2}}\\\", \\\"key\\\": \\\"value\\\"}, \\\"simple_value\\\", \\\"{{requestBody.data.body_list_2_3 == 1 ? \\\\\\\"true\\\\\\\" : \\\\\\\"false\\\\\\\"}}\\\"], \\\"team_id\\\": \\\"{{requestBody.data.body_team_id_4}}\\\", \\\"is_private\\\": \\\"{{requestBody.data.body_is_private_5}}\\\", \\\"description\\\": \\\"{{requestBody.data.body_description_6}}\\\"}\",\r",
 									"            \"activity_field_id\": 140440\r",
 									"        },\r",
 									"        \"activity_fields\": [\r",
