@@ -17985,8 +17985,8 @@
 									"pm.test(\"Validate schema of response\", () => {\r",
 									"  pm.environment.set(\"expected\", JSON.stringify(expected_response));\r",
 									"  pm.environment.set(\"actual\", JSON.stringify(actual_response));\r",
-									"//    console.log(`expected: ${JSON.stringify(expected_response)}`);\r",
-									"//    console.log(`actual: ${JSON.stringify(actual_response)}`);\r",
+									"   console.log(`expected: ${JSON.stringify(expected_response)}`);\r",
+									"   console.log(`actual: ${JSON.stringify(actual_response)}`);\r",
 									"  pm.expect(expected_response).to.deep.equal(actual_response);\r",
 									"});\r",
 									""
