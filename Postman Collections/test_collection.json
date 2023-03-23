@@ -8529,8 +8529,8 @@
 						"auth": {
 							"type": "basic",
 							"basic": {
-								"password": "https://api.na1.insightly.com",
-								"username": "b6150dda-34dd-46a2-9d12-034e279cb782"
+								"username": "d66ac9d4-a3c0-4021-9027-b2c21428690f",
+								"password": "https://api.na1.insightly.com"
 							}
 						},
 						"method": "POST",
