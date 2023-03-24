@@ -16661,7 +16661,7 @@
 									"          body: {",
 									"            mode: 'raw',",
 									"            raw: {",
-									"                \"template_step_id\": pm.environment.get(\"flow_id\"),",
+									"                \"template_step_id\": pm.environment.get(\"flow_step_id\"),",
 									"                \"data\": {",
 									"                    \"in\": {},",
 									"                    \"out\": {},",
