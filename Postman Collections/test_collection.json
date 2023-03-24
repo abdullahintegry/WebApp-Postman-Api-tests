@@ -13930,7 +13930,7 @@
 									"                          \"title\": \"\",",
 									"                          \"home_phone\": \"\",",
 									"                          \"home_street\": \"\",",
-									"                          \"email\": \"test@integry.io\",",
+									"                          \"email\": \"test+\" + pm.environment.get(\"uniqueId\") + \"@integry.io\",",
 									"                          \"mobile_phone\": \"\",",
 									"                          \"home_city\": \"\",",
 									"                          \"birthday\": \"\",",
