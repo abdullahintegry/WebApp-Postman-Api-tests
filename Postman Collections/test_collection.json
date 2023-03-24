@@ -17164,7 +17164,7 @@
 									"",
 									"                  var verifyAuthSIB = {",
 									"                    method: 'POST',",
-									"                    url: `${pm.environment.get('base_url')}/auth/verify?user_id=${username}&app_key=${pm.environment.get('appKey2')}&hash=${pm.environment.get('appHash2')}&account_id=791&authorization_id=131862`,",
+									"                    url: `${pm.environment.get('base_url')}/auth/verify?user_id=${username}&app_key=${pm.environment.get('appKey2')}&hash=${pm.environment.get('appHash2')}&account_id=${pm.environment.get('account_id')}&authorization_id=${pm.environment.get('auth_id2')}`,",
 									"                    header: {",
 									"                      'Content-Type': 'application/json',",
 									"                      'Accept-Language': 'en'",
