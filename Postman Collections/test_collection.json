@@ -13066,7 +13066,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\": \"SDK (Insightly - SIB)\",\n    \"cards\": [\n        {\n            \"template_id\": {{flow_id}},\n            \"type\": \"template\",\n            \"weight\": 1,\n            \"id\": {{flow_id}}\n        }\n    ],\n    \"app_id\": 12825,\n    \"status\": 1,\n    \"bundle_type\": \"SDK\"\n}",
+							"raw": "{\n    \"name\": \"SDK (Insightly - SIB)\",\n    \"cards\": [\n        {\n            \"template_id\": {{flow_id}},\n            \"type\": \"template\",\n            \"weight\": 1,\n            \"id\": {{flow_id}}\n        }\n    ],\n    \"app_id\": {{workspace_app_id}},\n    \"status\": 1,\n    \"bundle_type\": \"SDK\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
