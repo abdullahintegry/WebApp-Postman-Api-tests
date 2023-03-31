@@ -20593,7 +20593,7 @@
 									"                \"id\": \"\",\r",
 									"                \"name\": \"Description\",\r",
 									"                \"type\": \"TEXTAREA\",\r",
-									"                \"machine_name\": \"body_description_6\",\r",
+									"                \"machine_name\": \"body_description_7\",\r",
 									"                \"description\": \"Description of the public or private channel to create.\",\r",
 									"                \"is_required\": false,\r",
 									"                \"default_value\": \"\",\r",
