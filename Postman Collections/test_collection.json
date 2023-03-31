@@ -20400,6 +20400,600 @@
 			"id": "10d5314a-5ae1-475b-b15a-c8498ab6a25b"
 		},
 		{
+			"name": "Activity V1",
+			"item": [
+				{
+					"name": "Create Activity V1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "53c858b8-b706-4dd9-879d-3d7c5f57717e",
+								"exec": [
+									"// pm.environment.set(\"app_id\", 12256);\r",
+									"// pm.environment.set(\"authorization_type_id\", 25049);\r",
+									"\r",
+									"// pm.environment.set(\"username\", \"moiz@integry.io\");\r",
+									"// pm.environment.set(\"password\", \"UwJ6nK3TtZstUvQ\");\r",
+									"\r",
+									"const createDropdownSourceEndpoint = {\r",
+									"    method: 'POST',\r",
+									"    url: `${pm.environment.get('base_url')}/api/endpoints/`,\r",
+									"    header: {\r",
+									"        'Content-Type': 'application/json',\r",
+									"        'Accept-Language': 'en'\r",
+									"    },\r",
+									"    auth: {\r",
+									"        type: \"basic\",\r",
+									"        basic: [\r",
+									"            { key: \"username\", value: pm.environment.get('username') },\r",
+									"            { key: \"password\", value: pm.environment.get('password') }\r",
+									"        ]\r",
+									"    },\r",
+									"    body: {\r",
+									"        mode: 'raw',\r",
+									"        raw: {\r",
+									"            \"app_id\": pm.environment.get('app_id'),\r",
+									"            \"http_verb\": \"get\",\r",
+									"            \"url\": \"https://webhook.site/5846c1b8-5fb1-4ada-ae2b-7853ef93076c\",\r",
+									"            \"endpoint_name\": \"Dropdown field source endpoint\",\r",
+									"            \"endpoint_type\": pm.environment.get('env') === 'app' ? 137 : 451,\r",
+									"            \"headers\": [\r",
+									"                {\r",
+									"                    \"header_name\": \"Authorization\",\r",
+									"                    \"key\": \"Authorization\",\r",
+									"                    \"value\": \"Bearer {{ authorization.token.access_token }}\"\r",
+									"                }\r",
+									"            ],\r",
+									"            \"push_payload_type\": \"object\",\r",
+									"            \"request_template\": \"\",\r",
+									"            \"response_template\": \"[\\n    {% for project in response %}\\n      {\\n        \\\"id\\\": \\\"{{ project.id }}\\\",\\n        \\\"value\\\": \\\"{{ project.name }}\\\"\\n      }\\n      {% if not loop.last %} , {% endif %}\\n    {% endfor %}\\n]\",\r",
+									"            \"source_type\": \"poll\"\r",
+									"        }\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"\r",
+									"pm.sendRequest(createDropdownSourceEndpoint, (err, res2) => {\r",
+									"    const response2 = res2.json();\r",
+									"    pm.environment.set(\"dropdown_source_endpoint_id\", response2.id);\r",
+									"    // console.log(response2);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "8b679024-0878-4e24-9a74-a45a8de963b1",
+								"exec": [
+									"const response = pm.response.json();\r",
+									"console.log(`activity ID: ${response.activity.id}`);\r",
+									"pm.environment.set(\"activityId\", response.activity.id);\r",
+									"pm.environment.set(\"radio_source_endpoint_id\", response.activity.activity_fields[5].data_src_endpoint_id);\r",
+									"console.log(`radio endpoint ID: ${pm.environment.get('radio_source_endpoint_id')}`)\r",
+									"\r",
+									"pm.test(\"Status code is 201\", () => {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"const saved_response = {\r",
+									"    \"status\": \"CREATED\",\r",
+									"    \"activity\": {\r",
+									"        \"id\": 40681,\r",
+									"        \"name\": \"Create a public or private channel-based conversation.\",\r",
+									"        \"type\": \"ACTION\",\r",
+									"        \"app\": {\r",
+									"            \"id\": pm.environment.get('app_id'),\r",
+									"            \"icon_url\": \"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/6245c3088b21300001c7c9bb/picture\",\r",
+									"            \"name\": \"Integry\"\r",
+									"        },\r",
+									"        \"authorization_type_id\": pm.environment.get('authorization_type_id'),\r",
+									"        \"auth_description\": \"scopes needed: contacts.read\",\r",
+									"        \"method\": {\r",
+									"            \"machine_name\": \"method\",\r",
+									"            \"value\": \"post\",\r",
+									"            \"activity_field_id\": 140437\r",
+									"        },\r",
+									"        \"url\": {\r",
+									"            \"machine_name\": \"url\",\r",
+									"            \"value\": \"https://api.slack.com/methods/admin.conversations.create\",\r",
+									"            \"activity_field_id\": 140436\r",
+									"        },\r",
+									"        \"parameters\": {\r",
+									"            \"machine_name\": \"parameters\",\r",
+									"            \"value\": \"[]\",\r",
+									"            \"activity_field_id\": 140438\r",
+									"        },\r",
+									"        \"headers\": {\r",
+									"            \"machine_name\": \"headers\",\r",
+									"            \"value\": \"[{\\\"key\\\": \\\"token\\\", \\\"value\\\": \\\"{authorization.token.access_token}\\\", \\\"type\\\": \\\"auth\\\"}]\",\r",
+									"            \"activity_field_id\": 140439\r",
+									"        },\r",
+									"        \"body\": {\r",
+									"            \"machine_name\": \"body\",\r",
+									"            \"value\": \"{\\\"name\\\": \\\"{{requestBody.data.body_name_0}}\\\", \\\"org_wide\\\": \\\"{{requestBody.data.body_org_wide_1 == 1 ? \\\\\\\"true\\\\\\\" : \\\\\\\"false\\\\\\\"}}\\\", \\\"list\\\": [{\\\"tag_key\\\": \\\"{{requestBody.data.body_list_0_tag_key_2}}\\\", \\\"key\\\": \\\"value\\\"}, \\\"simple_value\\\", \\\"{{requestBody.data.body_list_2_3 == 1 ? \\\\\\\"true\\\\\\\" : \\\\\\\"false\\\\\\\"}}\\\"], \\\"team_id\\\": \\\"{{requestBody.data.body_team_id_4}}\\\", \\\"is_private\\\": \\\"{{requestBody.data.body_is_private_5}}\\\", \\\"description\\\": \\\"{{requestBody.data.body_description_6}}\\\"}\",\r",
+									"            \"activity_field_id\": 140440\r",
+									"        },\r",
+									"        \"activity_fields\": [\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"Name\",\r",
+									"                \"type\": \"TEXTFIELD\",\r",
+									"                \"machine_name\": \"body_name_0\",\r",
+									"                \"description\": \"Name of the public or private channel to create.\",\r",
+									"                \"is_required\": true,\r",
+									"                \"default_value\": \"\",\r",
+									"                \"placeholder_text\": \"\",\r",
+									"                \"data_src_endpoint_id\": null,\r",
+									"                \"data_src\": null\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"Org Wide\",\r",
+									"                \"type\": \"CHECKBOX\",\r",
+									"                \"machine_name\": \"body_org_wide_1\",\r",
+									"                \"description\": \"When `true`, the channel will be available org-wide. Note: if the channel is not `org_wide=true`, you must specify a `team_id` for this channel\",\r",
+									"                \"is_required\": false,\r",
+									"                \"default_value\": \"\",\r",
+									"                \"placeholder_text\": \"\",\r",
+									"                \"data_src_endpoint_id\": null,\r",
+									"                \"data_src\": null\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"Team ID\",\r",
+									"                \"type\": \"SELECT\",\r",
+									"                \"machine_name\": \"body_list_0_tag_key_2\",\r",
+									"                \"description\": \"The workspace to create the channel in. Note: this argument is required unless you set `org_wide=true`.\",\r",
+									"                \"is_required\": false,\r",
+									"                \"default_value\": \"\",\r",
+									"                \"placeholder_text\": \"\",\r",
+									"                \"data_src_endpoint_id\": pm.environment.get('dropdown_source_endpoint_id'),\r",
+									"                \"data_src\": `${pm.environment.get('base_url')}/endpoints/call/${pm.environment.get('dropdown_source_endpoint_id')}`\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"Org Wide\",\r",
+									"                \"type\": \"CHECKBOX\",\r",
+									"                \"machine_name\": \"body_list_2_3\",\r",
+									"                \"description\": \"When `true`, the channel will be available org-wide. Note: if the channel is not `org_wide=true`, you must specify a `team_id` for this channel\",\r",
+									"                \"is_required\": false,\r",
+									"                \"default_value\": \"\",\r",
+									"                \"placeholder_text\": \"\",\r",
+									"                \"data_src_endpoint_id\": null,\r",
+									"                \"data_src\": null\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"Team ID\",\r",
+									"                \"type\": \"SELECT\",\r",
+									"                \"machine_name\": \"body_team_id_4\",\r",
+									"                \"description\": \"The workspace to create the channel in. Note: this argument is required unless you set `org_wide=true`.\",\r",
+									"                \"is_required\": false,\r",
+									"                \"default_value\": \"\",\r",
+									"                \"placeholder_text\": \"\",\r",
+									"                \"data_src_endpoint_id\": pm.environment.get('dropdown_source_endpoint_id'),\r",
+									"                \"data_src\": `${pm.environment.get('base_url')}/endpoints/call/${pm.environment.get('dropdown_source_endpoint_id')}`\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"Is Private\",\r",
+									"                \"type\": \"RADIO\",\r",
+									"                \"machine_name\": \"body_is_private_5\",\r",
+									"                \"description\": \"When `true`, creates a private channel instead of a public channel\",\r",
+									"                \"is_required\": false,\r",
+									"                \"default_value\": \"\",\r",
+									"                \"placeholder_text\": \"\",\r",
+									"                \"data_src_endpoint_id\": 125893,\r",
+									"                \"data_src\": \"https://beta.integry.io/endpoints/call/125893\"\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"Description\",\r",
+									"                \"type\": \"TEXTAREA\",\r",
+									"                \"machine_name\": \"body_description_6\",\r",
+									"                \"description\": \"Description of the public or private channel to create.\",\r",
+									"                \"is_required\": false,\r",
+									"                \"default_value\": \"\",\r",
+									"                \"placeholder_text\": \"\",\r",
+									"                \"data_src_endpoint_id\": null,\r",
+									"                \"data_src\": null\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"url\",\r",
+									"                \"type\": \"HIDDEN\",\r",
+									"                \"machine_name\": \"url\",\r",
+									"                \"description\": null,\r",
+									"                \"is_required\": true,\r",
+									"                \"default_value\": \"https://api.slack.com/methods/admin.conversations.create\",\r",
+									"                \"placeholder_text\": null,\r",
+									"                \"data_src_endpoint_id\": null,\r",
+									"                \"data_src\": null\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"method\",\r",
+									"                \"type\": \"HIDDEN\",\r",
+									"                \"machine_name\": \"method\",\r",
+									"                \"description\": null,\r",
+									"                \"is_required\": true,\r",
+									"                \"default_value\": \"post\",\r",
+									"                \"placeholder_text\": null,\r",
+									"                \"data_src_endpoint_id\": null,\r",
+									"                \"data_src\": null\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"parameters\",\r",
+									"                \"type\": \"HIDDEN\",\r",
+									"                \"machine_name\": \"parameters\",\r",
+									"                \"description\": null,\r",
+									"                \"is_required\": true,\r",
+									"                \"default_value\": \"[]\",\r",
+									"                \"placeholder_text\": null,\r",
+									"                \"data_src_endpoint_id\": null,\r",
+									"                \"data_src\": null\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": \"\",\r",
+									"                \"name\": \"headers\",\r",
+									"                \"type\": \"HIDDEN\",\r",
+									"                \"machine_name\": \"headers\",\r",
+									"                \"description\": null,\r",
+									"                \"is_required\": true,\r",
+									"                \"default_value\": \"[{\\\"key\\\": \\\"token\\\", \\\"value\\\": \\\"{authorization.token.access_token}\\\", \\\"type\\\": \\\"auth\\\"}]\",\r",
+									"                \"placeholder_text\": null,\r",
+									"                \"data_src_endpoint_id\": null,\r",
+									"                \"data_src\": null\r",
+									"            },\r",
+									"            {\r",
+									"                \"id\": 144487,\r",
+									"                \"name\": \"body\",\r",
+									"                \"type\": \"HIDDEN\",\r",
+									"                \"machine_name\": \"body\",\r",
+									"                \"description\": null,\r",
+									"                \"is_required\": true,\r",
+									"                \"default_value\": \"{\\\"name\\\": \\\"{{requestBody.data.body_name_0}}\\\", \\\"org_wide\\\": \\\"{{requestBody.data.body_org_wide_1 == 1 ? \\\\\\\"true\\\\\\\" : \\\\\\\"false\\\\\\\"}}\\\", \\\"list\\\": [{\\\"tag_key\\\": \\\"{{requestBody.data.body_list_0_tag_key_2}}\\\", \\\"key\\\": \\\"value\\\"}, \\\"simple_value\\\", \\\"{{requestBody.data.body_list_2_3 == 1 ? \\\\\\\"true\\\\\\\" : \\\\\\\"false\\\\\\\"}}\\\"], \\\"team_id\\\": \\\"{{requestBody.data.body_team_id_4}}\\\", \\\"is_private\\\": \\\"{{requestBody.data.body_is_private_5}}\\\", \\\"description\\\": \\\"{{requestBody.data.body_description_6}}\\\"}\",\r",
+									"                \"placeholder_text\": null,\r",
+									"                \"data_src_endpoint_id\": null,\r",
+									"                \"data_src\": null\r",
+									"            }\r",
+									"        ],\r",
+									"        \"last_modified\": \"2023-03-13T17:55:45.767955Z\",\r",
+									"        \"template_count\": null,\r",
+									"        \"description\": \"Create a public or private channel-based conversation.\",\r",
+									"        \"is_reusable_primitive\": true\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"function replacePropertyValue(\r",
+									"    keysToOverwrite,\r",
+									"    value,\r",
+									"    parentKey = '',\r",
+									") {\r",
+									"    if (value && value.constructor === Array) {\r",
+									"        for (let index = 0; index < value.length; index++) {\r",
+									"            let qualifiedKey = index.toString();\r",
+									"            if (parentKey) qualifiedKey = `${parentKey}[${index}]`;\r",
+									"            if (typeof value[index] === 'object' && value[index])\r",
+									"                value[index] = replacePropertyValue(\r",
+									"                    keysToOverwrite,\r",
+									"                    value[index],\r",
+									"                    qualifiedKey,\r",
+									"                );\r",
+									"        }\r",
+									"    } else if (typeof value === 'object') {\r",
+									"        for (const key in value) {\r",
+									"            let qualifiedKey = key;\r",
+									"            if (parentKey) qualifiedKey = `${parentKey}.${key}`;\r",
+									"            if (keysToOverwrite.includes(qualifiedKey)) {\r",
+									"                value[key] = '';\r",
+									"            } else if (typeof value[key] === 'object') {\r",
+									"                value[key] = replacePropertyValue(\r",
+									"                    keysToOverwrite,\r",
+									"                    value[key],\r",
+									"                    qualifiedKey,\r",
+									"                );\r",
+									"            }\r",
+									"        }\r",
+									"    }\r",
+									"    return value;\r",
+									"}\r",
+									"\r",
+									"const keys_to_update = [\"activity.app.name\", \"activity.app.icon_url\", \"activity.id\", \"activity.last_modified\", \"activity.method.activity_field_id\", \"activity.url.activity_field_id\", \"activity.parameters.activity_field_id\", \"activity.headers.activity_field_id\", \"activity.body.activity_field_id\",\r",
+									"    \"activity.activity_fields[0].id\", \"activity.activity_fields[1].id\", \"activity.activity_fields[2].id\", \"activity.activity_fields[3].id\", \"activity.activity_fields[4].id\", \"activity.activity_fields[5].id\", \"activity.activity_fields[6].id\", \"activity.activity_fields[7].id\", \"activity.activity_fields[8].id\", \"activity.activity_fields[9].id\", \"activity.activity_fields[10].id\", \"activity.activity_fields[11].id\",\r",
+									"    \"activity.activity_fields[5].data_src_endpoint_id\", \"activity.activity_fields[5].data_src\"];\r",
+									"\r",
+									"\r",
+									"const expected_response = replacePropertyValue(keys_to_update, saved_response);\r",
+									"const actual_response = replacePropertyValue(keys_to_update, response);\r",
+									"\r",
+									"pm.test(\"Test data type of the response\", () => {\r",
+									"    pm.expect(response).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate schema of response\", () => {\r",
+									"    pm.environment.set(\"expected\", JSON.stringify(expected_response));\r",
+									"    pm.environment.set(\"actual\", JSON.stringify(actual_response));\r",
+									"    console.log(`expected: ${JSON.stringify(expected_response)}`);\r",
+									"    console.log(`actual: ${JSON.stringify(actual_response)}`);\r",
+									"    pm.expect(expected_response).to.deep.equal(actual_response);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "65f42180-7fde-4719-9b9c-76cbbb55c5ba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Create a public or private channel-based conversation.\",\r\n    \"description\": \"Create a public or private channel-based conversation.\",\r\n    \"authorization_type_id\": {{authorization_type_id}},\r\n    \"type\": \"ACTION\",\r\n    \"method\": \"POST\",\r\n    \"auth_description\": \"scopes needed: contacts.read\",\r\n    \"url\": \"https://api.slack.com/methods/admin.conversations.create\",\r\n    \"headers\": [\r\n        {\r\n            \"key\": \"token\",\r\n            \"value\": \"{authorization.token.access_token}\"\r\n        }\r\n    ],\r\n    \"body\": {\r\n        \"name\": \"{name}\",\r\n        \"description\": \"{description}\",\r\n        \"is_private\": \"{is_private}\",\r\n        \"org_wide\": \"{org_wide}\",\r\n        \"team_id\": \"{team_id}\",\r\n        \"list\": [\r\n            {\r\n                \"key\": \"value\",\r\n                \"tag_key\": \"{team_id}\"\r\n            },\r\n            \"simple_value\",\r\n            \"{org_wide}\",\r\n            \"{static_dropdown}\"\r\n        ]\r\n    },\r\n    \"query_parameters\": [],\r\n    \"activity_fields\": [\r\n        {\r\n            \"name\": \"Name\",\r\n            \"type\": \"TEXTFIELD\",\r\n            \"machine_name\": \"name\",\r\n            \"description\": \"Name of the public or private channel to create.\",\r\n            \"is_required\": true,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Description\",\r\n            \"type\": \"TEXTAREA\",\r\n            \"machine_name\": \"description\",\r\n            \"description\": \"Description of the public or private channel to create.\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Is Private\",\r\n            \"type\": \"RADIO\",\r\n            \"machine_name\": \"is_private\",\r\n            \"description\": \"When `true`, creates a private channel instead of a public channel\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\",\r\n            \"choices\": [\r\n                {\r\n                    \"id\": \"true\",\r\n                    \"value\": \"True\"\r\n                },\r\n                {\r\n                    \"id\": \"false\",\r\n                    \"value\": \"False\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Org Wide\",\r\n            \"type\": \"CHECKBOX\",\r\n            \"machine_name\": \"org_wide\",\r\n            \"description\": \"When `true`, the channel will be available org-wide. Note: if the channel is not `org_wide=true`, you must specify a `team_id` for this channel\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Team ID\",\r\n            \"type\": \"SELECT\",\r\n            \"machine_name\": \"team_id\",\r\n            \"description\": \"The workspace to create the channel in. Note: this argument is required unless you set `org_wide=true`.\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\",\r\n            \"data_src_endpoint_id\": {{dropdown_source_endpoint_id}}\r\n        },\r\n        {\r\n            \"name\": \"Static Dropdown\",\r\n            \"type\": \"SELECT\",\r\n            \"machine_name\": \"static_dropdown\",\r\n            \"description\": \"A dropdown with static values as its options\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\",\r\n            \"data_src_endpoint_id\": {{dropdown_source_endpoint_id}},\r\n            \"choices\": [\r\n                {\r\n                    \"id\": \"option_1\",\r\n                    \"value\": \"Option 1\"\r\n                },\r\n                {\r\n                    \"id\": \"option_2\",\r\n                    \"value\": \"Option 2\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{be_base_url}}/api/v1/apps/{{app_id}}/activities/"
+					},
+					"response": [
+						{
+							"id": "9fd79c1b-0a2b-481a-8d47-f9d52746cef1",
+							"name": "Create Activity V1",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Create a public or private channel-based conversation.\",\r\n    \"description\": \"Create a public or private channel-based conversation.\",\r\n    \"authorization_type_id\": {{authorization_type_id}},\r\n    \"type\": \"ACTION\",\r\n    \"method\": \"POST\",\r\n    \"auth_description\": \"scopes needed: contacts.read\",\r\n    \"url\": \"https://api.slack.com/methods/admin.conversations.create\",\r\n    \"headers\": [\r\n        {\r\n            \"key\": \"token\",\r\n            \"value\": \"{authorization.token.access_token}\"\r\n        }\r\n    ],\r\n    \"body\": {\r\n        \"name\": \"{name}\",\r\n        \"description\": \"{description}\",\r\n        \"is_private\": \"{is_private}\",\r\n        \"org_wide\": \"{org_wide}\",\r\n        \"team_id\": \"{team_id}\"\r\n    },\r\n    \"query_parameters\": [],\r\n    \"activity_fields\": [\r\n        {\r\n            \"name\": \"Name\",\r\n            \"type\": \"TEXTFIELD\",\r\n            \"machine_name\": \"name\",\r\n            \"description\": \"Name of the public or private channel to create.\",\r\n            \"is_required\": true,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Description\",\r\n            \"type\": \"TEXTAREA\",\r\n            \"machine_name\": \"description\",\r\n            \"description\": \"Description of the public or private channel to create.\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Is Private\",\r\n            \"type\": \"RADIO\",\r\n            \"machine_name\": \"is_private\",\r\n            \"description\": \"When `true`, creates a private channel instead of a public channel\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\",\r\n            \"choices\": [\r\n                {\r\n                    \"id\": \"true\",\r\n                    \"value\": \"True\"\r\n                },\r\n                {\r\n                    \"id\": \"false\",\r\n                    \"value\": \"False\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"Org Wide\",\r\n            \"type\": \"CHECKBOX\",\r\n            \"machine_name\": \"org_wide\",\r\n            \"description\": \"When `true`, the channel will be available org-wide. Note: if the channel is not `org_wide=true`, you must specify a `team_id` for this channel\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\"\r\n        },\r\n        {\r\n            \"name\": \"Team ID\",\r\n            \"type\": \"SELECT\",\r\n            \"machine_name\": \"team_id\",\r\n            \"description\": \"The workspace to create the channel in. Note: this argument is required unless you set `org_wide=true`.\",\r\n            \"is_required\": false,\r\n            \"default_value\": \"\",\r\n            \"placeholder_text\": \"\",\r\n            \"data_src_endpoint_id\": {{dropdown_source_endpoint_id}}\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{base_url}}/api/v1/apps/{{app_id}}/activities/"
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"status\":\"UPDATED\",\"activity\":{\"id\":40681,\"name\":\"Create a public or private channel-based conversation.\",\"type\":\"ACTION\",\"app\":{\"id\":12256,\"icon_url\":\"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/6245c3088b21300001c7c9bb/picture\",\"name\":\"Integry\"},\"authorization_type_id\":25049,\"auth_description\":\"scopes needed: contacts.read\",\"method\":{\"machine_name\":\"method\",\"value\":\"post\",\"activity_field_id\":140437},\"url\":{\"machine_name\":\"url\",\"value\":\"https://api.slack.com/methods/admin.conversations.create\",\"activity_field_id\":140436},\"parameters\":{\"machine_name\":\"parameters\",\"value\":\"[]\",\"activity_field_id\":140438},\"headers\":{\"machine_name\":\"headers\",\"value\":\"[{\\\"key\\\": \\\"token\\\", \\\"value\\\": \\\"{authorization.token.access_token}\\\", \\\"type\\\": \\\"auth\\\"}]\",\"activity_field_id\":140439},\"body\":{\"machine_name\":\"body\",\"value\":\"{\\\"team_id\\\": \\\"{{requestBody.data.body_team_id_0}}\\\", \\\"org_wide\\\": \\\"{{requestBody.data.body_org_wide_1 == 1 ? \\\\\\\"true\\\\\\\" : \\\\\\\"false\\\\\\\"}}\\\", \\\"name\\\": \\\"{{requestBody.data.body_name_2}}\\\", \\\"is_private\\\": \\\"{{requestBody.data.body_is_private_3}}\\\", \\\"description\\\": \\\"{{requestBody.data.body_description_4}}\\\"}\",\"activity_field_id\":140440},\"activity_fields\":[{\"id\":140431,\"name\":\"Team ID\",\"type\":\"SELECT\",\"machine_name\":\"body_team_id_0\",\"description\":\"The workspace to create the channel in. Note: this argument is required unless you set `org_wide=true`.\",\"is_required\":false,\"default_value\":\"\",\"placeholder_text\":\"\",\"data_src_endpoint_id\":123491,\"data_src\":\"https://beta.integry.io/endpoints/call/123491\"},{\"id\":140432,\"name\":\"Org Wide\",\"type\":\"CHECKBOX\",\"machine_name\":\"body_org_wide_1\",\"description\":\"When `true`, the channel will be available org-wide. Note: if the channel is not `org_wide=true`, you must specify a `team_id` for this channel\",\"is_required\":false,\"default_value\":\"\",\"placeholder_text\":\"\",\"data_src_endpoint_id\":null,\"data_src\":null},{\"id\":140433,\"name\":\"Name\",\"type\":\"TEXTFIELD\",\"machine_name\":\"body_name_2\",\"description\":\"Name of the public or private channel to create.\",\"is_required\":true,\"default_value\":\"\",\"placeholder_text\":\"\",\"data_src_endpoint_id\":null,\"data_src\":null},{\"id\":140434,\"name\":\"Is Private\",\"type\":\"RADIO\",\"machine_name\":\"body_is_private_3\",\"description\":\"When `true`, creates a private channel instead of a public channel\",\"is_required\":false,\"default_value\":\"\",\"placeholder_text\":\"\",\"data_src_endpoint_id\":123492,\"data_src\":\"https://beta.integry.io/endpoints/call/123492\"},{\"id\":140435,\"name\":\"Description\",\"type\":\"TEXTAREA\",\"machine_name\":\"body_description_4\",\"description\":\"Description of the public or private channel to create.\",\"is_required\":false,\"default_value\":\"\",\"placeholder_text\":\"\",\"data_src_endpoint_id\":null,\"data_src\":null},{\"id\":140436,\"name\":\"url\",\"type\":\"HIDDEN\",\"machine_name\":\"url\",\"description\":null,\"is_required\":true,\"default_value\":\"https://api.slack.com/methods/admin.conversations.create\",\"placeholder_text\":null,\"data_src_endpoint_id\":null,\"data_src\":null},{\"id\":140437,\"name\":\"method\",\"type\":\"HIDDEN\",\"machine_name\":\"method\",\"description\":null,\"is_required\":true,\"default_value\":\"post\",\"placeholder_text\":null,\"data_src_endpoint_id\":null,\"data_src\":null},{\"id\":140438,\"name\":\"parameters\",\"type\":\"HIDDEN\",\"machine_name\":\"parameters\",\"description\":null,\"is_required\":true,\"default_value\":\"[]\",\"placeholder_text\":null,\"data_src_endpoint_id\":null,\"data_src\":null},{\"id\":140439,\"name\":\"headers\",\"type\":\"HIDDEN\",\"machine_name\":\"headers\",\"description\":null,\"is_required\":true,\"default_value\":\"[{\\\"key\\\": \\\"token\\\", \\\"value\\\": \\\"{authorization.token.access_token}\\\", \\\"type\\\": \\\"auth\\\"}]\",\"placeholder_text\":null,\"data_src_endpoint_id\":null,\"data_src\":null},{\"id\":140440,\"name\":\"body\",\"type\":\"HIDDEN\",\"machine_name\":\"body\",\"description\":null,\"is_required\":true,\"default_value\":\"{\\\"team_id\\\": \\\"{{requestBody.data.body_team_id_0}}\\\", \\\"org_wide\\\": \\\"{{requestBody.data.body_org_wide_1 == 1 ? \\\\\\\"true\\\\\\\" : \\\\\\\"false\\\\\\\"}}\\\", \\\"name\\\": \\\"{{requestBody.data.body_name_2}}\\\", \\\"is_private\\\": \\\"{{requestBody.data.body_is_private_3}}\\\", \\\"description\\\": \\\"{{requestBody.data.body_description_4}}\\\"}\",\"placeholder_text\":null,\"data_src_endpoint_id\":null,\"data_src\":null}],\"last_modified\":\"2023-03-13T17:55:45.767955Z\",\"template_count\":null,\"description\":\"Create a public or private channel-based conversation.\",\"is_reusable_primitive\":true}}"
+						}
+					]
+				},
+				{
+					"name": "Delete Activity and Cleanup Endpoints",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46abfdff-2e49-45c2-80af-f9178d733303",
+								"exec": [
+									"pm.test(\"Status code is 200\", () => {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Content-Type header is application/json\", () => {\r",
+									"  pm.expect(pm.response.headers.get('Content-Type')).to.eql('application/json');\r",
+									"});\r",
+									"\r",
+									"var response = pm.response.json()\r",
+									"\r",
+									"pm.test(\"Test data type of the response\", () => {\r",
+									"  pm.expect(response).to.be.an(\"object\");\r",
+									"});\r",
+									"\r",
+									"var saved_response = {\r",
+									"    \"message\": \"Activity deleted successfully\",\r",
+									"    \"success\": true\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Test response\", () => {\r",
+									"  pm.expect(response).to.eql(saved_response);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"const deleteDropdownSourceEndpoint = {\r",
+									"    method: 'DELETE',\r",
+									"    url: `${pm.environment.get('base_url')}/api/endpoints/${pm.environment.get('dropdown_source_endpoint_id')}/`,\r",
+									"    header: {\r",
+									"        'Content-Type': 'application/json',\r",
+									"        'Accept-Language': 'en'\r",
+									"    },\r",
+									"    auth: {\r",
+									"        type: \"basic\",\r",
+									"        basic: [\r",
+									"            { key: \"username\", value: pm.environment.get('username') },\r",
+									"            { key: \"password\", value: pm.environment.get('password') }\r",
+									"        ]\r",
+									"    },\r",
+									"    body: {\r",
+									"        mode: 'raw',\r",
+									"        raw: {}\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.sendRequest(deleteDropdownSourceEndpoint, (err, res2) => {\r",
+									"    const response2 = res2.json();\r",
+									"});\r",
+									"\r",
+									"const deleteRadioSourceEndpoint = {\r",
+									"    method: 'DELETE',\r",
+									"    url: `${pm.environment.get('base_url')}/api/endpoints/${pm.environment.get('radio_source_endpoint_id')}/`,\r",
+									"    header: {\r",
+									"        'Content-Type': 'application/json',\r",
+									"        'Accept-Language': 'en'\r",
+									"    },\r",
+									"    auth: {\r",
+									"        type: \"basic\",\r",
+									"        basic: [\r",
+									"            { key: \"username\", value: pm.environment.get('username') },\r",
+									"            { key: \"password\", value: pm.environment.get('password') }\r",
+									"        ]\r",
+									"    },\r",
+									"    body: {\r",
+									"        mode: 'raw',\r",
+									"        raw: {}\r",
+									"    }\r",
+									"};\r",
+									"\r",
+									"pm.sendRequest(deleteRadioSourceEndpoint, (err, res2) => {\r",
+									"    const response2 = res2.json();\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "d5a55a30-81bf-449d-993c-283b3f7224f4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "{{be_base_url}}/api/activities/{{activityId}}/"
+					},
+					"response": [
+						{
+							"id": "d6f7d486-c7cf-4174-ae60-f293548fdd6f",
+							"name": "https://app.integry.io/api/activities/21489/",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "host",
+										"value": "app.integry.io"
+									},
+									{
+										"key": "user-agent",
+										"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:106.0) Gecko/20100101 Firefox/106.0"
+									},
+									{
+										"key": "accept",
+										"value": "application/json, text/plain, */*"
+									},
+									{
+										"key": "accept-language",
+										"value": "en-US,en;q=0.5"
+									},
+									{
+										"key": "accept-encoding",
+										"value": "gzip, deflate, br"
+									},
+									{
+										"key": "x-csrftoken",
+										"value": "IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL"
+									},
+									{
+										"key": "origin",
+										"value": "https://app.integry.io"
+									},
+									{
+										"key": "connection",
+										"value": "keep-alive"
+									},
+									{
+										"key": "referer",
+										"value": "https://app.integry.io/wapp/apps/v3/12136/edit/triggers/"
+									},
+									{
+										"key": "cookie",
+										"value": "csrftoken=IWqOqkJdq1qU0zNtXWYDfuSMHYMVGTBgFiVPTtWzlxhta7ahNiRtsugkB8ozt3VL; fs_uid=#ZGZ24#6387568913174528:5184987994017792:::#34723168#/1691220696; sessionid=lwc346pl6wvabl80dqgetmf1wxv1ym0m; fs_cid=1.0"
+									},
+									{
+										"key": "sec-fetch-dest",
+										"value": "empty"
+									},
+									{
+										"key": "sec-fetch-mode",
+										"value": "cors"
+									},
+									{
+										"key": "sec-fetch-site",
+										"value": "same-origin"
+									},
+									{
+										"key": "x-postman-captr",
+										"value": "2759375"
+									},
+									{
+										"key": "content-length",
+										"value": "0"
+									}
+								],
+								"url": "https://app.integry.io/api/activities/21489/"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "server",
+									"value": "gunicorn/19.10.0"
+								},
+								{
+									"key": "date",
+									"value": "Fri, 11 Nov 2022 07:25:10 GMT"
+								},
+								{
+									"key": "content-length",
+									"value": "58"
+								},
+								{
+									"key": "content-security-policy",
+									"value": "script-src * 'unsafe-inline'; worker-src blob:; style-src * 'unsafe-inline'; default-src *; img-src * 'self' data: blob:; font-src *"
+								},
+								{
+									"key": "vary",
+									"value": "Cookie"
+								},
+								{
+									"key": "allow",
+									"value": "GET, PUT, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "access-control-allow-origin",
+									"value": "*"
+								},
+								{
+									"key": "content-type",
+									"value": "application/json"
+								},
+								{
+									"key": "via",
+									"value": "1.1 google"
+								},
+								{
+									"key": "alt-svc",
+									"value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+								},
+								{
+									"key": "connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"responseTime": null,
+							"body": "{\"message\":\"Activity deleted successfully\",\"success\":true}"
+						}
+					]
+				}
+			],
+			"id": "08d3740a-d207-43ac-aa41-5afcea534385"
+		},
+		{
 			"name": "/api/endpoints/ Copy",
 			"event": [
 				{
