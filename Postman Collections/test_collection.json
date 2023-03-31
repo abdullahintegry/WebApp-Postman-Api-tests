@@ -20581,7 +20581,7 @@
 									"                \"id\": \"\",\r",
 									"                \"name\": \"Is Private\",\r",
 									"                \"type\": \"RADIO\",\r",
-									"                \"machine_name\": \"body_is_private_5\",\r",
+									"                \"machine_name\": \"body_is_private_6\",\r",
 									"                \"description\": \"When `true`, creates a private channel instead of a public channel\",\r",
 									"                \"is_required\": false,\r",
 									"                \"default_value\": \"\",\r",
