@@ -20581,7 +20581,7 @@
 									"                \"id\": \"\",\r",
 									"                \"name\": \"Team ID\",\r",
 									"                \"type\": \"SELECT\",\r",
-									"                \"machine_name\": \"body_team_id_4\",\r",
+									"                \"machine_name\": \"body_team_id_5\",\r",
 									"                \"description\": \"The workspace to create the channel in. Note: this argument is required unless you set `org_wide=true`.\",\r",
 									"                \"is_required\": false,\r",
 									"                \"default_value\": \"\",\r",
