@@ -23354,7 +23354,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "cd0c147e-0ea7-4f75-b284-2ab153cdd88c",
+						"id": "e150126a-6aaa-454b-8a97-6b1a4823ce31",
 						"type": "text/javascript",
 						"exec": [
 							"",
@@ -23368,6 +23368,8 @@
 							"    pm.environment.set(\"flow_revision_number\", 48)",
 							"    pm.environment.set(\"deployment_id\", 10553)",
 							"    pm.environment.set(\"integration_id\", 180035)",
+							"    pm.environment.set(\"username\", username)",
+							"    pm.environment.set(\"password\", password)",
 							"",
 							"    // Inisightly ",
 							"    pm.environment.set(\"app_id\", 48)",
@@ -23445,7 +23447,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a145e24f-049f-4b47-addd-8b21b7714ba6",
+						"id": "a9a02053-2612-43d8-a7ab-991a8b0fe79d",
 						"type": "text/javascript",
 						"exec": [
 							""
