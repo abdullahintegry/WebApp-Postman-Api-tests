@@ -20614,7 +20614,9 @@
 							"script": {
 								"id": "ba892fd0-ed0e-4c93-ae3e-73c208709a40",
 								"exec": [
-									"",
+									"pm.test(\"Test data type of the response\", () => {",
+									"  pm.expect(pm.response.json()).to.be.an(\"object\");",
+									"});",
 									"",
 									"var saved_response = {",
 									"    \"id\": 165764,",
