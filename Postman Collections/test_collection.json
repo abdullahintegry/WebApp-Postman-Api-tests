@@ -20614,6 +20614,10 @@
 							"script": {
 								"id": "ba892fd0-ed0e-4c93-ae3e-73c208709a40",
 								"exec": [
+									"pm.test(\"Status code is 200\", () => {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
 									"var saved_response = {",
 									"    \"id\": 138480,",
 									"    \"weight\": 2,",
