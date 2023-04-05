@@ -23354,7 +23354,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e150126a-6aaa-454b-8a97-6b1a4823ce31",
+						"id": "861b501e-4ad4-4c42-a022-5cf356244816",
 						"type": "text/javascript",
 						"exec": [
 							"",
@@ -23368,6 +23368,8 @@
 							"    pm.environment.set(\"flow_revision_number\", 48)",
 							"    pm.environment.set(\"deployment_id\", 10553)",
 							"    pm.environment.set(\"integration_id\", 180035)",
+							"    pm.environment.set(\"flow_step_id\", 165764)",
+							"    pm.environment.set(\"flow_step_id2\", 165765)",
 							"    pm.environment.set(\"username\", username)",
 							"    pm.environment.set(\"password\", password)",
 							"",
@@ -23447,7 +23449,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a9a02053-2612-43d8-a7ab-991a8b0fe79d",
+						"id": "956bdb26-2a1d-401a-bf44-3f213cc9af2f",
 						"type": "text/javascript",
 						"exec": [
 							""
