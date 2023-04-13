@@ -23490,7 +23490,7 @@
 							"script": {
 								"id": "53c858b8-b706-4dd9-879d-3d7c5f57717e",
 								"exec": [
-									"// pm.environment.set(\"app_id\", 12256);\r",
+									"// pm.environment.set(\"create_activity_v1_app_id\", 12256);\r",
 									"// pm.environment.set(\"authorization_type_id\", 25049);\r",
 									"\r",
 									"// pm.environment.set(\"username\", \"moiz@integry.io\");\r",
