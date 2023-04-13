@@ -23558,7 +23558,7 @@
 									"    body: {\r",
 									"        mode: 'raw',\r",
 									"        raw: {\r",
-									"            \"app_id\": pm.environment.get('app_id'),\r",
+									"            \"app_id\": pm.environment.get('create_activity_v1_app_id'),\r",
 									"            \"http_verb\": \"get\",\r",
 									"            \"url\": \"https://webhook.site/5846c1b8-5fb1-4ada-ae2b-7853ef93076c\",\r",
 									"            \"endpoint_name\": \"Dropdown field source endpoint\",\r",
