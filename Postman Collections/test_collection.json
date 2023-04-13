@@ -23611,7 +23611,7 @@
 									"        \"name\": \"Create a public or private channel-based conversation.\",\r",
 									"        \"type\": \"ACTION\",\r",
 									"        \"app\": {\r",
-									"            \"id\": pm.environment.get('app_id'),\r",
+									"            \"id\": pm.environment.get('create_activity_v1_app_id'),\r",
 									"            \"icon_url\": \"https://zenprospect-production.s3.amazonaws.com/uploads/pictures/6245c3088b21300001c7c9bb/picture\",\r",
 									"            \"name\": \"Integry\"\r",
 									"        },\r",
