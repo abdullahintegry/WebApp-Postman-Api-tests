@@ -24466,20 +24466,7 @@
 					}
 				},
 				"method": "POST",
-				"header": [
-					{
-						"key": "X-CSRFToken",
-						"value": "<token>",
-						"type": "text",
-						"disabled": true
-					},
-					{
-						"key": "sessionid",
-						"value": "<id>",
-						"type": "text",
-						"disabled": true
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n  \"firstName\": \"Test\",\r\n  \"lastName\": \"Create Article HelpScout\",\r\n  \"email\": \"xyz@gmail.com\",\r\n  \"age\": 20,\r\n  \"dateOfBirth\": \"1990-01-01\",\r\n  \"gender\": \"male\",\r\n  \"address\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"country\": \"USA\",\r\n    \"postalCode\": \"10001\"\r\n  },\r\n  \"phone\": \"555-555-1234\",\r\n  \"company\": \"Example Corp.\",\r\n  \"jobTitle\": \"Software Engineer\",\r\n  \"website\": \"https://www.example.com\",\r\n  \"twitter\": \"@johndoe\",\r\n  \"linkedIn\": \"https://www.linkedin.com/in/johndoe\",\r\n  \"bio\": \"John Doe is a software engineer with over 10 years of experience.\",\r\n  \"notes\": \"Met at the 2022 Tech Conference in San Francisco.\",\r\n  \"relationship\": \"professional\",\r\n  \"preferredContactMethod\": \"email\",\r\n  \"lastContacted\": \"2023-01-15\",\r\n  \"nextMeeting\": {\r\n    \"date\": \"2023-05-01\",\r\n    \"location\": \"New York\",\r\n    \"topic\": \"Project Planning\"\r\n  },\r\n  \"tags\": [\"tech\", \"conference\", \"networking\"],\r\n  \"dateCreated\": \"2023-04-14T12:00:00Z\",\r\n  \"dateUpdated\": \"2023-04-14T12:00:00Z\"\r\n}",
