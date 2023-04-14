@@ -24410,7 +24410,7 @@
 			"response": []
 		},
 		{
-			"name": "Test Create Article",
+			"name": "Test Create Article HelpScout",
 			"id": "e638e97c-f589-49c6-841c-60edb119237c",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
