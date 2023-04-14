@@ -24452,6 +24452,48 @@
 			"response": []
 		},
 		{
+			"name": "Test Create Subscriber Drip",
+			"id": "0117ba23-3c54-4b31-8fea-6149f3ba5cd3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "meAabi13119",
+						"username": "abdullah@integry.io"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-CSRFToken",
+						"value": "<token>",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "sessionid",
+						"value": "<id>",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"firstName\": \"Test\",\r\n  \"lastName\": \"Create Article HelpScout\",\r\n  \"email\": \"xyz@gmail.com\",\r\n  \"age\": 20,\r\n  \"dateOfBirth\": \"1990-01-01\",\r\n  \"gender\": \"male\",\r\n  \"address\": {\r\n    \"street\": \"123 Main St\",\r\n    \"city\": \"New York\",\r\n    \"state\": \"NY\",\r\n    \"country\": \"USA\",\r\n    \"postalCode\": \"10001\"\r\n  },\r\n  \"phone\": \"555-555-1234\",\r\n  \"company\": \"Example Corp.\",\r\n  \"jobTitle\": \"Software Engineer\",\r\n  \"website\": \"https://www.example.com\",\r\n  \"twitter\": \"@johndoe\",\r\n  \"linkedIn\": \"https://www.linkedin.com/in/johndoe\",\r\n  \"bio\": \"John Doe is a software engineer with over 10 years of experience.\",\r\n  \"notes\": \"Met at the 2022 Tech Conference in San Francisco.\",\r\n  \"relationship\": \"professional\",\r\n  \"preferredContactMethod\": \"email\",\r\n  \"lastContacted\": \"2023-01-15\",\r\n  \"nextMeeting\": {\r\n    \"date\": \"2023-05-01\",\r\n    \"location\": \"New York\",\r\n    \"topic\": \"Project Planning\"\r\n  },\r\n  \"tags\": [\"tech\", \"conference\", \"networking\"],\r\n  \"dateCreated\": \"2023-04-14T12:00:00Z\",\r\n  \"dateUpdated\": \"2023-04-14T12:00:00Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://app.integry.io/endpoints/call/external/eac6a1ec-b23b-4968-a6e6-4e2f3eb2f4e9/int/eb28b78e-e2b9-4c4a-a5bd-92c80a3832df/step/a140f4b9-d154-4381-a4a1-b80fe44dd9c8"
+			},
+			"response": []
+		},
+		{
 			"name": "upload logo",
 			"id": "fd99a18b-48ca-4645-9b96-1c94b5f4ffe1",
 			"protocolProfileBehavior": {
