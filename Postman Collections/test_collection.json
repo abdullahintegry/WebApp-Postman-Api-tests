@@ -24461,8 +24461,8 @@
 				"auth": {
 					"type": "basic",
 					"basic": {
-						"password": "meAabi13119",
-						"username": "abdullah@integry.io"
+						"password": "Integry@13119",
+						"username": "abdullahintegry"
 					}
 				},
 				"method": "POST",
@@ -24476,7 +24476,7 @@
 						}
 					}
 				},
-				"url": "https://app.integry.io/endpoints/call/external/eac6a1ec-b23b-4968-a6e6-4e2f3eb2f4e9/int/7c4a41a3-7ac8-4a74-b6a9-1e6d5c4d4140/step/639bf799-244e-4731-8b25-8d598bfef662"
+				"url": "https://app.integry.io/endpoints/call/external/eac6a1ec-b23b-4968-a6e6-4e2f3eb2f4e9/int/f823be3e-9a7e-471a-94b6-bb8866cce7be/step/6207b837-7c72-4127-9c1b-3e40011171cc"
 			},
 			"response": []
 		},
